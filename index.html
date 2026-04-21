@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUS210 · Introduction to Finance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #0a1628;
+    --navy-mid:   #112240;
+    --navy-light: #1a3a5c;
+    --gold:       #c9a84c;
+    --gold-light: #e8c96d;
+    --ice:        #d6e4f0;
+    --ice-light:  #eaf3fb;
+    --white:      #ffffff;
+    --text-muted: #a8b8cc;
+
+    /* Module accent colors */
+    --tvm:    #4cb8a8;
+    --bonds:  #5b8fe0;
+    --equity: #4caf7d;
+    --wacc:   #e07b54;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    min-height: 100vh;
+  }
+
+  /* ── Top bar ── */
+  .topbar {
+    background: var(--navy-mid);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 0.45rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topbar-left {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+
+  .topbar-left span { color: var(--gold); }
+
+  .topbar-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Hero ── */
+  header {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 60%, #0d1f3c 100%);
+    border-bottom: 2px solid var(--gold);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+  }
+
+  .hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+  }
+
+  header h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-pills {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  .pill-gold  { background: rgba(201,168,76,0.12);   color: var(--gold);       border: 1px solid rgba(201,168,76,0.3); }
+  .pill-ice   { background: rgba(214,228,240,0.08);  color: var(--ice);        border: 1px solid rgba(214,228,240,0.2); }
+  .pill-navy  { background: rgba(255,255,255,0.05);  color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
+
+  /* ── How-to banner ── */
+  .howto {
+    max-width: 860px;
+    margin: 2rem auto 0;
+    background: rgba(214,228,240,0.05);
+    border: 1px solid rgba(214,228,240,0.12);
+    border-radius: 8px;
+    padding: 0.9rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.84rem;
+    color: var(--ice);
+    line-height: 1.55;
+  }
+
+  .howto-icon { font-size: 1.1rem; margin-top: 1px; flex-shrink: 0; }
+
+  /* ── Main ── */
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+  }
+
+  /* ── Module ── */
+  .module {
+    margin-bottom: 3rem;
+  }
+
+  .module-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    flex-wrap: wrap;
+  }
+
+  .module-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--navy);
+    padding: 0.18rem 0.5rem;
+    border-radius: 3px;
+    letter-spacing: 0.07em;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Per-module accent colors */
+  .mod-tvm    .module-num { background: var(--tvm); }
+  .mod-bonds  .module-num { background: var(--bonds); }
+  .mod-equity .module-num { background: var(--equity); }
+  .mod-wacc   .module-num { background: var(--wacc); }
+
+  /* Left border accent on each module */
+  .mod-tvm    { border-left: 3px solid var(--tvm);    padding-left: 1.25rem; }
+  .mod-bonds  { border-left: 3px solid var(--bonds);  padding-left: 1.25rem; }
+  .mod-equity { border-left: 3px solid var(--equity); padding-left: 1.25rem; }
+  .mod-wacc   { border-left: 3px solid var(--wacc);   padding-left: 1.25rem; }
+
+  .module-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    flex: 1;
+  }
+
+  /* ── Tab row ── */
+  .tab-row {
+    display: flex;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .tab-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-bottom: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+
+  .tab-btn:hover { color: var(--gold); border-color: rgba(201,168,76,0.4); }
+
+  .tab-btn.active {
+    background: var(--navy-mid);
+    color: var(--gold);
+    border-color: rgba(201,168,76,0.35);
+  }
+
+  /* ── Tab panel ── */
+  .tab-panel {
+    display: none;
+    background: var(--navy-mid);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 0 8px 8px 8px;
+    padding: 1.25rem;
+  }
+
+  .tab-panel.active { display: block; }
+
+  /* ── Download rows (notes + exam review) ── */
+  .dl-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .dl-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(214,228,240,0.1);
+    border-radius: 7px;
+    transition: border-color 0.2s;
+  }
+
+  .dl-item:hover { border-color: rgba(201,168,76,0.25); }
+
+  .dl-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  .dl-body { flex: 1; min-width: 0; }
+
+  .dl-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  .dl-title {
+    font-size: 0.88rem;
+    color: var(--white);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .dl-desc {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin-top: 0.15rem;
+  }
+
+  /* Download button */
+  .dl-btn-active {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 5px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    background: rgba(201,168,76,0.12);
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    transition: all 0.18s;
+  }
+
+  .dl-btn-active:hover {
+    background: rgba(201,168,76,0.22);
+    border-color: rgba(201,168,76,0.55);
+  }
+
+  .dl-btn-soon {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    background: rgba(168,184,204,0.06);
+    color: var(--text-muted);
+    border: 1px solid rgba(168,184,204,0.15);
+    pointer-events: none;
+    font-style: italic;
+  }
+
+  /* ── Activity cards ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(214,228,240,0.1);
+    border-radius: 8px;
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .card:hover { border-color: rgba(201,168,76,0.3); }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  .status-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    padding: 0.18rem 0.5rem;
+    border-radius: 10px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .status-available { background: rgba(46,204,113,0.12); color: #2ecc71; border: 1px solid rgba(46,204,113,0.25); }
+  .status-soon      { background: rgba(168,184,204,0.08); color: var(--text-muted); border: 1px solid rgba(168,184,204,0.15); }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .card-link {
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.15s;
+  }
+
+  .card-link:hover { color: var(--gold-light); }
+  .card-link.disabled { color: var(--text-muted); pointer-events: none; }
+
+  /* ── Panel note ── */
+  .panel-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    padding: 0.6rem 0.85rem;
+    border-left: 2px solid rgba(201,168,76,0.25);
+    line-height: 1.5;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 1.5rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 560px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .module-header { gap: 0.5rem; }
+    .dl-item { flex-wrap: wrap; }
+    .dl-btn-active, .dl-btn-soon { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar-left"><span>Endicott College</span> &nbsp;·&nbsp; Finance</div>
+  <div class="topbar-right">Fall 2026</div>
+</div>
+
+<!-- Hero -->
+<header>
+  <div class="hero-label">BUS210 · Introduction to Finance</div>
+  <h1>BUS210 <span>Introduction to Finance</span></h1>
+  <div class="hero-sub">Class Notes, Exam Review &amp; Activities · Fall 2026</div>
+  <div class="hero-pills">
+    <span class="pill pill-gold">4 Modules</span>
+    <span class="pill pill-ice">TVM · Bonds · Equity · WACC</span>
+    <span class="pill pill-navy">Freshman / Sophomore</span>
+  </div>
+  <div class="howto">
+    <span class="howto-icon">📋</span>
+    <span><strong style="color:var(--gold)">How to use:</strong> Select the <strong>Class Notes</strong> tab to download lecture slides and PDFs for each module, the <strong>Exam Review</strong> tab to download the practice problem workbook, or the <strong>Activities</strong> tab for in-class exercises. All files download directly - submit completed work through Canvas.</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ══════════════════════════════════════
+       MODULE 01 · TVM
+  ══════════════════════════════════════ -->
+  <div class="module mod-tvm" id="mod-tvm">
+    <div class="module-header">
+      <span class="module-num">MODULE 01</span>
+      <span class="module-title">Time Value of Money</span>
+    </div>
+
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="switchTab(this, 'tvm-notes')">📓 Class Notes</button>
+      <button class="tab-btn"        onclick="switchTab(this, 'tvm-review')">📊 Exam Review</button>
+      <button class="tab-btn"        onclick="switchTab(this, 'tvm-activities')">⚡ Activities</button>
+    </div>
+
+    <!-- Class Notes -->
+    <div class="tab-panel active" id="tvm-notes">
+      <div class="dl-list">
+
+        <div class="dl-item">
+          <span class="dl-icon">📄</span>
+          <div class="dl-body">
+            <div class="dl-type">Lecture Notes · PDF</div>
+            <div class="dl-title">TVM - Class Notes</div>
+            <div class="dl-desc">Present value, future value, annuities, perpetuities, and the time value framework.</div>
+          </div>
+          <!-- ✅ PATH: notes/tvm-notes.pdf -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+        <div class="dl-item">
+          <span class="dl-icon">📊</span>
+          <div class="dl-body">
+            <div class="dl-type">Lecture Slides · PPTX</div>
+            <div class="dl-title">TVM - Lecture Slides</div>
+            <div class="dl-desc">Full slide deck from class - download and keep as a study reference.</div>
+          </div>
+          <!-- ✅ PATH: notes/tvm-notes.pptx -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Exam Review -->
+    <div class="tab-panel" id="tvm-review">
+      <div class="dl-list">
+
+        <div class="dl-item">
+          <span class="dl-icon">📗</span>
+          <div class="dl-body">
+            <div class="dl-type">Exam Review · Excel Workbook</div>
+            <div class="dl-title">TVM - Exam Review Problems</div>
+            <div class="dl-desc">Practice problems covering PV, FV, annuities, and mixed cash flow scenarios. Each problem is on a separate tab.</div>
+          </div>
+          <!-- ✅ PATH: exam-review/tvm-exam-review.xlsx -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+      </div>
+      <div class="panel-note">📌 Download the workbook, work through each tab, and check your answers using the approach covered in class. Submit any assigned problems through Canvas.</div>
+    </div>
+
+    <!-- Activities -->
+    <div class="tab-panel" id="tvm-activities">
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-top">
+            <span class="card-label">Module 01</span>
+            <span class="status-badge status-soon">Coming Soon</span>
+          </div>
+          <div class="card-title">TVM In-Class Activity</div>
+          <div class="card-desc">Hands-on practice with time value calculations using real-world scenarios.</div>
+          <!-- ✅ PATH: activities/tvm-activity.html -->
+          <a class="card-link disabled" href="#">Available later →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       MODULE 02 · BONDS
+  ══════════════════════════════════════ -->
+  <div class="module mod-bonds" id="mod-bonds">
+    <div class="module-header">
+      <span class="module-num">MODULE 02</span>
+      <span class="module-title">Bond Valuation</span>
+    </div>
+
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="switchTab(this, 'bonds-notes')">📓 Class Notes</button>
+      <button class="tab-btn"        onclick="switchTab(this, 'bonds-review')">📊 Exam Review</button>
+      <button class="tab-btn"        onclick="switchTab(this, 'bonds-activities')">⚡ Activities</button>
+    </div>
+
+    <!-- Class Notes -->
+    <div class="tab-panel active" id="bonds-notes">
+      <div class="dl-list">
+
+        <div class="dl-item">
+          <span class="dl-icon">📄</span>
+          <div class="dl-body">
+            <div class="dl-type">Lecture Notes · PDF</div>
+            <div class="dl-title">Bonds - Class Notes</div>
+            <div class="dl-desc">Bond pricing, yield to maturity, coupon rates, duration, and interest rate risk.</div>
+          </div>
+          <!-- ✅ PATH: notes/bonds-notes.pdf -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+        <div class="dl-item">
+          <span class="dl-icon">📊</span>
+          <div class="dl-body">
+            <div class="dl-type">Lecture Slides · PPTX</div>
+            <div class="dl-title">Bonds - Lecture Slides</div>
+            <div class="dl-desc">Full slide deck from class - download and keep as a study reference.</div>
+          </div>
+          <!-- ✅ PATH: notes/bonds-notes.pptx -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Exam Review -->
+    <div class="tab-panel" id="bonds-review">
+      <div class="dl-list">
+
+        <div class="dl-item">
+          <span class="dl-icon">📗</span>
+          <div class="dl-body">
+            <div class="dl-type">Exam Review · Excel Workbook</div>
+            <div class="dl-title">Bonds - Exam Review Problems</div>
+            <div class="dl-desc">Practice problems covering bond pricing, YTM, current yield, and price-yield relationships. Each problem is on a separate tab.</div>
+          </div>
+          <!-- ✅ PATH: exam-review/bonds-exam-review.xlsx -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+      </div>
+      <div class="panel-note">📌 Download the workbook, work through each tab, and check your answers using the approach covered in class. Submit any assigned problems through Canvas.</div>
+    </div>
+
+    <!-- Activities -->
+    <div class="tab-panel" id="bonds-activities">
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-top">
+            <span class="card-label">Module 02</span>
+            <span class="status-badge status-soon">Coming Soon</span>
+          </div>
+          <div class="card-title">Bond Valuation In-Class Activity</div>
+          <div class="card-desc">Price bonds, calculate YTM, and explore the inverse relationship between price and yield.</div>
+          <!-- ✅ PATH: activities/bonds-activity.html -->
+          <a class="card-link disabled" href="#">Available later →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       MODULE 03 · EQUITY
+  ══════════════════════════════════════ -->
+  <div class="module mod-equity" id="mod-equity">
+    <div class="module-header">
+      <span class="module-num">MODULE 03</span>
+      <span class="module-title">Equity Valuation</span>
+    </div>
+
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="switchTab(this, 'equity-notes')">📓 Class Notes</button>
+      <button class="tab-btn"        onclick="switchTab(this, 'equity-review')">📊 Exam Review</button>
+      <button class="tab-btn"        onclick="switchTab(this, 'equity-activities')">⚡ Activities</button>
+    </div>
+
+    <!-- Class Notes -->
+    <div class="tab-panel active" id="equity-notes">
+      <div class="dl-list">
+
+        <div class="dl-item">
+          <span class="dl-icon">📄</span>
+          <div class="dl-body">
+            <div class="dl-type">Lecture Notes · PDF</div>
+            <div class="dl-title">Equity - Class Notes</div>
+            <div class="dl-desc">Dividend discount model, constant growth model, required return on equity, and stock valuation frameworks.</div>
+          </div>
+          <!-- ✅ PATH: notes/equity-notes.pdf -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+        <div class="dl-item">
+          <span class="dl-icon">📊</span>
+          <div class="dl-body">
+            <div class="dl-type">Lecture Slides · PPTX</div>
+            <div class="dl-title">Equity - Lecture Slides</div>
+            <div class="dl-desc">Full slide deck from class - download and keep as a study reference.</div>
+          </div>
+          <!-- ✅ PATH: notes/equity-notes.pptx -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Exam Review -->
+    <div class="tab-panel" id="equity-review">
+      <div class="dl-list">
+
+        <div class="dl-item">
+          <span class="dl-icon">📗</span>
+          <div class="dl-body">
+            <div class="dl-type">Exam Review · Excel Workbook</div>
+            <div class="dl-title">Equity - Exam Review Problems</div>
+            <div class="dl-desc">Practice problems covering the DDM, Gordon Growth Model, P/E valuation, and required return calculations. Each problem is on a separate tab.</div>
+          </div>
+          <!-- ✅ PATH: exam-review/equity-exam-review.xlsx -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+      </div>
+      <div class="panel-note">📌 Download the workbook, work through each tab, and check your answers using the approach covered in class. Submit any assigned problems through Canvas.</div>
+    </div>
+
+    <!-- Activities -->
+    <div class="tab-panel" id="equity-activities">
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-top">
+            <span class="card-label">Module 03</span>
+            <span class="status-badge status-soon">Coming Soon</span>
+          </div>
+          <div class="card-title">Equity Valuation In-Class Activity</div>
+          <div class="card-desc">Value real stocks using the dividend discount model and compare to market prices.</div>
+          <!-- ✅ PATH: activities/equity-activity.html -->
+          <a class="card-link disabled" href="#">Available later →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       MODULE 04 · WACC
+  ══════════════════════════════════════ -->
+  <div class="module mod-wacc" id="mod-wacc">
+    <div class="module-header">
+      <span class="module-num">MODULE 04</span>
+      <span class="module-title">Cost of Capital &amp; WACC</span>
+    </div>
+
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="switchTab(this, 'wacc-notes')">📓 Class Notes</button>
+      <button class="tab-btn"        onclick="switchTab(this, 'wacc-review')">📊 Exam Review</button>
+      <button class="tab-btn"        onclick="switchTab(this, 'wacc-activities')">⚡ Activities</button>
+    </div>
+
+    <!-- Class Notes -->
+    <div class="tab-panel active" id="wacc-notes">
+      <div class="dl-list">
+
+        <div class="dl-item">
+          <span class="dl-icon">📄</span>
+          <div class="dl-body">
+            <div class="dl-type">Lecture Notes · PDF</div>
+            <div class="dl-title">WACC - Class Notes</div>
+            <div class="dl-desc">Cost of debt, cost of equity (CAPM), capital structure weights, and the weighted average cost of capital formula.</div>
+          </div>
+          <!-- ✅ PATH: notes/wacc-notes.pdf -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+        <div class="dl-item">
+          <span class="dl-icon">📊</span>
+          <div class="dl-body">
+            <div class="dl-type">Lecture Slides · PPTX</div>
+            <div class="dl-title">WACC - Lecture Slides</div>
+            <div class="dl-desc">Full slide deck from class - download and keep as a study reference.</div>
+          </div>
+          <!-- ✅ PATH: notes/wacc-notes.pptx -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Exam Review -->
+    <div class="tab-panel" id="wacc-review">
+      <div class="dl-list">
+
+        <div class="dl-item">
+          <span class="dl-icon">📗</span>
+          <div class="dl-body">
+            <div class="dl-type">Exam Review · Excel Workbook</div>
+            <div class="dl-title">WACC - Exam Review Problems</div>
+            <div class="dl-desc">Practice problems covering cost of debt, cost of equity, capital structure, and full WACC calculations. Each problem is on a separate tab.</div>
+          </div>
+          <!-- ✅ PATH: exam-review/wacc-exam-review.xlsx -->
+          <a class="dl-btn-soon" href="#">Coming soon</a>
+        </div>
+
+      </div>
+      <div class="panel-note">📌 Download the workbook, work through each tab, and check your answers using the approach covered in class. Submit any assigned problems through Canvas.</div>
+    </div>
+
+    <!-- Activities -->
+    <div class="tab-panel" id="wacc-activities">
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-top">
+            <span class="card-label">Module 04</span>
+            <span class="status-badge status-soon">Coming Soon</span>
+          </div>
+          <div class="card-title">WACC In-Class Activity</div>
+          <div class="card-desc">Calculate the weighted average cost of capital for a real company using market data.</div>
+          <!-- ✅ PATH: activities/wacc-activity.html -->
+          <a class="card-link disabled" href="#">Available later →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  BUS210 · Introduction to Finance · Endicott College &nbsp;·&nbsp; Fall 2026
+</footer>
+
+<script>
+function switchTab(btn, panelId) {
+  // Scope to the nearest parent module to prevent cross-module interference
+  const module = btn.closest('.module');
+
+  module.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  module.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
