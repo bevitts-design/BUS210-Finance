@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TVM · Practice Problems · BUS210</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #0a1628;
+    --navy-mid:   #112240;
+    --navy-light: #1a3a5c;
+    --gold:       #c9a84c;
+    --gold-light: #e8c96d;
+    --ice:        #d6e4f0;
+    --ice-light:  #eaf3fb;
+    --white:      #ffffff;
+    --text-muted: #a8b8cc;
+    --tvm:        #4cb8a8;
+    --tvm-dim:    rgba(76,184,168,0.12);
+    --correct:    #2ecc71;
+    --correct-bg: rgba(46,204,113,0.10);
+    --wrong:      #e05454;
+    --wrong-bg:   rgba(224,84,84,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    min-height: 100vh;
+  }
+
+  /* ── Top bar ── */
+  .topbar {
+    background: var(--navy-mid);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 0.45rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .topbar-left span { color: var(--gold); }
+  .topbar-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+  .topbar-right a {
+    color: var(--tvm);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .topbar-right a:hover { color: var(--gold-light); }
+
+  /* ── Header ── */
+  header {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 60%, #0d1f3c 100%);
+    border-bottom: 2px solid var(--tvm);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+  }
+  .hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--tvm);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+  header h1 span { color: var(--tvm); }
+  .hero-sub {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Progress bar ── */
+  .progress-wrap {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+  .progress-meta .score-live { color: var(--tvm); }
+  .progress-bar-bg {
+    background: rgba(255,255,255,0.07);
+    border-radius: 20px;
+    height: 6px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tvm), var(--gold));
+    border-radius: 20px;
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+  }
+
+  /* ── Chapter heading ── */
+  .chapter-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin: 2.5rem 0 1.25rem;
+  }
+  .chapter-heading:first-child { margin-top: 0; }
+  .ch-bar {
+    width: 4px;
+    height: 28px;
+    border-radius: 2px;
+    background: var(--tvm);
+    flex-shrink: 0;
+  }
+  .ch-bar.gold { background: var(--gold); }
+  .chapter-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--white);
+  }
+  .chapter-heading .ch-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.2rem 0.55rem;
+    border-radius: 10px;
+    letter-spacing: 0.05em;
+    margin-left: auto;
+  }
+
+  /* ── Problem grid ── */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+    gap: 1rem;
+  }
+
+  /* ── Problem card ── */
+  .problem-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(214,228,240,0.1);
+    border-radius: 10px;
+    padding: 1.25rem 1.25rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    transition: border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--tvm);
+    opacity: 0.5;
+  }
+  .problem-card.ch2::before { background: var(--gold); opacity: 0.5; }
+
+  .problem-card.correct {
+    border-color: rgba(46,204,113,0.3);
+    background: linear-gradient(135deg, var(--navy-mid) 0%, rgba(46,204,113,0.05) 100%);
+  }
+  .problem-card.correct::before { background: var(--correct); opacity: 1; }
+  .problem-card.wrong {
+    border-color: rgba(224,84,84,0.3);
+    background: linear-gradient(135deg, var(--navy-mid) 0%, rgba(224,84,84,0.05) 100%);
+  }
+  .problem-card.wrong::before { background: var(--wrong); opacity: 1; }
+
+  .prob-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .prob-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--navy);
+    background: var(--tvm);
+    padding: 0.2rem 0.48rem;
+    border-radius: 4px;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .prob-num.gold { background: var(--gold); }
+
+  .prob-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--tvm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .prob-type.gold { color: var(--gold); }
+
+  .prob-text {
+    font-size: 0.87rem;
+    color: var(--ice);
+    line-height: 1.6;
+    flex: 1;
+  }
+  .prob-text strong { color: var(--white); font-weight: 600; }
+
+  /* ── Input row ── */
+  .input-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .input-prefix {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+  .prob-input {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(214,228,240,0.18);
+    border-radius: 6px;
+    color: var(--white);
+    padding: 0.45rem 0.75rem;
+    width: 140px;
+    outline: none;
+    transition: border-color 0.18s, background 0.18s;
+  }
+  .prob-input:focus {
+    border-color: rgba(76,184,168,0.5);
+    background: rgba(76,184,168,0.05);
+  }
+  .prob-input.input-correct {
+    border-color: rgba(46,204,113,0.5);
+    background: var(--correct-bg);
+    color: var(--correct);
+  }
+  .prob-input.input-wrong {
+    border-color: rgba(224,84,84,0.5);
+    background: var(--wrong-bg);
+    color: var(--wrong);
+  }
+
+  .check-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    padding: 0.45rem 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(76,184,168,0.35);
+    background: rgba(76,184,168,0.1);
+    color: var(--tvm);
+    cursor: pointer;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+  .check-btn:hover {
+    background: rgba(76,184,168,0.2);
+    border-color: rgba(76,184,168,0.6);
+  }
+  .check-btn.gold {
+    border-color: rgba(201,168,76,0.35);
+    background: rgba(201,168,76,0.1);
+    color: var(--gold);
+  }
+  .check-btn.gold:hover {
+    background: rgba(201,168,76,0.2);
+    border-color: rgba(201,168,76,0.6);
+  }
+  .check-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* ── Feedback ── */
+  .feedback {
+    display: none;
+    font-size: 0.81rem;
+    line-height: 1.55;
+    padding: 0.7rem 0.9rem;
+    border-radius: 6px;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  .feedback.show { display: flex; }
+  .feedback-icon { flex-shrink: 0; font-size: 0.95rem; margin-top: 1px; }
+  .feedback.fb-correct {
+    background: var(--correct-bg);
+    border: 1px solid rgba(46,204,113,0.22);
+    color: #7de0a8;
+  }
+  .feedback.fb-wrong {
+    background: var(--wrong-bg);
+    border: 1px solid rgba(224,84,84,0.22);
+    color: #f09090;
+  }
+  .feedback strong { color: var(--white); }
+
+  /* ── Formula hint ── */
+  .formula-hint {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(214,228,240,0.08);
+    border-radius: 5px;
+    padding: 0.45rem 0.7rem;
+    letter-spacing: 0.03em;
+  }
+  .formula-hint span { color: var(--tvm); }
+  .formula-hint span.gold { color: var(--gold); }
+
+  /* ── Reset bar ── */
+  .reset-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 2.5rem auto 0;
+    padding: 0 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .final-score {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .final-score strong { color: var(--gold); font-size: 1rem; }
+  .reset-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    padding: 0.45rem 1.1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(201,168,76,0.3);
+    background: rgba(201,168,76,0.08);
+    color: var(--gold);
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .reset-btn:hover { background: rgba(201,168,76,0.18); }
+
+  /* ── Canvas note ── */
+  .canvas-note {
+    max-width: 1000px;
+    margin: 1.5rem auto 0;
+    padding: 0 1.5rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 1.5rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    .problem-grid { grid-template-columns: 1fr; }
+    .prob-input { width: 110px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar-left"><span>Endicott College</span> &nbsp;·&nbsp; BUS210 &nbsp;·&nbsp; Module 01</div>
+  <div class="topbar-right"><a href="../index.html">← Back to Course Hub</a></div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="hero-label">Module 01 · Time Value of Money</div>
+  <h1><span>Practice</span> Problem Bank</h1>
+  <div class="hero-sub">Type your answer and click Check to get instant feedback · Rounding within ±$1 or ±0.01% accepted</div>
+
+  <div class="progress-wrap">
+    <div class="progress-meta">
+      <span>Progress</span>
+      <span class="score-live" id="score-label">0 / 9 answered</span>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progress-fill"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ─── Chapter 4: Single Payments ─── -->
+  <div class="chapter-heading">
+    <div class="ch-bar"></div>
+    <h2>Chapter 4 · Single Payments</h2>
+    <span class="ch-count">Problems 1–4</span>
+  </div>
+
+  <div class="problem-grid">
+
+    <!-- Problem 1: FV -->
+    <div class="problem-card" id="card-1">
+      <div class="prob-top">
+        <span class="prob-num">01</span>
+        <span class="prob-type">Future Value</span>
+      </div>
+      <div class="prob-text">
+        You deposit <strong>$2,500</strong> into a savings account that pays an annual interest rate of <strong>6.25%</strong>. How much will you have in the account after <strong>8 years</strong>?
+      </div>
+      <div class="input-row">
+        <span class="input-prefix">$</span>
+        <input class="prob-input" id="input-1" type="number" step="0.01" placeholder="0.00">
+        <button class="check-btn" onclick="checkAnswer(1, 4063.30, '$', 1)">Check</button>
+      </div>
+      <div class="feedback" id="fb-1">
+        <span class="feedback-icon"></span>
+        <span id="fb-text-1"></span>
+      </div>
+    </div>
+
+    <!-- Problem 2: PV -->
+    <div class="problem-card" id="card-2">
+      <div class="prob-top">
+        <span class="prob-num">02</span>
+        <span class="prob-type">Present Value</span>
+      </div>
+      <div class="prob-text">
+        You want to have <strong>$15,000</strong> saved up in <strong>5 years</strong> to buy a car. If you can earn an <strong>8% annual return</strong>, how much must you invest today as a lump sum?
+      </div>
+      <div class="input-row">
+        <span class="input-prefix">$</span>
+        <input class="prob-input" id="input-2" type="number" step="0.01" placeholder="0.00">
+        <button class="check-btn" onclick="checkAnswer(2, 10208.97, '$', 1)">Check</button>
+      </div>
+      <div class="feedback" id="fb-2">
+        <span class="feedback-icon"></span>
+        <span id="fb-text-2"></span>
+      </div>
+    </div>
+
+    <!-- Problem 3: RATE -->
+    <div class="problem-card" id="card-3">
+      <div class="prob-top">
+        <span class="prob-num">03</span>
+        <span class="prob-type">Rate of Return</span>
+      </div>
+      <div class="prob-text">
+        You invested <strong>$10,000</strong> in a mutual fund <strong>15 years</strong> ago. Today, that investment is worth <strong>$35,000</strong>. What was your <strong>annualized rate of return</strong>?
+      </div>
+      <div class="input-row">
+        <input class="prob-input" id="input-3" type="number" step="0.01" placeholder="0.00">
+        <span style="font-family:'DM Mono',monospace;font-size:0.85rem;color:var(--text-muted)">%</span>
+        <button class="check-btn" onclick="checkAnswer(3, 8.79, '%', 0.05)">Check</button>
+      </div>
+      <div class="feedback" id="fb-3">
+        <span class="feedback-icon"></span>
+        <span id="fb-text-3"></span>
+      </div>
+    </div>
+
+    <!-- Problem 4: NPER -->
+    <div class="problem-card" id="card-4">
+      <div class="prob-top">
+        <span class="prob-num">04</span>
+        <span class="prob-type">Time (NPER)</span>
+      </div>
+      <div class="prob-text">
+        You currently have <strong>$4,000</strong> invested at a <strong>7% annual interest rate</strong>. How long will it take for your investment to double to <strong>$8,000</strong>?
+      </div>
+      <div class="input-row">
+        <input class="prob-input" id="input-4" type="number" step="0.01" placeholder="0.00">
+        <span style="font-family:'DM Mono',monospace;font-size:0.85rem;color:var(--text-muted)">yrs</span>
+        <button class="check-btn" onclick="checkAnswer(4, 10.24, 'yrs', 0.05)">Check</button>
+      </div>
+      <div class="feedback" id="fb-4">
+        <span class="feedback-icon"></span>
+        <span id="fb-text-4"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ─── Chapter 5: Multiple Payments & Annuities ─── -->
+  <div class="chapter-heading">
+    <div class="ch-bar gold"></div>
+    <h2>Chapter 5 · Multiple Payments &amp; Annuities</h2>
+    <span class="ch-count">Problems 5–9</span>
+  </div>
+
+  <div class="problem-grid">
+
+    <!-- Problem 5: FV Annuity -->
+    <div class="problem-card ch2" id="card-5">
+      <div class="prob-top">
+        <span class="prob-num gold">05</span>
+        <span class="prob-type gold">Future Value of Annuity</span>
+      </div>
+      <div class="prob-text">
+        You plan to contribute <strong>$6,000</strong> at the end of each year for the next <strong>35 years</strong> for retirement. If your expected annual rate of return is <strong>7.5%</strong>, how much will you have when you retire?
+      </div>
+      <div class="input-row">
+        <span class="input-prefix">$</span>
+        <input class="prob-input" id="input-5" type="number" step="0.01" placeholder="0.00">
+        <button class="check-btn gold" onclick="checkAnswer(5, 1027145.85, '$', 1)">Check</button>
+      </div>
+      <div class="feedback" id="fb-5">
+        <span class="feedback-icon"></span>
+        <span id="fb-text-5"></span>
+      </div>
+    </div>
+
+    <!-- Problem 6: PV Annuity -->
+    <div class="problem-card ch2" id="card-6">
+      <div class="prob-top">
+        <span class="prob-num gold">06</span>
+        <span class="prob-type gold">Present Value of Annuity</span>
+      </div>
+      <div class="prob-text">
+        You won the lottery and have a choice: take a lump sum today or receive <strong>$50,000</strong> at the end of each year for the next <strong>20 years</strong>. If your discount rate is <strong>6%</strong>, what is the present value of the 20-year payout?
+      </div>
+      <div class="input-row">
+        <span class="input-prefix">$</span>
+        <input class="prob-input" id="input-6" type="number" step="0.01" placeholder="0.00">
+        <button class="check-btn gold" onclick="checkAnswer(6, 573496.06, '$', 1)">Check</button>
+      </div>
+      <div class="feedback" id="fb-6">
+        <span class="feedback-icon"></span>
+        <span id="fb-text-6"></span>
+      </div>
+    </div>
+
+    <!-- Problem 7: Monthly compounding -->
+    <div class="problem-card ch2" id="card-7">
+      <div class="prob-top">
+        <span class="prob-num gold">07</span>
+        <span class="prob-type gold">Monthly Compounding</span>
+      </div>
+      <div class="prob-text">
+        You decide to contribute <strong>$500</strong> at the end of every month to your retirement account. If the account earns an annual interest rate of <strong>9% (compounded monthly)</strong>, how much will you have in <strong>30 years</strong>?
+      </div>
+      <div class="input-row">
+        <span class="input-prefix">$</span>
+        <input class="prob-input" id="input-7" type="number" step="0.01" placeholder="0.00">
+        <button class="check-btn gold" onclick="checkAnswer(7, 915372.85, '$', 1)">Check</button>
+      </div>
+      <div class="feedback" id="fb-7">
+        <span class="feedback-icon"></span>
+        <span id="fb-text-7"></span>
+      </div>
+    </div>
+
+    <!-- Problem 8: Mortgage payment -->
+    <div class="problem-card ch2" id="card-8">
+      <div class="prob-top">
+        <span class="prob-num gold">08</span>
+        <span class="prob-type gold">Mortgage Payment</span>
+      </div>
+      <div class="prob-text">
+        You are purchasing a home and taking out a <strong>$350,000 mortgage</strong>. The loan is for <strong>30 years</strong> and has a fixed annual interest rate of <strong>6.6%</strong>. What is your required <strong>monthly payment</strong>?
+      </div>
+      <div class="input-row">
+        <span class="input-prefix">$</span>
+        <input class="prob-input" id="input-8" type="number" step="0.01" placeholder="0.00">
+        <button class="check-btn gold" onclick="checkAnswer(8, 2237.27, '$', 1)">Check</button>
+      </div>
+      <div class="feedback" id="fb-8">
+        <span class="feedback-icon"></span>
+        <span id="fb-text-8"></span>
+      </div>
+    </div>
+
+    <!-- Problem 9: Amortization -->
+    <div class="problem-card ch2" id="card-9">
+      <div class="prob-top">
+        <span class="prob-num gold">09</span>
+        <span class="prob-type gold">Amortization</span>
+      </div>
+      <div class="prob-text">
+        Using your monthly payment from Problem 8, calculate the <strong>ending balance</strong> after the very <strong>first payment</strong> is made on the $350,000 mortgage at 6.6% annual rate.
+      </div>
+      <div class="input-row">
+        <span class="input-prefix">$</span>
+        <input class="prob-input" id="input-9" type="number" step="0.01" placeholder="0.00">
+        <button class="check-btn gold" onclick="checkAnswer(9, 349687.73, '$', 1)">Check</button>
+      </div>
+      <div class="feedback" id="fb-9">
+        <span class="feedback-icon"></span>
+        <span id="fb-text-9"></span>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- Reset / final score -->
+<div class="reset-bar">
+  <div class="final-score">Score: <strong id="final-score-display">0 / 9</strong> correct</div>
+  <button class="reset-btn" onclick="resetAll()">↺ Reset All Problems</button>
+</div>
+
+<div class="canvas-note">
+  📌 &nbsp;This page is for self-practice only — no data is collected. Submit any assigned work through Canvas.
+</div>
+
+<footer>
+  BUS210 · Introduction to Finance · Endicott College &nbsp;·&nbsp; Module 01 — Time Value of Money
+</footer>
+
+<script>
+  const TOTAL = 9;
+  const answered = new Array(TOTAL + 1).fill(false);
+  const correct  = new Array(TOTAL + 1).fill(false);
+
+  // Feedback content per problem
+  const explanations = {
+    1: `<strong>$4,063.30</strong> — Use FV = PV × (1 + r)ⁿ → 2500 × (1.0625)⁸. In Excel: =FV(0.0625, 8, 0, −2500).`,
+    2: `<strong>$10,208.97</strong> — Use PV = FV / (1 + r)ⁿ → 15000 / (1.08)⁵. In Excel: =PV(0.08, 5, 0, −15000).`,
+    3: `<strong>8.79%</strong> — Solve for r: (35000/10000)^(1/15) − 1 = 0.0879. In Excel: =RATE(15, 0, −10000, 35000).`,
+    4: `<strong>10.24 years</strong> — Solve for n: ln(2)/ln(1.07) ≈ 10.24. In Excel: =NPER(0.07, 0, −4000, 8000).`,
+    5: `<strong>$1,027,145.85</strong> — FV of ordinary annuity: PMT × [(1+r)ⁿ − 1] / r. In Excel: =FV(0.075, 35, −6000, 0).`,
+    6: `<strong>$573,496.06</strong> — PV of ordinary annuity: PMT × [1 − (1+r)^−n] / r. In Excel: =PV(0.06, 20, −50000, 0).`,
+    7: `<strong>$915,372.85</strong> — Monthly rate = 9%/12 = 0.75%, 360 periods. In Excel: =FV(0.09/12, 360, −500, 0).`,
+    8: `<strong>$2,237.27/month</strong> — Monthly rate = 6.6%/12 = 0.55%, 360 periods. In Excel: =PMT(0.066/12, 360, 350000).`,
+    9: `<strong>$349,687.73</strong> — Month 1 interest = 350,000 × (0.066/12) = $1,925. Principal paid = 2,237.27 − 1,925 = $312.27. Ending balance = 350,000 − 312.27.`,
+  };
+
+  function checkAnswer(num, answer, unit, tolerance) {
+    if (answered[num]) return;
+
+    const input = document.getElementById(`input-${num}`);
+    const card  = document.getElementById(`card-${num}`);
+    const fb    = document.getElementById(`fb-${num}`);
+    const fbTxt = document.getElementById(`fb-text-${num}`);
+    const btn   = input.parentElement.querySelector('.check-btn');
+
+    const raw = parseFloat(input.value);
+    if (isNaN(raw)) {
+      input.style.borderColor = 'rgba(224,84,84,0.5)';
+      input.placeholder = 'Enter a number';
+      return;
+    }
+
+    const diff = Math.abs(raw - answer);
+    const isCorrect = (unit === '$') ? diff <= tolerance : diff <= tolerance;
+
+    answered[num] = true;
+    correct[num]  = isCorrect;
+    btn.disabled  = true;
+    input.disabled = true;
+
+    if (isCorrect) {
+      input.classList.add('input-correct');
+      card.classList.add('correct');
+      fb.classList.add('show', 'fb-correct');
+      fb.querySelector('.feedback-icon').textContent = '✓';
+      fbTxt.innerHTML = `<strong>Correct!</strong> &nbsp;${explanations[num]}`;
+    } else {
+      input.classList.add('input-wrong');
+      card.classList.add('wrong');
+      fb.classList.add('show', 'fb-wrong');
+      fb.querySelector('.feedback-icon').textContent = '✗';
+      fbTxt.innerHTML = `<strong>Not quite.</strong> &nbsp;${explanations[num]}`;
+    }
+
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const done     = answered.filter(Boolean).length;
+    const numRight = correct.filter(Boolean).length;
+    const pct      = (done / TOTAL) * 100;
+
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('score-label').textContent   = `${done} / ${TOTAL} answered`;
+    document.getElementById('final-score-display').textContent = `${numRight} / ${TOTAL}`;
+  }
+
+  function resetAll() {
+    for (let i = 1; i <= TOTAL; i++) {
+      answered[i] = false;
+      correct[i]  = false;
+
+      const input = document.getElementById(`input-${i}`);
+      const card  = document.getElementById(`card-${i}`);
+      const fb    = document.getElementById(`fb-${i}`);
+      const btn   = input.parentElement.querySelector('.check-btn');
+
+      input.value = '';
+      input.disabled = false;
+      input.className = 'prob-input';
+      input.style.borderColor = '';
+      input.placeholder = '0.00';
+
+      card.classList.remove('correct', 'wrong');
+      fb.classList.remove('show', 'fb-correct', 'fb-wrong');
+      btn.disabled = false;
+    }
+    updateProgress();
+  }
+</script>
+
+</body>
+</html>
