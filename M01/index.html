@@ -137,6 +137,7 @@
     .tag{font:500 26px/1.1 "JetBrains Mono",monospace;color:var(--accent);background:var(--white);border:1px solid var(--border);border-radius:8px;padding:18px 22px}
     .stat{font-family:"Instrument Serif",serif;font-size:116px;line-height:.9;color:var(--accent)}
     .mini{font-size:24px;color:var(--muted);margin-top:22px}
+    .tvm-calculator-slide h2{max-width:980px}.tvm-grid{display:grid;grid-template-columns:560px 1fr;gap:56px;align-items:stretch}.tvm-panel{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:34px 36px;box-shadow:0 20px 45px rgba(14,17,22,.08)}.tvm-panel h3{font-size:30px;margin-bottom:10px}.tvm-mode-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:0 0 24px}.tvm-mode-btn{appearance:none;border:1px solid var(--border);border-radius:8px;background:var(--paper);color:var(--text);font:600 18px/1 "Geist",sans-serif;padding:16px 10px;cursor:pointer}.tvm-mode-btn.active{background:var(--steel);border-color:var(--steel);color:var(--white)}.tvm-form{display:grid;grid-template-columns:1fr 1fr;gap:18px}.tvm-field{display:grid;gap:8px}.tvm-field.full{grid-column:1/-1}.tvm-field label{font:600 18px/1.2 "Geist",sans-serif;color:var(--text)}.tvm-field input,.tvm-field select{width:100%;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--text);font:500 24px/1.1 "Geist",sans-serif;padding:15px 16px;outline:none}.tvm-field input:focus,.tvm-field select:focus{border-color:var(--steel);box-shadow:0 0 0 4px rgba(53,87,115,.16)}.tvm-submit{grid-column:1/-1;border:0;border-radius:8px;background:var(--steel);color:var(--white);font:700 24px/1 "Geist",sans-serif;padding:20px;cursor:pointer}.tvm-result{grid-column:1/-1;min-height:118px;border-radius:8px;background:var(--paper-2);border:1px solid var(--border);padding:24px;text-align:center}.tvm-result p{font-size:18px;font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}.tvm-result strong{display:block;font-family:"Instrument Serif",serif;font-size:56px;font-weight:400;line-height:1;color:var(--steel);margin-top:10px}.tvm-result.error strong{font-family:"Geist",sans-serif;font-size:34px;font-weight:700;color:var(--terra)}.tvm-notes{display:grid;gap:24px;align-content:start}.tvm-note{background:var(--paper-2);border:1px solid var(--border);border-radius:8px;padding:28px}.tvm-note h3{font-size:28px}.tvm-note p{font-size:24px}.tvm-equation{font-family:"JetBrains Mono",monospace;font-size:28px;line-height:1.35;color:var(--text);background:var(--white);border:1px solid var(--border);border-radius:8px;padding:28px}
     @media print{#tweaks-root{display:none}}
   </style>
 </head>
@@ -225,7 +226,40 @@
     </div>
   </section>
 
-  <section class="slide cream" data-label="09 FV Formula">
+  <section class="slide cream tvm-calculator-slide" data-label="09 TVM Calculator">
+    <p class="eyebrow">Time Value of Money</p>
+    <h2>Try the calculator before we build it in Excel.</h2>
+    <hr>
+    <div class="tvm-grid">
+      <div class="tvm-notes">
+        <div class="tvm-equation">FV = PV(1 + r)<sup>N</sup> + PMT[((1 + r)<sup>N</sup> - 1) / r]</div>
+        <div class="tvm-note"><h3>Sign convention</h3><p>Cash paid out and cash received should use opposite signs, just like Excel’s financial functions.</p></div>
+        <div class="tvm-note"><h3>Compounding</h3><p>The annual rate is divided by the number of compounding periods per year before the calculation runs.</p></div>
+      </div>
+      <div class="tvm-panel" data-tvm-calculator>
+        <h3>Time Value of Money Calculator</h3>
+        <div class="tvm-mode-row" role="tablist" aria-label="Choose value to solve for">
+          <button type="button" class="tvm-mode-btn active" data-mode="FV">FV</button>
+          <button type="button" class="tvm-mode-btn" data-mode="PV">PV</button>
+          <button type="button" class="tvm-mode-btn" data-mode="PMT">PMT</button>
+          <button type="button" class="tvm-mode-btn" data-mode="N">N</button>
+          <button type="button" class="tvm-mode-btn" data-mode="RATE">Rate</button>
+        </div>
+        <form class="tvm-form">
+          <div class="tvm-field" data-field="PV"><label for="tvm-pv">Present Value ($)</label><input id="tvm-pv" type="number" step="any" value="-1000"></div>
+          <div class="tvm-field" data-field="FV"><label for="tvm-fv">Future Value ($)</label><input id="tvm-fv" type="number" step="any"></div>
+          <div class="tvm-field" data-field="PMT"><label for="tvm-pmt">Payment ($)</label><input id="tvm-pmt" type="number" step="any" value="0"></div>
+          <div class="tvm-field" data-field="RATE"><label for="tvm-rate">Annual Rate (%)</label><input id="tvm-rate" type="number" step="any" value="6"></div>
+          <div class="tvm-field" data-field="N"><label for="tvm-n">Years</label><input id="tvm-n" type="number" step="any" value="5"></div>
+          <div class="tvm-field full"><label for="tvm-comp">Compounding per Year</label><select id="tvm-comp"><option value="1">Annually</option><option value="2">Semi-annually</option><option value="4">Quarterly</option><option value="12" selected>Monthly</option></select></div>
+          <button type="submit" class="tvm-submit">Calculate</button>
+          <div class="tvm-result" aria-live="polite"><p>Future Value</p><strong>$1,348.85</strong></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide cream" data-label="10 FV Formula">
     <p class="eyebrow">Formula Check</p>
     <h2>Plug the values into the future value formula.</h2>
     <hr>
@@ -233,7 +267,7 @@
     <p class="mini">The extra $5 is interest earned over the year.</p>
   </section>
 
-  <section class="slide cream" data-label="10 Excel Sign Convention">
+  <section class="slide cream" data-label="11 Excel Sign Convention">
     <p class="eyebrow">Excel Sign Convention</p>
     <h2>Think like a wallet.</h2>
     <hr>
@@ -244,7 +278,7 @@
     <div class="callout" style="margin-top:44px">Excel requires you to define the direction of the cash flow.</div>
   </section>
 
-  <section class="slide cream" data-label="11 FV in Excel">
+  <section class="slide cream" data-label="12 FV in Excel">
     <p class="eyebrow">Excel Function</p>
     <h2>Calculating future value in Excel.</h2>
     <hr>
@@ -264,7 +298,7 @@
     </div>
   </section>
 
-  <section class="slide cream" data-label="12 Compounding Steps">
+  <section class="slide cream" data-label="13 Compounding Steps">
     <p class="eyebrow">Compounding</p>
     <h2>What will $100 today be worth in three years?</h2>
     <hr>
@@ -300,7 +334,7 @@
     <div class="callout" style="margin-top:42px">Compounding adds interest each year, then earns interest on the larger balance.</div>
   </section>
 
-  <section class="slide cream" data-label="13 Wealth Over Time">
+  <section class="slide cream" data-label="14 Wealth Over Time">
     <p class="eyebrow">Compounding</p>
     <h2>Compounding builds wealth over time.</h2>
     <div class="chart-card">
@@ -343,7 +377,7 @@
     </div>
   </section>
 
-  <section class="slide cream" data-label="14 Your Turn">
+  <section class="slide cream" data-label="15 Your Turn">
     <p class="eyebrow">Your Turn</p>
     <h2>Open Excel and create your TVM workbook.</h2>
     <hr>
@@ -354,7 +388,7 @@
     </div>
   </section>
 
-  <section class="slide cream" data-label="15 In-Class Exercises">
+  <section class="slide cream" data-label="16 In-Class Exercises">
     <p class="eyebrow">Your Turn</p>
     <h2>Build your TVM workbook through three practice exercises.</h2>
     <hr>
@@ -378,7 +412,7 @@
     </div>
   </section>
 
-  <section class="slide cream" data-label="16 Interest on Interest">
+  <section class="slide cream" data-label="17 Interest on Interest">
     <p class="eyebrow">Interest on Interest</p>
     <h2>Compound interest earns on the principal and accumulated interest.</h2>
     <hr>
@@ -389,7 +423,7 @@
     <p class="mini">Based on $100 at 7% for 3 years: interest on interest equals $1.50.</p>
   </section>
 
-  <section class="slide cream" data-label="17 Simple Interest">
+  <section class="slide cream" data-label="18 Simple Interest">
     <p class="eyebrow">Simple Interest Calculation</p>
     <h2>Simple interest is linear.</h2>
     <hr>
@@ -397,22 +431,22 @@
     <div class="formula" style="margin-top:36px">$100 × 7% × 3 = $21<br>Total compound interest: $122.50 - $100 = $22.50<br>Interest on interest: $22.50 - $21 = $1.50</div>
   </section>
 
-  <section class="slide cream" data-label="18 Simple Interest Problem">
+  <section class="slide cream" data-label="19 Simple Interest Problem">
     <p class="eyebrow">Practice</p>
     <h2>Calculate simple interest earned.</h2>
     <hr>
     <div class="callout">$1,500 invested today for 3 years at 7.00%.</div>
   </section>
 
-  <section class="slide image-slide fit-panel" data-label="19 Simple Interest Calculator"><img class="media wide" src="assets/media/image20.png" alt="Simple interest calculator"></section>
+  <section class="slide image-slide fit-panel" data-label="20 Simple Interest Calculator"><img class="media wide" src="assets/media/image20.png" alt="Simple interest calculator"></section>
 
-  <section class="slide dark section-slide" data-label="20 Discounting">
+  <section class="slide dark section-slide" data-label="21 Discounting">
     <div class="gradient-bar"></div>
     <p class="eyebrow">Two Sides of the Same Coin</p>
     <h2>Compounding moves money forward. Discounting moves money backward.</h2>
   </section>
 
-  <section class="slide cream" data-label="21 Present Value">
+  <section class="slide cream" data-label="22 Present Value">
     <p class="eyebrow">Present Value</p>
     <h2>What is $115.76 in three years worth today?</h2>
     <hr>
@@ -436,7 +470,7 @@
     <div class="callout" style="margin-top:42px">Discounting strips out the interest, so future dollars can be compared to today's dollars.</div>
   </section>
 
-  <section class="slide cream" data-label="22 PV Timeline">
+  <section class="slide cream" data-label="23 PV Timeline">
     <p class="eyebrow">Visual Timeline</p>
     <h2>Present value asks: what amount today becomes the future amount?</h2>
     <hr>
@@ -471,7 +505,7 @@
     </div>
   </section>
 
-  <section class="slide cream" data-label="23 PV Formula">
+  <section class="slide cream" data-label="24 PV Formula">
     <p class="eyebrow">Present Value</p>
     <h2>Discounting is compounding in reverse.</h2>
     <hr>
@@ -481,7 +515,7 @@
     </div>
   </section>
 
-  <section class="slide cream" data-label="24 PV in Excel">
+  <section class="slide cream" data-label="25 PV in Excel">
     <p class="eyebrow">Excel Function</p>
     <h2>Calculating present value in Excel.</h2>
     <hr>
@@ -491,10 +525,10 @@
     </div>
   </section>
 
-  <section class="slide image-slide fit-panel" data-label="25 PV Practice"><img class="media compact" src="assets/media/image26.png" alt="Present value practice"></section>
-  <section class="slide image-slide fit-panel" data-label="26 PV Visual"><img class="media wide" src="assets/media/image28.png" alt="Present value visual"></section>
+  <section class="slide image-slide fit-panel" data-label="26 PV Practice"><img class="media compact" src="assets/media/image26.png" alt="Present value practice"></section>
+  <section class="slide image-slide fit-panel" data-label="27 PV Visual"><img class="media wide" src="assets/media/image28.png" alt="Present value visual"></section>
 
-  <section class="slide cream" data-label="27 AB Tools Case">
+  <section class="slide cream" data-label="28 AB Tools Case">
     <p class="eyebrow">Practice Scenario</p>
     <h2>The AB Tools Case.</h2>
     <hr>
@@ -502,7 +536,7 @@
     <div class="tag-row"><span class="tag">FV = $50,000</span><span class="tag">i = 6%</span><span class="tag">n = 5</span><span class="tag">PV = ?</span></div>
   </section>
 
-  <section class="slide cream" data-label="28 AB Tools Solution">
+  <section class="slide cream" data-label="29 AB Tools Solution">
     <p class="eyebrow">AB Tools Solution</p>
     <h2>You must lock away money today to reach the future goal.</h2>
     <hr>
@@ -510,11 +544,11 @@
     <p class="mini">Interpretation: an outflow today creates a positive $50,000 future value.</p>
   </section>
 
-  <section class="slide image-slide fit-panel" data-label="29 AB Tools Excel"><img class="media wide" src="assets/media/image33.png" alt="AB Tools Excel solution"></section>
+  <section class="slide image-slide fit-panel" data-label="30 AB Tools Excel"><img class="media wide" src="assets/media/image33.png" alt="AB Tools Excel solution"></section>
 
-  <section class="slide image-slide" data-label="30 Three Interest Rates"><img class="media" src="assets/media/image34.png" alt="Three interest rates worksheet"></section>
+  <section class="slide image-slide" data-label="31 Three Interest Rates"><img class="media" src="assets/media/image34.png" alt="Three interest rates worksheet"></section>
 
-  <section class="slide cream" data-label="31 Multiple Rates FV">
+  <section class="slide cream" data-label="32 Multiple Rates FV">
     <p class="eyebrow">Multiple Rates</p>
     <h2>Compounding when rates change over time.</h2>
     <hr>
@@ -522,10 +556,10 @@
     <div class="formula" style="margin-top:36px">FV = $1,500 × 1.07 × 1.08 × 1.085</div>
   </section>
 
-  <section class="slide image-slide fit-panel" data-label="32 Multiple Rates FV Excel"><img class="media compact" src="assets/media/image37.png" alt="Multiple rates future value worksheet"></section>
-  <section class="slide image-slide fit-panel" data-label="33 Multiple Rates Result"><img class="media wide" src="assets/media/image39.png" alt="Multiple rates result"></section>
+  <section class="slide image-slide fit-panel" data-label="33 Multiple Rates FV Excel"><img class="media compact" src="assets/media/image37.png" alt="Multiple rates future value worksheet"></section>
+  <section class="slide image-slide fit-panel" data-label="34 Multiple Rates Result"><img class="media wide" src="assets/media/image39.png" alt="Multiple rates result"></section>
 
-  <section class="slide cream" data-label="34 Multiple Rates PV">
+  <section class="slide cream" data-label="35 Multiple Rates PV">
     <p class="eyebrow">Multiple Rates</p>
     <h2>Discounting when rates change over time.</h2>
     <hr>
@@ -533,15 +567,15 @@
     <div class="formula" style="margin-top:36px">PV = $2,500 / (1.07 × 1.08 × 1.085)</div>
   </section>
 
-  <section class="slide image-slide fit-panel" data-label="35 Multiple Rates PV Excel"><img class="media wide" src="assets/media/image42.png" alt="Multiple rates present value worksheet"></section>
+  <section class="slide image-slide fit-panel" data-label="36 Multiple Rates PV Excel"><img class="media wide" src="assets/media/image42.png" alt="Multiple rates present value worksheet"></section>
 
-  <section class="slide dark section-slide" data-label="36 Finding the Rate">
+  <section class="slide dark section-slide" data-label="37 Finding the Rate">
     <div class="gradient-bar"></div>
     <p class="eyebrow">Solving for i</p>
     <h2>Finding the interest rate means solving for the return earned each period.</h2>
   </section>
 
-  <section class="slide cream" data-label="37 RATE in Excel">
+  <section class="slide cream" data-label="38 RATE in Excel">
     <p class="eyebrow">Excel Function</p>
     <h2>Computing interest rates in Excel.</h2>
     <hr>
@@ -549,14 +583,14 @@
     <p class="mini">Add a Rates tab to your TVM workbook.</p>
   </section>
 
-  <section class="slide cream" data-label="38 Rate Practice">
+  <section class="slide cream" data-label="39 Rate Practice">
     <p class="eyebrow">Give It a Try</p>
     <h2>Twelve years ago, you invested $4,800. Today it is worth $8,750.</h2>
     <hr>
     <div class="callout">What is your rate of return?</div>
   </section>
 
-  <section class="slide cream" data-label="39 Rate Solution">
+  <section class="slide cream" data-label="40 Rate Solution">
     <p class="eyebrow">Rate of Return</p>
     <h2>Use opposite signs for investment outflow and future inflow.</h2>
     <hr>
@@ -564,7 +598,7 @@
     <p class="mini">PV is negative because the investment was an outflow. FV is positive because the payoff is an inflow.</p>
   </section>
 
-  <section class="slide cream" data-label="40 Solving for Time">
+  <section class="slide cream" data-label="41 Solving for Time">
     <p class="eyebrow">Solving for n</p>
     <h2>How many years are needed to accumulate money?</h2>
     <hr>
@@ -576,14 +610,14 @@
     <div class="formula" style="margin-top:36px">=NPER(rate, -pmt, -PV, FV)</div>
   </section>
 
-  <section class="slide cream" data-label="41 Time Practice">
+  <section class="slide cream" data-label="42 Time Practice">
     <p class="eyebrow">Give It a Try</p>
     <h2>When interest rates are 9%, how long will it take $5,000 to double?</h2>
     <hr>
     <div class="formula large">=NPER(9%, 0, -5000, 10000)</div>
   </section>
 
-  <section class="slide cream" data-label="42 Time Solution">
+  <section class="slide cream" data-label="43 Time Solution">
     <p class="eyebrow">Excel Solution</p>
     <h2>It takes 8.04 years at 9%.</h2>
     <hr>
@@ -591,7 +625,7 @@
     <p>years</p>
   </section>
 
-  <section class="slide cream" data-label="43 Rule of 72">
+  <section class="slide cream" data-label="44 Rule of 72">
     <p class="eyebrow">The Rule of 72</p>
     <h2>A quick estimate for doubling time.</h2>
     <hr>
@@ -601,9 +635,9 @@
     </div>
   </section>
 
-  <section class="slide image-slide" data-label="44 Rule of 72 Visual"><img class="media" src="assets/media/image52.png" alt="Rule of 72 visual"></section>
+  <section class="slide image-slide" data-label="45 Rule of 72 Visual"><img class="media" src="assets/media/image52.png" alt="Rule of 72 visual"></section>
 
-  <section class="slide cream" data-label="45 Moving Cash Flows">
+  <section class="slide cream" data-label="46 Moving Cash Flows">
     <p class="eyebrow">Moving Cash Flows Through Time</p>
     <h2>Future value and present value are directions, not just destinations.</h2>
     <hr>
@@ -613,17 +647,17 @@
     </div>
   </section>
 
-  <section class="slide image-slide" data-label="46 Timeline Practice"><img class="media" src="assets/media/image54.png" alt="Timeline practice"></section>
+  <section class="slide image-slide" data-label="47 Timeline Practice"><img class="media" src="assets/media/image54.png" alt="Timeline practice"></section>
 
-  <section class="slide dark section-slide" data-label="47 Time Machine">
+  <section class="slide dark section-slide" data-label="48 Time Machine">
     <div class="gradient-bar"></div>
     <p class="eyebrow">Excel Build</p>
     <h2>What if we could build a Time Machine?</h2>
   </section>
 
-  <section class="slide image-slide fit-panel" data-label="48 Time Machine Setup"><img class="media strip" src="assets/media/image58.png" alt="Time machine worksheet setup"></section>
+  <section class="slide image-slide fit-panel" data-label="49 Time Machine Setup"><img class="media strip" src="assets/media/image58.png" alt="Time machine worksheet setup"></section>
 
-  <section class="slide cream" data-label="49 Time Machine Logic">
+  <section class="slide cream" data-label="50 Time Machine Logic">
     <p class="eyebrow">Time Machine Logic</p>
     <h2>The formula must detect whether you are moving forward or backward.</h2>
     <hr>
@@ -633,7 +667,7 @@
     </div>
   </section>
 
-  <section class="slide cream" data-label="50 IF Statement">
+  <section class="slide cream" data-label="51 IF Statement">
     <p class="eyebrow">Excel Logic</p>
     <h2>An IF statement asks a question, then chooses one of two actions.</h2>
     <hr>
@@ -645,7 +679,7 @@
     </div>
   </section>
 
-  <section class="slide dark close-slide" data-label="51 Close">
+  <section class="slide dark close-slide" data-label="52 Close">
     <div class="gradient-bar"></div>
     <p class="eyebrow">Module 1 Takeaways</p>
     <h2>The wealth creation mindset.</h2>
@@ -662,5 +696,135 @@
 <script src="../deck-stage.js"></script>
 <script src="../image-slot.js"></script>
 <script type="text/babel" src="../tweaks-panel.jsx"></script>
+<script>
+  (() => {
+    const root = document.querySelector("[data-tvm-calculator]");
+    if (!root) return;
+
+    let mode = "FV";
+    const buttons = [...root.querySelectorAll(".tvm-mode-btn")];
+    const form = root.querySelector(".tvm-form");
+    const resultBox = root.querySelector(".tvm-result");
+    const resultLabel = resultBox.querySelector("p");
+    const resultValue = resultBox.querySelector("strong");
+    const fields = {
+      PV: root.querySelector('[data-field="PV"]'),
+      FV: root.querySelector('[data-field="FV"]'),
+      PMT: root.querySelector('[data-field="PMT"]'),
+      RATE: root.querySelector('[data-field="RATE"]'),
+      N: root.querySelector('[data-field="N"]')
+    };
+
+    const inputValue = (id) => {
+      const value = Number.parseFloat(root.querySelector(id).value);
+      return Number.isFinite(value) ? value : 0;
+    };
+    const formatCurrency = (value) => new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 2
+    }).format(value);
+    const annuityFactor = (rate, periods) => {
+      if (Math.abs(rate) < 1e-10) return periods;
+      return (Math.pow(1 + rate, periods) - 1) / rate;
+    };
+
+    function showFieldState() {
+      Object.entries(fields).forEach(([key, field]) => {
+        field.style.display = key === mode ? "none" : "grid";
+      });
+    }
+
+    function showResult(label, value, isError = false) {
+      resultLabel.textContent = label;
+      resultValue.textContent = value;
+      resultBox.classList.toggle("error", isError);
+    }
+
+    function calculate() {
+      const pv = inputValue("#tvm-pv");
+      const fv = inputValue("#tvm-fv");
+      const pmt = inputValue("#tvm-pmt");
+      const annualRate = inputValue("#tvm-rate");
+      const years = inputValue("#tvm-n");
+      const comp = Number.parseInt(root.querySelector("#tvm-comp").value, 10);
+      const rate = annualRate / 100 / comp;
+      const periods = years * comp;
+      const growth = Math.pow(1 + rate, periods);
+      const factor = annuityFactor(rate, periods);
+
+      if (mode !== "RATE" && (!Number.isFinite(periods) || periods <= 0)) {
+        showResult("Check inputs", "Periods must be greater than zero.", true);
+        return;
+      }
+      if (mode !== "RATE" && rate <= -1) {
+        showResult("Check inputs", "Rate per period must be above -100%.", true);
+        return;
+      }
+
+      if (mode === "FV") {
+        showResult("Future Value", formatCurrency(-(pv * growth + pmt * factor)));
+      } else if (mode === "PV") {
+        showResult("Present Value", formatCurrency(-(fv + pmt * factor) / growth));
+      } else if (mode === "PMT") {
+        if (Math.abs(factor) < 1e-10) {
+          showResult("Check inputs", "Payment cannot be solved with these inputs.", true);
+          return;
+        }
+        showResult("Payment", formatCurrency(-(pv * growth + fv) / factor));
+      } else if (mode === "N") {
+        const numerator = pmt - fv * rate;
+        const denominator = pmt + pv * rate;
+        if (Math.abs(rate) < 1e-10) {
+          if (Math.abs(pmt) < 1e-10) {
+            showResult("Check inputs", "Add a payment or rate to solve for time.", true);
+            return;
+          }
+          showResult("Number of Years", `${((-fv - pv) / pmt / comp).toFixed(2)} years`);
+        } else if (numerator <= 0 || denominator <= 0 || Math.abs(denominator) < 1e-10) {
+          showResult("Check inputs", "These cash flows do not produce a real time period.", true);
+        } else {
+          showResult("Number of Years", `${(Math.log(numerator / denominator) / Math.log(1 + rate) / comp).toFixed(2)} years`);
+        }
+      } else if (mode === "RATE") {
+        if (!Number.isFinite(periods) || periods <= 0) {
+          showResult("Check inputs", "Years must be greater than zero.", true);
+          return;
+        }
+        let guess = 0.01;
+        for (let i = 0; i < 80; i += 1) {
+          const pow = Math.pow(1 + guess, periods);
+          const f = pv * pow + pmt * annuityFactor(guess, periods) + fv;
+          const df = pv * periods * Math.pow(1 + guess, periods - 1) +
+            pmt * (periods * Math.pow(1 + guess, periods - 1) / guess - (pow - 1) / (guess * guess));
+          if (!Number.isFinite(f) || !Number.isFinite(df) || Math.abs(df) < 1e-10) break;
+          guess -= f / df;
+        }
+        if (!Number.isFinite(guess) || guess <= -1) {
+          showResult("Check inputs", "Rate did not converge.", true);
+          return;
+        }
+        showResult("Annual Rate", `${(guess * comp * 100).toFixed(4)}%`);
+      }
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        mode = button.dataset.mode;
+        buttons.forEach((item) => item.classList.toggle("active", item === button));
+        showFieldState();
+        calculate();
+      });
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      calculate();
+    });
+
+    showFieldState();
+    calculate();
+  })();
+</script>
 </body>
 </html>
