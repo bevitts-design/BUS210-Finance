@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUS 210: Module 1 - Time Value of Money</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script type="application/json" id="speaker-notes">[]</script>
+  <style>
+    :root {
+      --ink:#0E1116;
+      --paper:#FAF8F3;
+      --paper-2:#F2EEE5;
+      --white:#FFFFFF;
+      --text:#1A1F2C;
+      --text-soft:#4A5567;
+      --muted:#7A8290;
+      --border:#E5E1D6;
+      --sage:#4A7C5E;
+      --gold:#B8843D;
+      --terra:#9C4A2B;
+      --steel:#355773;
+      --accent:var(--steel);
+      --gradient:linear-gradient(90deg, #B8843D 0%, #9C4A2B 50%, #4A7C5E 100%);
+      --scale:1;
+      --type-display:calc(112px * var(--scale));
+      --type-title:calc(72px * var(--scale));
+      --type-subtitle:calc(44px * var(--scale));
+      --type-lead:calc(34px * var(--scale));
+      --type-body:calc(28px * var(--scale));
+      --type-small:calc(24px * var(--scale));
+      --type-eyebrow:calc(24px * var(--scale));
+      --type-mono:calc(24px * var(--scale));
+      --pad-x:128px;
+      --pad-top:104px;
+      --pad-bottom:96px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:#0b0d12;color:var(--text);font-family:"Geist",sans-serif}
+    .slide{width:1920px;height:1080px;padding:var(--pad-top) var(--pad-x) var(--pad-bottom);position:relative;overflow:hidden;font-family:"Geist",sans-serif}
+    .cream{background:var(--paper);color:var(--text)}
+    .dark{background:var(--ink);color:var(--white)}
+    .gradient-bar{position:absolute;left:0;right:0;top:0;height:18px;background:var(--gradient)}
+    h1,h2{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:0;margin:0;color:inherit}
+    h1{font-size:var(--type-display);line-height:.98;max-width:1180px}
+    h2{font-size:var(--type-title);line-height:1.04;max-width:1500px}
+    h3{font-size:32px;line-height:1.14;margin:0 0 16px;color:var(--text);font-weight:600}
+    p,li{font-size:var(--type-body);line-height:1.28;margin:0;color:var(--text-soft)}
+    ul{margin:0;padding-left:34px;display:grid;gap:18px}
+    hr{border:0;height:1px;background:var(--border);margin:40px 0 52px}
+    .eyebrow{margin:0 0 24px;color:var(--accent);font:500 var(--type-eyebrow)/1.15 "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase}
+    .dark .eyebrow{color:#D7E1EA}
+    .subtitle{font-family:"Instrument Serif",serif;font-style:italic;font-size:var(--type-subtitle);line-height:1.15;color:#D7E1EA;margin-top:36px}
+    .title-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center;height:100%}
+    .hero-art{width:100%;height:780px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,.14)}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+    .wide-left{grid-template-columns:1.14fr .86fr}
+    .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+    .card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:34px 38px;min-height:178px}
+    .card.dark-card{background:#151A22;border-color:#2D3441}
+    .dark .card p,.dark .card h3{color:#F5F1E8}
+    .callout{font-family:"Instrument Serif",serif;font-style:italic;font-size:var(--type-subtitle);line-height:1.18;color:var(--white);background:var(--accent);border-radius:8px;padding:44px}
+    .number-stack{display:grid;gap:22px}
+    .numbered{display:grid;grid-template-columns:82px 1fr;gap:24px;align-items:start}
+    .n{font-family:"Instrument Serif",serif;font-style:italic;font-size:64px;line-height:.9;color:var(--accent)}
+    .n-body{font-size:var(--type-body);line-height:1.24;color:var(--text)}
+    .formula{font-family:"JetBrains Mono",monospace;font-size:34px;line-height:1.35;color:var(--text);background:var(--white);border:1px solid var(--border);border-radius:8px;padding:34px 38px}
+    .formula.large{font-size:46px;text-align:center;padding:54px}
+    .formula-row{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:22px;margin-bottom:28px}
+    .formula-row .formula{font-size:28px;padding:24px 28px;min-height:112px;display:flex;align-items:center}
+    .screenshot-wide{height:520px;object-fit:contain;background:var(--white);padding:18px}
+    .excel-dialog{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:34px 38px;display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
+    .excel-field{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;border-bottom:1px solid var(--border);padding:14px 0}
+    .excel-field span:first-child{font:500 24px/1.1 "JetBrains Mono",monospace;color:var(--muted)}
+    .excel-field span:last-child{font:600 34px/1.1 "Geist",sans-serif;color:var(--text)}
+    .excel-result{grid-column:1 / -1;background:var(--paper-2);border-radius:8px;padding:24px 28px;font-size:38px;font-weight:600;color:var(--accent)}
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:end;margin-top:42px}
+    .tick{border-top:5px solid var(--accent);position:relative;padding-top:28px;text-align:center}
+    .tick:before{content:"";position:absolute;top:-13px;left:50%;width:22px;height:22px;background:var(--accent);border-radius:50%;transform:translateX(-50%)}
+    .tick strong{display:block;font-size:32px;color:var(--text);margin-bottom:12px}
+    .tick span{font:500 24px/1.2 "JetBrains Mono",monospace;color:var(--muted)}
+    .pv-bridge{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:34px;align-items:stretch;margin-top:8px}
+    .value-box{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:34px 36px;display:flex;flex-direction:column;justify-content:center;min-height:300px}
+    .value-box .label{font:500 24px/1.2 "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:22px}
+    .value-box .money{font-family:"Instrument Serif",serif;font-size:92px;line-height:.9;color:var(--accent)}
+    .value-box p{margin-top:22px}
+    .discount-card{background:var(--paper-2);border:1px solid var(--border);border-radius:8px;padding:34px 38px;display:grid;align-content:center;gap:22px;text-align:center}
+    .discount-card .arrow{font:500 30px/1.1 "JetBrains Mono",monospace;color:var(--accent)}
+    .discount-card .formula{font-size:34px;text-align:center;background:var(--white)}
+    .pv-timeline-wrap{margin-top:52px;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:58px 64px 50px}
+    .pv-timeline{position:relative;height:300px;display:grid;grid-template-columns:repeat(4,1fr);align-items:end}
+    .pv-timeline:before{content:"";position:absolute;left:7%;right:7%;top:142px;height:6px;background:var(--border)}
+    .pv-timeline:after{content:"Discount backward at 5%";position:absolute;left:20%;right:20%;top:68px;height:52px;border-top:5px solid var(--accent);border-left:5px solid var(--accent);border-right:5px solid var(--accent);border-radius:80px 80px 0 0;text-align:center;font:500 28px/1 "JetBrains Mono",monospace;color:var(--accent);padding-top:18px}
+    .pv-timeline.forward:after{content:"Compound forward at 5%";border-color:var(--gold);color:var(--gold)}
+    .pv-timeline.forward .pv-point:first-child .pv-dot{background:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+    .pv-timeline.forward .pv-point:last-child .pv-dot{background:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+    .pv-timeline.forward .future{color:var(--gold)}
+    .pv-point{position:relative;text-align:center;z-index:1}
+    .pv-dot{width:30px;height:30px;border-radius:50%;background:var(--accent);margin:0 auto 26px;border:6px solid var(--white);box-shadow:0 0 0 2px var(--accent)}
+    .pv-point.muted .pv-dot{background:var(--border);box-shadow:0 0 0 2px var(--border)}
+    .pv-point strong{display:block;font-family:"Instrument Serif",serif;font-size:58px;line-height:.95;color:var(--text);margin-bottom:12px}
+    .pv-point .future{color:var(--accent)}
+    .pv-point span{display:block;font:500 24px/1.2 "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+    .timeline-equation{display:grid;grid-template-columns:1fr auto 1fr;gap:26px;align-items:center;margin-top:36px}
+    .timeline-equation .formula{font-size:36px;text-align:center}
+    .equals{font-family:"Instrument Serif",serif;font-size:74px;color:var(--accent)}
+    .chart-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:36px 44px 30px;margin-top:34px}
+    .chart-svg{width:100%;height:610px;display:block}
+    .chart-svg text{font-family:"Geist",sans-serif;fill:var(--text-soft);font-size:24px}
+    .chart-svg .axis-label{font-family:"JetBrains Mono",monospace;font-size:24px;fill:var(--muted)}
+    .chart-svg .series-label{font-size:28px;font-weight:600}
+    .chart-svg .grid-line{stroke:var(--border);stroke-width:2}
+    .chart-svg .axis{stroke:var(--text);stroke-width:3}
+    .chart-svg .line{fill:none;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+    .chart-svg .dot{stroke:var(--white);stroke-width:4}
+    .media{width:100%;height:610px;object-fit:contain;background:var(--paper-2);border:1px solid var(--border);border-radius:8px}
+    .media.tall{height:720px}
+    .media.full{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;border-radius:0;background:transparent}
+    .image-slide{padding:72px;background:var(--paper)}
+    .image-slide .media{height:936px}
+    .image-slide.fit-panel{display:flex;align-items:center;justify-content:center;padding:112px 128px}
+    .image-slide.fit-panel .media{height:auto;max-height:760px;width:auto;max-width:1500px;padding:32px;background:var(--white);box-shadow:0 18px 48px rgba(14,17,22,.09)}
+    .image-slide.fit-panel .media.wide{width:1500px}
+    .image-slide.fit-panel .media.compact{max-width:1120px}
+    .image-slide.fit-panel .media.strip{width:1540px;max-height:420px}
+    .exercise-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:28px;height:720px}
+    .exercise-box{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:26px;display:flex;flex-direction:column;justify-content:center;min-height:0}
+    .exercise-box h3{font-size:30px;margin-bottom:18px}
+    .exercise-box img{width:100%;height:100%;max-height:250px;object-fit:contain}
+    .exercise-box.prompt{background:var(--accent);color:var(--white);align-items:flex-start;padding:36px}
+    .exercise-box.prompt h3,.exercise-box.prompt p{color:var(--white)}
+    .section-slide,.close-slide{display:flex;flex-direction:column;justify-content:center}
+    .section-slide h2,.close-slide h2{font-size:96px;max-width:1320px}
+    .tag-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:32px}
+    .tag{font:500 26px/1.1 "JetBrains Mono",monospace;color:var(--accent);background:var(--white);border:1px solid var(--border);border-radius:8px;padding:18px 22px}
+    .stat{font-family:"Instrument Serif",serif;font-size:116px;line-height:.9;color:var(--accent)}
+    .mini{font-size:24px;color:var(--muted);margin-top:22px}
+    @media print{#tweaks-root{display:none}}
+  </style>
+</head>
+<body>
+<deck-stage width="1920" height="1080" no-rail>
+  <section class="slide dark" data-label="01 Title">
+    <div class="gradient-bar"></div>
+    <div class="title-grid">
+      <img class="hero-art" src="assets/media/image1.png" alt="Time value of money visual">
+      <div>
+        <p class="eyebrow">BUS 210 · MODULE 1</p>
+        <h1>Time Value of Money</h1>
+        <p class="subtitle">A dollar today is worth more than a dollar tomorrow.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide cream" data-label="02 Learning Goals">
+    <p class="eyebrow">Learning Goals</p>
+    <h2>What you should be able to do by the end of Module 1.</h2>
+    <hr>
+    <div class="two-col">
+      <div class="number-stack">
+        <div class="numbered"><div class="n">01</div><div class="n-body">Create a cash flow time line.</div></div>
+        <div class="numbered"><div class="n">02</div><div class="n-body">Compute the future value of money.</div></div>
+        <div class="numbered"><div class="n">03</div><div class="n-body">Explain how compound interest increases wealth.</div></div>
+        <div class="numbered"><div class="n">04</div><div class="n-body">Calculate the present value of a future payment.</div></div>
+      </div>
+      <div class="number-stack">
+        <div class="numbered"><div class="n">05</div><div class="n-body">Move cash flows from one year to another.</div></div>
+        <div class="numbered"><div class="n">06</div><div class="n-body">Apply the Rule of 72.</div></div>
+        <div class="numbered"><div class="n">07</div><div class="n-body">Compute the realized rate of return on an investment.</div></div>
+        <div class="numbered"><div class="n">08</div><div class="n-body">Calculate the years needed to grow an investment.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide image-slide" data-label="03 Opening Visual"><img class="media" src="assets/media/image3.png" alt="Opening TVM visual"></section>
+
+  <section class="slide cream" data-label="04 Four Variables">
+    <p class="eyebrow">TVM Variables</p>
+    <h2>The four variables driving TVM calculations.</h2>
+    <hr>
+    <div class="three-col">
+      <div class="card"><h3>PV</h3><p>Present value: the seed, or what the cash flow is worth today.</p></div>
+      <div class="card"><h3>FV</h3><p>Future value: the harvest, or what the cash flow becomes later.</p></div>
+      <div class="card"><h3>i and n</h3><p>The interest rate controls speed. The number of periods controls distance.</p></div>
+    </div>
+    <div class="callout" style="margin-top:44px">Identify three variables, then solve for the fourth.</div>
+  </section>
+
+  <section class="slide image-slide" data-label="05 TVM Map"><img class="media" src="assets/media/image5.png" alt="TVM variables map"></section>
+
+  <section class="slide cream" data-label="06 Future Value Setup">
+    <p class="eyebrow">Future Value of a Lump Sum</p>
+    <h2>If you invest $100 at 5% APR for one year, how much will you have?</h2>
+    <hr>
+    <div class="two-col">
+      <div class="card"><h3>APR</h3><p>Annual Percentage Rate, also known as the interest rate.</p></div>
+      <div class="card"><h3>Question</h3><p>How much will you have earned at the end of 1 year?</p></div>
+    </div>
+    <div class="tag-row"><span class="tag">PV = $100</span><span class="tag">i = 5%</span><span class="tag">n = 1</span><span class="tag">FV = ?</span></div>
+  </section>
+
+  <section class="slide cream" data-label="07 FV Inputs">
+    <p class="eyebrow">Future Value Inputs</p>
+    <h2>Every future value problem starts with three knowns.</h2>
+    <hr>
+    <div class="three-col">
+      <div class="card"><h3>Present Value</h3><p>The money invested today.</p></div>
+      <div class="card"><h3>Rate of Interest</h3><p>The return earned each period.</p></div>
+      <div class="card"><h3>Time Periods</h3><p>The number of periods the money compounds.</p></div>
+    </div>
+  </section>
+
+  <section class="slide cream" data-label="08 Future Value">
+    <p class="eyebrow">Future Value</p>
+    <h2>Future value at the end of one year.</h2>
+    <hr>
+    <div class="formula large">FV = PV × (1 + i)<sup>n</sup></div>
+    <div class="timeline">
+      <div class="tick"><strong>$100</strong><span>Today</span></div>
+      <div class="tick"><strong>5%</strong><span>Rate</span></div>
+      <div class="tick"><strong>1 year</strong><span>Time</span></div>
+      <div class="tick"><strong>$105</strong><span>Future Value</span></div>
+    </div>
+  </section>
+
+  <section class="slide cream" data-label="09 FV Formula">
+    <p class="eyebrow">Formula Check</p>
+    <h2>Plug the values into the future value formula.</h2>
+    <hr>
+    <div class="formula large">FV = $100 × (1.05)<sup>1</sup> = $105</div>
+    <p class="mini">The extra $5 is interest earned over the year.</p>
+  </section>
+
+  <section class="slide cream" data-label="10 Excel Sign Convention">
+    <p class="eyebrow">Excel Sign Convention</p>
+    <h2>Think like a wallet.</h2>
+    <hr>
+    <div class="two-col">
+      <div class="card"><h3>Inflow (+)</h3><p>Money received, such as a withdrawal or investment payoff.</p></div>
+      <div class="card"><h3>Outflow (-)</h3><p>Money invested or deposited, leaving your wallet today.</p></div>
+    </div>
+    <div class="callout" style="margin-top:44px">Excel requires you to define the direction of the cash flow.</div>
+  </section>
+
+  <section class="slide cream" data-label="11 FV in Excel">
+    <p class="eyebrow">Excel Function</p>
+    <h2>Calculating future value in Excel.</h2>
+    <hr>
+    <div class="formula-row">
+      <div class="formula">=FV(rate, nper, pmt, [pv], [type])</div>
+      <div class="formula">=FV(5%, 3, 0, -100)</div>
+      <div class="formula">Result: $115.76</div>
+    </div>
+    <div class="excel-dialog" aria-label="FV function arguments recreated from Excel">
+      <div class="excel-field"><span>Rate</span><span>5%</span></div>
+      <div class="excel-field"><span>Nper</span><span>3</span></div>
+      <div class="excel-field"><span>Pmt</span><span>0</span></div>
+      <div class="excel-field"><span>Pv</span><span>-100</span></div>
+      <div class="excel-field"><span>Type</span><span>blank</span></div>
+      <div class="excel-field"><span>Meaning</span><span>End of period</span></div>
+      <div class="excel-result">Formula result = $115.76</div>
+    </div>
+  </section>
+
+  <section class="slide cream" data-label="12 Compounding Steps">
+    <p class="eyebrow">Compounding</p>
+    <h2>What will $100 today be worth in three years?</h2>
+    <hr>
+    <div class="pv-timeline-wrap">
+      <div class="pv-timeline forward">
+        <div class="pv-point">
+          <div class="pv-dot"></div>
+          <strong>$100.00</strong>
+          <span>Year 0 · Today</span>
+        </div>
+        <div class="pv-point muted">
+          <div class="pv-dot"></div>
+          <strong>$105.00</strong>
+          <span>Year 1</span>
+        </div>
+        <div class="pv-point muted">
+          <div class="pv-dot"></div>
+          <strong>$110.25</strong>
+          <span>Year 2</span>
+        </div>
+        <div class="pv-point">
+          <div class="pv-dot"></div>
+          <strong class="future">$115.76</strong>
+          <span>Year 3 · Future</span>
+        </div>
+      </div>
+      <div class="timeline-equation">
+        <div class="formula">$100.00 × 1.05 × 1.05 × 1.05</div>
+        <div class="equals">=</div>
+        <div class="formula">$115.76 in Year 3</div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:42px">Compounding adds interest each year, then earns interest on the larger balance.</div>
+  </section>
+
+  <section class="slide cream" data-label="13 Wealth Over Time">
+    <p class="eyebrow">Compounding</p>
+    <h2>Compounding builds wealth over time.</h2>
+    <div class="chart-card">
+      <svg class="chart-svg" viewBox="0 0 1120 610" role="img" aria-label="Future value of 1000 dollars compounded at 5, 10, and 15 percent for 10 years">
+        <line class="grid-line" x1="110" y1="50" x2="1030" y2="50"></line>
+        <line class="grid-line" x1="110" y1="126" x2="1030" y2="126"></line>
+        <line class="grid-line" x1="110" y1="202" x2="1030" y2="202"></line>
+        <line class="grid-line" x1="110" y1="278" x2="1030" y2="278"></line>
+        <line class="grid-line" x1="110" y1="354" x2="1030" y2="354"></line>
+        <line class="axis" x1="110" y1="354" x2="1030" y2="354"></line>
+        <line class="axis" x1="110" y1="50" x2="110" y2="354"></line>
+        <text x="26" y="58">$5,000</text>
+        <text x="26" y="134">$4,000</text>
+        <text x="26" y="210">$3,000</text>
+        <text x="26" y="286">$2,000</text>
+        <text x="26" y="362">$1,000</text>
+        <text class="axis-label" x="36" y="206" transform="rotate(-90 36 206)">Value ($)</text>
+        <text class="axis-label" x="548" y="458">Years</text>
+        <text x="103" y="400">0</text>
+        <text x="195" y="400">1</text>
+        <text x="287" y="400">2</text>
+        <text x="379" y="400">3</text>
+        <text x="471" y="400">4</text>
+        <text x="563" y="400">5</text>
+        <text x="655" y="400">6</text>
+        <text x="747" y="400">7</text>
+        <text x="839" y="400">8</text>
+        <text x="931" y="400">9</text>
+        <text x="1014" y="400">10</text>
+        <polyline class="line" stroke="#4A7C5E" points="110.0,354.0 202.0,350.2 294.0,346.2 386.0,342.0 478.0,337.6 570.0,333.0 662.0,328.2 754.0,323.1 846.0,317.7 938.0,312.1 1030.0,306.2"></polyline>
+        <polyline class="line" stroke="#355773" points="110.0,354.0 202.0,346.4 294.0,338.0 386.0,328.8 478.0,318.7 570.0,307.6 662.0,295.4 754.0,281.9 846.0,267.1 938.0,250.8 1030.0,232.9"></polyline>
+        <polyline class="line" stroke="#B8843D" points="110.0,354.0 202.0,342.6 294.0,329.5 386.0,314.4 478.0,297.1 570.0,277.1 662.0,254.2 754.0,227.8 846.0,197.5 938.0,162.6 1030.0,122.5"></polyline>
+        <circle class="dot" cx="1030" cy="306.2" r="9" fill="#4A7C5E"></circle>
+        <circle class="dot" cx="1030" cy="232.9" r="9" fill="#355773"></circle>
+        <circle class="dot" cx="1030" cy="122.5" r="9" fill="#B8843D"></circle>
+        <text class="series-label" x="742" y="534" fill="#4A7C5E">Conservative 5%: $1,629</text>
+        <text class="series-label" x="390" y="534" fill="#355773">Moderate 10%: $2,594</text>
+        <text class="series-label" x="70" y="534" fill="#B8843D">Aggressive 15%: $4,046</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="slide cream" data-label="14 Your Turn">
+    <p class="eyebrow">Your Turn</p>
+    <h2>Open Excel and create your TVM workbook.</h2>
+    <hr>
+    <div class="number-stack">
+      <div class="numbered"><div class="n">01</div><div class="n-body">Create a TVM file for homework, quizzes, and exams.</div></div>
+      <div class="numbered"><div class="n">02</div><div class="n-body">Save it with your name in the file.</div></div>
+      <div class="numbered"><div class="n">03</div><div class="n-body">Example: Beth.TVM-File.210</div></div>
+    </div>
+  </section>
+
+  <section class="slide cream" data-label="15 In-Class Exercises">
+    <p class="eyebrow">Your Turn</p>
+    <h2>Build your TVM workbook through three practice exercises.</h2>
+    <hr>
+    <div class="exercise-grid">
+      <div class="exercise-box">
+        <h3>Exercise 1</h3>
+        <img src="assets/media/image14.png" alt="In-class exercise 1">
+      </div>
+      <div class="exercise-box">
+        <h3>Exercise 2</h3>
+        <img src="assets/media/image15.png" alt="In-class exercise 2">
+      </div>
+      <div class="exercise-box">
+        <h3>Exercise 3</h3>
+        <img src="assets/media/image16.png" alt="In-class exercise 3">
+      </div>
+      <div class="exercise-box prompt">
+        <h3>Workbook Check</h3>
+        <p>Save the file, keep formulas visible, and make each calculator flexible enough to change PV, rate, and time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide cream" data-label="16 Interest on Interest">
+    <p class="eyebrow">Interest on Interest</p>
+    <h2>Compound interest earns on the principal and accumulated interest.</h2>
+    <hr>
+    <div class="two-col">
+      <div class="card"><h3>Simple Interest</h3><p>Earning only on the original principal.</p></div>
+      <div class="card"><h3>Compound Interest</h3><p>Earning on the principal plus accumulated interest.</p></div>
+    </div>
+    <p class="mini">Based on $100 at 7% for 3 years: interest on interest equals $1.50.</p>
+  </section>
+
+  <section class="slide cream" data-label="17 Simple Interest">
+    <p class="eyebrow">Simple Interest Calculation</p>
+    <h2>Simple interest is linear.</h2>
+    <hr>
+    <div class="formula large">Simple Interest = Amount × Interest Rate × n</div>
+    <div class="formula" style="margin-top:36px">$100 × 7% × 3 = $21<br>Total compound interest: $122.50 - $100 = $22.50<br>Interest on interest: $22.50 - $21 = $1.50</div>
+  </section>
+
+  <section class="slide cream" data-label="18 Simple Interest Problem">
+    <p class="eyebrow">Practice</p>
+    <h2>Calculate simple interest earned.</h2>
+    <hr>
+    <div class="callout">$1,500 invested today for 3 years at 7.00%.</div>
+  </section>
+
+  <section class="slide image-slide fit-panel" data-label="19 Simple Interest Calculator"><img class="media wide" src="assets/media/image20.png" alt="Simple interest calculator"></section>
+
+  <section class="slide dark section-slide" data-label="20 Discounting">
+    <div class="gradient-bar"></div>
+    <p class="eyebrow">Two Sides of the Same Coin</p>
+    <h2>Compounding moves money forward. Discounting moves money backward.</h2>
+  </section>
+
+  <section class="slide cream" data-label="21 Present Value">
+    <p class="eyebrow">Present Value</p>
+    <h2>What is $115.76 in three years worth today?</h2>
+    <hr>
+    <div class="pv-bridge">
+      <div class="value-box">
+        <div class="label">Today · Year 0</div>
+        <div class="money">$100.00</div>
+        <p>Present value: the amount you would need today.</p>
+      </div>
+      <div class="discount-card">
+        <div class="arrow">Move backward 3 years at 5%</div>
+        <div class="formula">PV = $115.76 / (1.05)<sup>3</sup></div>
+        <div class="formula">PV = $100.00</div>
+      </div>
+      <div class="value-box">
+        <div class="label">Future · Year 3</div>
+        <div class="money">$115.76</div>
+        <p>Future value: the money you will have later.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:42px">Discounting strips out the interest, so future dollars can be compared to today's dollars.</div>
+  </section>
+
+  <section class="slide cream" data-label="22 PV Timeline">
+    <p class="eyebrow">Visual Timeline</p>
+    <h2>Present value asks: what amount today becomes the future amount?</h2>
+    <hr>
+    <div class="pv-timeline-wrap">
+      <div class="pv-timeline">
+        <div class="pv-point">
+          <div class="pv-dot"></div>
+          <strong>$100.00</strong>
+          <span>Year 0 · Today</span>
+        </div>
+        <div class="pv-point muted">
+          <div class="pv-dot"></div>
+          <strong>5%</strong>
+          <span>Year 1</span>
+        </div>
+        <div class="pv-point muted">
+          <div class="pv-dot"></div>
+          <strong>5%</strong>
+          <span>Year 2</span>
+        </div>
+        <div class="pv-point">
+          <div class="pv-dot"></div>
+          <strong class="future">$115.76</strong>
+          <span>Year 3 · Future</span>
+        </div>
+      </div>
+      <div class="timeline-equation">
+        <div class="formula">$115.76 ÷ 1.05 ÷ 1.05 ÷ 1.05</div>
+        <div class="equals">=</div>
+        <div class="formula">$100.00 today</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide cream" data-label="23 PV Formula">
+    <p class="eyebrow">Present Value</p>
+    <h2>Discounting is compounding in reverse.</h2>
+    <hr>
+    <div class="two-col">
+      <div class="formula large">PV = FV / (1 + i)<sup>n</sup></div>
+      <div class="formula">=PV(rate, nper, pmt, [fv], [type])<br><br>=PV(5%, 3, 0, 115.76)<br><br>Result: -$100.00</div>
+    </div>
+  </section>
+
+  <section class="slide cream" data-label="24 PV in Excel">
+    <p class="eyebrow">Excel Function</p>
+    <h2>Calculating present value in Excel.</h2>
+    <hr>
+    <div class="two-col wide-left">
+      <div class="formula">=PV(6%, 5, 0, 10000)<br><br>Result: -$7,472.58<br><br>The negative sign means this is the cash outflow required today.</div>
+      <img class="media" src="assets/media/image24.png" alt="PV function example">
+    </div>
+  </section>
+
+  <section class="slide image-slide fit-panel" data-label="25 PV Practice"><img class="media compact" src="assets/media/image26.png" alt="Present value practice"></section>
+  <section class="slide image-slide fit-panel" data-label="26 PV Visual"><img class="media wide" src="assets/media/image28.png" alt="Present value visual"></section>
+
+  <section class="slide cream" data-label="27 AB Tools Case">
+    <p class="eyebrow">Practice Scenario</p>
+    <h2>The AB Tools Case.</h2>
+    <hr>
+    <div class="callout">How much do you need to deposit today to have $50,000 in 5 years?</div>
+    <div class="tag-row"><span class="tag">FV = $50,000</span><span class="tag">i = 6%</span><span class="tag">n = 5</span><span class="tag">PV = ?</span></div>
+  </section>
+
+  <section class="slide cream" data-label="28 AB Tools Solution">
+    <p class="eyebrow">AB Tools Solution</p>
+    <h2>You must lock away money today to reach the future goal.</h2>
+    <hr>
+    <div class="formula large">PV = -$37,362.91</div>
+    <p class="mini">Interpretation: an outflow today creates a positive $50,000 future value.</p>
+  </section>
+
+  <section class="slide image-slide fit-panel" data-label="29 AB Tools Excel"><img class="media wide" src="assets/media/image33.png" alt="AB Tools Excel solution"></section>
+
+  <section class="slide image-slide" data-label="30 Three Interest Rates"><img class="media" src="assets/media/image34.png" alt="Three interest rates worksheet"></section>
+
+  <section class="slide cream" data-label="31 Multiple Rates FV">
+    <p class="eyebrow">Multiple Rates</p>
+    <h2>Compounding when rates change over time.</h2>
+    <hr>
+    <div class="callout">Suppose rates increase from 7% this year, to 8% next year, to 8.5% in the third year.</div>
+    <div class="formula" style="margin-top:36px">FV = $1,500 × 1.07 × 1.08 × 1.085</div>
+  </section>
+
+  <section class="slide image-slide fit-panel" data-label="32 Multiple Rates FV Excel"><img class="media compact" src="assets/media/image37.png" alt="Multiple rates future value worksheet"></section>
+  <section class="slide image-slide fit-panel" data-label="33 Multiple Rates Result"><img class="media wide" src="assets/media/image39.png" alt="Multiple rates result"></section>
+
+  <section class="slide cream" data-label="34 Multiple Rates PV">
+    <p class="eyebrow">Multiple Rates</p>
+    <h2>Discounting when rates change over time.</h2>
+    <hr>
+    <div class="callout">What is the present value of a future $2,500 cash flow in year 3?</div>
+    <div class="formula" style="margin-top:36px">PV = $2,500 / (1.07 × 1.08 × 1.085)</div>
+  </section>
+
+  <section class="slide image-slide fit-panel" data-label="35 Multiple Rates PV Excel"><img class="media wide" src="assets/media/image42.png" alt="Multiple rates present value worksheet"></section>
+
+  <section class="slide dark section-slide" data-label="36 Finding the Rate">
+    <div class="gradient-bar"></div>
+    <p class="eyebrow">Solving for i</p>
+    <h2>Finding the interest rate means solving for the return earned each period.</h2>
+  </section>
+
+  <section class="slide cream" data-label="37 RATE in Excel">
+    <p class="eyebrow">Excel Function</p>
+    <h2>Computing interest rates in Excel.</h2>
+    <hr>
+    <div class="formula large">=RATE(nper, pmt, -pv, fv)</div>
+    <p class="mini">Add a Rates tab to your TVM workbook.</p>
+  </section>
+
+  <section class="slide cream" data-label="38 Rate Practice">
+    <p class="eyebrow">Give It a Try</p>
+    <h2>Twelve years ago, you invested $4,800. Today it is worth $8,750.</h2>
+    <hr>
+    <div class="callout">What is your rate of return?</div>
+  </section>
+
+  <section class="slide cream" data-label="39 Rate Solution">
+    <p class="eyebrow">Rate of Return</p>
+    <h2>Use opposite signs for investment outflow and future inflow.</h2>
+    <hr>
+    <div class="formula">=RATE(12, 0, -4800, 8750)</div>
+    <p class="mini">PV is negative because the investment was an outflow. FV is positive because the payoff is an inflow.</p>
+  </section>
+
+  <section class="slide cream" data-label="40 Solving for Time">
+    <p class="eyebrow">Solving for n</p>
+    <h2>How many years are needed to accumulate money?</h2>
+    <hr>
+    <div class="three-col">
+      <div class="card"><h3>Starting cash flow</h3><p>How much you have today.</p></div>
+      <div class="card"><h3>Interest rate</h3><p>The growth rate per period.</p></div>
+      <div class="card"><h3>Future cash flow</h3><p>The amount you need later.</p></div>
+    </div>
+    <div class="formula" style="margin-top:36px">=NPER(rate, -pmt, -PV, FV)</div>
+  </section>
+
+  <section class="slide cream" data-label="41 Time Practice">
+    <p class="eyebrow">Give It a Try</p>
+    <h2>When interest rates are 9%, how long will it take $5,000 to double?</h2>
+    <hr>
+    <div class="formula large">=NPER(9%, 0, -5000, 10000)</div>
+  </section>
+
+  <section class="slide cream" data-label="42 Time Solution">
+    <p class="eyebrow">Excel Solution</p>
+    <h2>It takes 8.04 years at 9%.</h2>
+    <hr>
+    <div class="stat">8.04</div>
+    <p>years</p>
+  </section>
+
+  <section class="slide cream" data-label="43 Rule of 72">
+    <p class="eyebrow">The Rule of 72</p>
+    <h2>A quick estimate for doubling time.</h2>
+    <hr>
+    <div class="two-col">
+      <div class="formula large">Years to Double ≈ 72 / Rate</div>
+      <div class="card"><h3>Examples</h3><p>3% rate: about 24 years.<br>9% rate: about 8 years.</p></div>
+    </div>
+  </section>
+
+  <section class="slide image-slide" data-label="44 Rule of 72 Visual"><img class="media" src="assets/media/image52.png" alt="Rule of 72 visual"></section>
+
+  <section class="slide cream" data-label="45 Moving Cash Flows">
+    <p class="eyebrow">Moving Cash Flows Through Time</p>
+    <h2>Future value and present value are directions, not just destinations.</h2>
+    <hr>
+    <div class="two-col">
+      <div class="card"><h3>Moving it later</h3><p>Compound forward: FV = $1,000 × (1.08)<sup>5</sup> = $1,469.33.</p></div>
+      <div class="card"><h3>Moving it earlier</h3><p>Discount backward: PV = $1,000 / (1.08)<sup>3</sup> = $793.83.</p></div>
+    </div>
+  </section>
+
+  <section class="slide image-slide" data-label="46 Timeline Practice"><img class="media" src="assets/media/image54.png" alt="Timeline practice"></section>
+
+  <section class="slide dark section-slide" data-label="47 Time Machine">
+    <div class="gradient-bar"></div>
+    <p class="eyebrow">Excel Build</p>
+    <h2>What if we could build a Time Machine?</h2>
+  </section>
+
+  <section class="slide image-slide fit-panel" data-label="48 Time Machine Setup"><img class="media strip" src="assets/media/image58.png" alt="Time machine worksheet setup"></section>
+
+  <section class="slide cream" data-label="49 Time Machine Logic">
+    <p class="eyebrow">Time Machine Logic</p>
+    <h2>The formula must detect whether you are moving forward or backward.</h2>
+    <hr>
+    <div class="two-col">
+      <div class="card"><h3>Forward</h3><p>If the target year is later, use an FV function.</p></div>
+      <div class="card"><h3>Backward</h3><p>If the target year is earlier, use a PV function.</p></div>
+    </div>
+  </section>
+
+  <section class="slide cream" data-label="50 IF Statement">
+    <p class="eyebrow">Excel Logic</p>
+    <h2>An IF statement asks a question, then chooses one of two actions.</h2>
+    <hr>
+    <div class="formula large">=IF(Question, What to do if Yes, What to do if No)</div>
+    <div class="three-col" style="margin-top:40px">
+      <div class="card"><h3>Logical test</h3><p>Target Year &gt; Initial Year?</p></div>
+      <div class="card"><h3>If true</h3><p>Perform an FV calculation.</p></div>
+      <div class="card"><h3>If false</h3><p>Perform a PV calculation.</p></div>
+    </div>
+  </section>
+
+  <section class="slide dark close-slide" data-label="51 Close">
+    <div class="gradient-bar"></div>
+    <p class="eyebrow">Module 1 Takeaways</p>
+    <h2>The wealth creation mindset.</h2>
+    <div class="tag-row">
+      <span class="tag">Time is money</span>
+      <span class="tag">Direction matters</span>
+      <span class="tag">Sign convention is key</span>
+      <span class="tag">Know 3, solve for 4</span>
+    </div>
+  </section>
+</deck-stage>
+
+<div id="tweaks-root" style="position:fixed; bottom:0; right:0; z-index:10000;"></div>
+<script src="../deck-stage.js"></script>
+<script src="../image-slot.js"></script>
+<script type="text/babel" src="../tweaks-panel.jsx"></script>
+</body>
+</html>

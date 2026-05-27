@@ -1,0 +1,4 @@
+interface:
+  display_name: "Branded PPTX to HTML"
+  short_description: "Convert PPTX decks into Prof. Evitts branded HTML slide decks."
+  default_prompt: "Convert this PPTX into a branded editable HTML deck. Ask for the course and destination folder first."
