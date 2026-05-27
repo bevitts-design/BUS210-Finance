@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUS 210: Introduction to Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script type="application/json" id="speaker-notes">[]</script>
+  <style>
+    :root {
+      --ink:#0E1116;
+      --paper:#FAF8F3;
+      --paper-2:#F2EEE5;
+      --white:#FFFFFF;
+      --text:#1A1F2C;
+      --text-soft:#4A5567;
+      --muted:#7A8290;
+      --border:#E5E1D6;
+      --sage:#4A7C5E;
+      --gold:#B8843D;
+      --terra:#9C4A2B;
+      --steel:#355773;
+      --accent:var(--steel);
+      --gradient:linear-gradient(90deg, #B8843D 0%, #9C4A2B 50%, #4A7C5E 100%);
+      --scale:1;
+      --type-display:calc(112px * var(--scale));
+      --type-title:calc(72px * var(--scale));
+      --type-subtitle:calc(44px * var(--scale));
+      --type-lead:calc(34px * var(--scale));
+      --type-body:calc(28px * var(--scale));
+      --type-small:calc(24px * var(--scale));
+      --type-eyebrow:calc(24px * var(--scale));
+      --type-mono:calc(24px * var(--scale));
+      --type-stat:calc(180px * var(--scale));
+      --pad-x:128px;
+      --pad-top:104px;
+      --pad-bottom:96px;
+      --gap-title:56px;
+      --gap-item:32px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:#0b0d12;color:var(--text);font-family:"Geist",sans-serif;}
+    .slide{width:1920px;height:1080px;padding:var(--pad-top) var(--pad-x) var(--pad-bottom);position:relative;overflow:hidden;font-family:"Geist",sans-serif;}
+    .slide.cream{background:var(--paper);color:var(--text)}
+    .slide.dark{background:var(--ink);color:var(--white)}
+    .gradient-bar{position:absolute;left:0;right:0;top:0;height:18px;background:var(--gradient)}
+    .eyebrow{margin:0 0 24px;color:var(--accent);font:500 var(--type-eyebrow)/1.15 "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase}
+    .dark .eyebrow{color:#D7E1EA}
+    h1,h2{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:0;margin:0;color:inherit}
+    h1{font-size:var(--type-display);line-height:.98;max-width:980px}
+    h2{font-size:var(--type-title);line-height:1.04;max-width:1500px;margin-bottom:0}
+    h3{font-size:32px;line-height:1.15;margin:0 0 16px;color:var(--text);font-weight:600}
+    p,li{font-size:var(--type-body);line-height:1.28;margin:0;color:var(--text-soft)}
+    hr{border:0;height:1px;background:var(--border);margin:40px 0 56px}
+    .title-grid{display:grid;grid-template-columns:560px 1fr;gap:96px;align-items:center;height:100%}
+    .brand-panel{width:560px;height:760px;overflow:hidden;background:#071d33;display:flex;align-items:center;justify-content:flex-start}
+    .brand-panel img{height:760px;width:auto;transform:translateX(-10px);}
+    .title-copy{padding-top:60px}.subtitle{font-family:"Instrument Serif",serif;font-style:italic;font-size:var(--type-subtitle);color:#D7E1EA;margin-top:40px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}.wide-left{grid-template-columns:1.15fr .85fr}.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.four-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}.center-image{display:flex;align-items:center;justify-content:center;height:730px}
+    .card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:36px 40px;min-height:190px}.card p{color:var(--text-soft)}.cards .card{min-height:520px}.card-list{display:grid;gap:32px}.card-list.compact{gap:24px}.card-list.compact .card{min-height:0;padding:28px 32px}.card-list.compact h3{font-size:28px}.card-list.compact p{font-size:24px}.prompt-stack{display:grid;gap:28px}.prompt-stack.three{grid-template-columns:repeat(3,1fr)}.number-stack{display:grid;gap:20px}.numbered{display:grid;grid-template-columns:84px 1fr;gap:24px;align-items:start}.n{font-family:"Instrument Serif",serif;font-style:italic;font-size:64px;line-height:.9;color:var(--accent)}.n-body{font-size:var(--type-body);line-height:1.25;color:var(--text)}.dark .n-body{color:#F5F1E8}.dark .n{color:#D7E1EA}.callout{font-family:"Instrument Serif",serif;font-style:italic;font-size:var(--type-subtitle);line-height:1.2;color:var(--text-soft);background:var(--paper-2);border:1px solid var(--border);border-radius:8px;padding:48px}.callout.steel{background:var(--accent);color:var(--white);border-color:var(--accent)}.callout.narrow{max-width:1220px;margin-top:56px}.quote,blockquote{font-family:"Instrument Serif",serif;font-size:64px;line-height:1.12;color:var(--text);margin:0}.quote-source,.caption{font-family:"JetBrains Mono",monospace;font-size:var(--type-small);line-height:1.25;color:var(--muted);margin-top:24px}.image-frame{width:100%;height:520px;object-fit:contain;background:var(--paper-2);border:1px solid var(--border);border-radius:8px}.image-frame.clean{background:transparent;border:0}.image-frame.tall{height:660px}.image-frame.portrait{object-fit:cover}.image-frame.wide{height:680px}.people h3{margin-top:24px}.people p{color:var(--text-soft)}.grade-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;align-items:stretch}.big-stat,.mini-stats{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:40px}.big-stat span{display:block;font-family:"Instrument Serif",serif;font-size:var(--type-stat);line-height:.8;color:var(--accent)}.big-stat p{font-size:32px;color:var(--text);margin-top:28px}.mini-stats{display:grid;align-content:center;gap:28px}.mini-stats p{font-size:34px;color:var(--text)}.section-slide,.close-slide{display:flex;flex-direction:column;justify-content:center}.section-slide h2,.close-slide h2{font-size:96px;max-width:1320px}.quote-slide blockquote{max-width:1500px}.dark-list{margin-top:64px;display:grid;gap:24px;max-width:1280px}.dark-list .numbered{grid-template-columns:82px 1fr}.dark-list .n-body{font-size:30px}
+    @media print{#tweaks-root{display:none}}
+</style>
+</head>
+<body>
+  <deck-stage width="1920" height="1080" no-rail>
+<section class="slide dark title-slide" data-label="01 Title">
+
+  <div class="gradient-bar"></div>
+  <div class="title-grid">
+    <div class="brand-panel">
+      <img src="assets/media/image1.png" alt="Endicott College title artwork">
+    </div>
+    <div class="title-copy">
+      <p class="eyebrow">BUS 210 · INTRODUCTION TO FINANCE</p>
+      <h1>Introduction to Finance</h1>
+      <p class="subtitle">Week 1 · January 2026</p>
+    </div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="02 Introductions">
+
+  <p class="eyebrow">BUS 210 · WELCOME</p>
+  <h2>Who are you?</h2>
+  <hr>
+  <div class="two-col wide-left">
+    <div class="prompt-stack">
+      <div class="numbered"><div class="n">01</div><div class="n-body">Name</div></div>
+<div class="numbered"><div class="n">02</div><div class="n-body">Where are you from?</div></div>
+<div class="numbered"><div class="n">03</div><div class="n-body">What is your major?</div></div>
+<div class="numbered"><div class="n">04</div><div class="n-body">Do you have a sport or favorite activity?</div></div>
+    </div>
+    <div class="callout steel">Introductions turn a room into a working portfolio.</div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="03 Portfolio Manager">
+
+  <p class="eyebrow">YOUR PORTFOLIO MANAGER</p>
+  <h2>Asst. Professor Bethany Evitts, CFA</h2>
+  <hr>
+  <div class="two-col">
+    <div class="card-list">
+      <div class="card"><h3>Credentials</h3><p>Chartered Financial Analyst (CFA) · MBA, Boston College · BA, Holy Cross Economics</p></div>
+      <div class="card"><h3>Investment management</h3><p>30+ years across fixed income trading, US trading desk management, and transformation work</p></div>
+    </div>
+    <div>
+      <img class="image-frame portrait" src="assets/media/image5.jpeg" alt="Tupper Manor photo">
+      <p class="caption">Office: Gerrish 356 · bevitts@Endicott.edu</p>
+    </div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="04 Deadlines">
+
+  <p class="eyebrow">COURSE OPERATIONS</p>
+  <h2>Deadlines and the time value of work.</h2>
+  <hr>
+  <div class="two-col">
+    <div><img class="image-frame clean" src="assets/media/image6.png" alt="Deadline illustration"></div>
+    <div class="card-list">
+      <div class="card"><h3>Due dates are fixed</h3><p>Plan accordingly. Work submitted 0-7 days late loses 10% per day, including weekends.</p></div>
+      <div class="card"><h3>After 7 days</h3><p>The value reaches zero: automatic 0 grade.</p></div>
+      <div class="card"><h3>Exceptions</h3><p>Emergency situations only, coordinated through Brittany Potter for official accommodation.</p></div>
+    </div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="05 Professional Standards">
+
+  <p class="eyebrow">ZERO TOLERANCE POLICIES</p>
+  <h2>Professional standards protect grade integrity.</h2>
+  <hr>
+  <div class="three-col cards">
+    <div class="card"><h3>6 absences = withdrawal</h3><p>Attendance is assumed. Missing class impacts participation, and six absences triggers an automatic request to withdraw.</p></div>
+    <div class="card"><h3>Device policy</h3><p>Phones must be hidden in bags. In-class use results in immediate participation deductions.</p></div>
+    <div class="card"><h3>No AI tools</h3><p>Zero tolerance for ChatGPT or AI-generated work. Plagiarism results in a failing course grade.</p></div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="06 Tools">
+
+  <p class="eyebrow">SEMESTER TOOLS</p>
+  <h2>Excel is part of the finance language.</h2>
+  <hr>
+  <div class="two-col">
+    <div><img class="image-frame tall" src="assets/media/image9.png" alt="Textbook image"></div>
+    <div class="card-list">
+      <div class="card"><h3>Textbook</h3><p>Finance: Applications &amp; Theory (Cornett). Read before class using SmartBook.</p></div>
+      <div class="card"><h3>Excel work required</h3><p>You must show formulas and work. Answers without visible work receive zero credit.</p></div>
+      <div class="card"><h3>Partial credit</h3><p>Awarded at the professor’s discretion based on submitted work.</p></div>
+    </div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="07 Excel Error">
+
+  <p class="eyebrow">CHECK YOUR WORK</p>
+  <h2>The $6.2 billion Excel error.</h2>
+  <hr>
+  <div class="two-col">
+    <div class="card-list">
+      <div class="card"><h3>The London Whale incident</h3><p>JPMorgan Chase lost $6.2 billion in 2012 due to trades executed by the London Whale.</p></div>
+      <div class="card"><h3>Root cause</h3><p>A Value at Risk model failure caused by copy/paste spreadsheet errors without proper verification.</p></div>
+      <p class="caption">Optional video: Marek Detectives, 33 minutes.</p>
+    </div>
+    <div><img class="image-frame clean" src="assets/media/image8.png" alt="Excel dashboard visual"></div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="08 Market Awareness">
+
+  <p class="eyebrow">FINANCE IN REAL TIME</p>
+  <h2>Connect the classroom to the economy.</h2>
+  <hr>
+  <div class="two-col">
+    <div class="callout">Bring one current event, news headline, or economic result to every class.</div>
+    <div class="card-list compact">
+      <div class="card"><h3>Approved sources</h3><p>Bloomberg · CNBC · Wall Street Journal · The Economist · Financial Times</p></div>
+      <div class="card"><h3>Examples</h3><p>Fed policy, Chair Powell speeches, interest rates, and geopolitical risk.</p></div>
+    </div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="09 Grading">
+
+  <p class="eyebrow">PERFORMANCE EVALUATION</p>
+  <h2>The returns: weighted final grade.</h2>
+  <hr>
+  <div class="grade-grid">
+    <div class="big-stat"><span>50%</span><p>Exams</p></div>
+    <div class="big-stat"><span>20%</span><p>Quizzes</p></div>
+    <div class="big-stat"><span>15%</span><p>Final exam</p></div>
+    <div class="mini-stats"><p>5% Homework</p><p>5% Readings</p><p>5% Participation</p></div>
+  </div>
+  <p class="caption">Safety net: the lowest quiz score is dropped at the end of the semester.</p>
+
+</section>
+<section class="slide cream" data-label="10 Assessments">
+
+  <p class="eyebrow">QUIZZES · HOMEWORK · EXAMS</p>
+  <h2>Assessment rewards visible work.</h2>
+  <hr>
+  <div class="three-col cards">
+    <div class="card"><h3>Quizzes</h3><p>About 20 questions. Open notes. Lowest quiz dropped once the semester is complete.</p></div>
+    <div class="card"><h3>Homework and Excel</h3><p>Mandatory when assigned. Show detailed steps, formulas, and submitted work.</p></div>
+    <div class="card"><h3>Exams</h3><p>Topic exams cover TVM, bond valuation, equity valuation, and capital budgeting.</p></div>
+  </div>
+
+</section>
+<section class="slide dark section-slide" data-label="11 Finance Mindset">
+
+  <div class="gradient-bar"></div>
+  <p class="eyebrow">BUS 210 · MINDSET</p>
+  <h2>Finance is disciplined decision-making under uncertainty.</h2>
+
+</section>
+<section class="slide cream" data-label="12 Roadmap">
+
+  <p class="eyebrow">THE ROADMAP TO AN “A”</p>
+  <h2>Proven strategies for success in BUS 210.</h2>
+  <hr>
+  <div class="two-col wide-left">
+    <div class="quote">“Do all assignments, especially the problems. Use the peer tutor.”</div>
+    <div class="number-stack">
+      <div class="numbered"><div class="n">01</div><div class="n-body">Read each chapter before class, and again after.</div></div>
+<div class="numbered"><div class="n">02</div><div class="n-body">Start Excel models immediately; the pace is fast.</div></div>
+<div class="numbered"><div class="n">03</div><div class="n-body">Review end-of-chapter problems.</div></div>
+<div class="numbered"><div class="n">04</div><div class="n-body">Communicate early when stuck.</div></div>
+<div class="numbered"><div class="n">05</div><div class="n-body">Show patience with yourself as you learn.</div></div>
+    </div>
+  </div>
+
+</section>
+<section class="slide dark section-slide" data-label="13 Summary">
+
+  <div class="gradient-bar"></div>
+  <p class="eyebrow">BUS 210 · SUMMARY</p>
+  <h2>Finance asks what something is worth, and what risk it carries.</h2>
+
+</section>
+<section class="slide cream quote-slide" data-label="14 Involvement">
+
+  <p class="eyebrow">COURSE POSTURE</p>
+  <blockquote>“Tell me and I forget. Teach me and I may remember. Involve me and I learn.”</blockquote>
+  <p class="quote-source">Often attributed to Benjamin Franklin</p>
+  <div class="callout steel narrow">The greater the risks, the higher the expected return. Let’s get to work.</div>
+
+</section>
+<section class="slide cream" data-label="15 Relevance">
+
+  <p class="eyebrow">RELEVANT INFORMATION</p>
+  <h2>Good finance begins by separating signal from noise.</h2>
+  <hr>
+  <div class="two-col">
+    <div><img class="image-frame tall" src="assets/media/image16.png" alt="Relevance visual"></div>
+    <div><img class="image-frame" src="assets/media/image17.jpeg" alt="Market meme visual"></div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="16 Meme Markets">
+
+  <p class="eyebrow">RELEVANT VS. IRRELEVANT DATA</p>
+  <h2>Could a meme add $1.5 billion to market capitalization?</h2>
+  <hr>
+  <div class="two-col">
+    <div class="callout">Understand the difference between relevant information and attention.</div>
+    <div><img class="image-frame" src="assets/media/image17.jpeg" alt="Market meme visual"></div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="17 Gambling Investing">
+
+  <p class="eyebrow">RISK LANGUAGE</p>
+  <h2>Gambling vs. investing.</h2>
+  <hr>
+  <div class="two-col">
+    <div><img class="image-frame" src="assets/media/image18.png" alt="Gambling versus investing visual"></div>
+    <div class="card-list">
+      <div class="card"><h3>Gambling</h3><p>Risk without an expected productive asset or disciplined valuation process.</p></div>
+      <div class="card"><h3>Investing</h3><p>Risk accepted for expected return, tied to cash flows and evidence.</p></div>
+    </div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="18 Fed Faces">
+
+  <p class="eyebrow">FINANCIAL LEADERSHIP</p>
+  <h2>Who are these guys?</h2>
+  <hr>
+  <div class="two-col people"><img class="image-frame" src="assets/media/image21.jpeg" alt="Jerome Powell"><img class="image-frame portrait" src="assets/media/image22.jpeg" alt="Philip Jefferson"></div>
+
+</section>
+<section class="slide cream" data-label="19 Fed Roles">
+
+  <p class="eyebrow">FEDERAL RESERVE</p>
+  <h2>Who are these guys?</h2>
+  <hr>
+  <div class="two-col people">
+    <div><img class="image-frame" src="assets/media/image21.jpeg" alt="Jerome Powell"><h3>Jerome Powell</h3><p>Chair, Board of Governors, Federal Reserve</p></div>
+    <div><img class="image-frame portrait" src="assets/media/image22.jpeg" alt="Philip Jefferson"><h3>Philip Jefferson</h3><p>Vice-Chair, Board of Governors, Federal Reserve</p></div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="20 Jackson Hole">
+
+  <p class="eyebrow">FED WATCH</p>
+  <h2>What happens in Jackson Hole, Wyoming in August?</h2>
+  <hr>
+  <div class="center-image"><img class="image-frame wide" src="assets/media/image23.jpeg" alt="Jackson Hole visual"></div>
+
+</section>
+<section class="slide cream" data-label="21 Symposium">
+
+  <p class="eyebrow">ECONOMIC POLICY SYMPOSIUM</p>
+  <h2>Markets listen when central bankers gather.</h2>
+  <hr>
+  <div class="two-col">
+    <div><img class="image-frame" src="assets/media/image23.jpeg" alt="Jackson Hole visual"></div>
+    <div class="card-list">
+      <div class="card"><h3>Hosted by</h3><p>The Federal Reserve Bank of Kansas City hosts the annual symposium in Jackson Hole, Wyoming.</p></div>
+      <div class="card"><h3>Why it matters</h3><p>Headlines often shift expectations for interest rates, jobs, and risk assets.</p></div>
+      <p class="caption">Source: Kansas City Fed symposium release.</p>
+    </div>
+  </div>
+
+</section>
+<section class="slide dark section-slide" data-label="22 Finance Questions">
+
+  <div class="gradient-bar"></div>
+  <p class="eyebrow">FINANCE FRAMEWORK</p>
+  <h2>Three questions drive every valuation conversation.</h2>
+
+</section>
+<section class="slide cream" data-label="23 Three Questions">
+
+  <p class="eyebrow">BASIC QUESTIONS IN FINANCE</p>
+  <h2>Cash flows, risk, and value today.</h2>
+  <hr>
+  <div class="prompt-stack three">
+    <div class="numbered"><div class="n">01</div><div class="n-body">What cash flows are generated by the asset?</div></div>
+<div class="numbered"><div class="n">02</div><div class="n-body">What risks are associated with those cash flows?</div></div>
+<div class="numbered"><div class="n">03</div><div class="n-body">What is the value of the asset today?</div></div>
+  </div>
+  <p class="caption">Financial assets include bonds and stocks. Real assets include buildings, land, and machinery.</p>
+
+</section>
+<section class="slide cream" data-label="24 Finance Accounting">
+
+  <p class="eyebrow">DISCIPLINE BOUNDARIES</p>
+  <h2>Finance vs. accounting.</h2>
+  <hr>
+  <div class="two-col">
+    <div class="card"><h3>Accounting</h3><p>Keeps track of what happened in the past to the firm’s money.</p></div>
+    <div class="card"><h3>Finance</h3><p>Uses historical figures plus current information to decide what should happen now and in the future.</p></div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="25 Areas">
+
+  <p class="eyebrow">AREAS OF FINANCE</p>
+  <h2>Four doors into the field.</h2>
+  <hr>
+  <div class="four-grid">
+    <div class="card"><h3>Investments</h3><p>What securities to buy or sell? How should risk and cash-flow timing be managed?</p></div>
+    <div class="card"><h3>Financial management</h3><p>How should a business get, use, and repay cash? Which projects should it pursue?</p></div>
+    <div class="card"><h3>Institutions and markets</h3><p>How capital flows through banks, stock exchanges, and OTC markets.</p></div>
+    <div class="card"><h3>International finance</h3><p>Trade across borders, global operations, and currency risk.</p></div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="26 Cash Flow Uncertainty">
+
+  <p class="eyebrow">UNCERTAINTY</p>
+  <h2>Future cash flows are uncertain in timing and size.</h2>
+  <hr>
+  <div class="two-col">
+    <div><img class="image-frame clean" src="assets/media/image53.png" alt="Risk matrix visual"></div>
+    <div class="card-list compact">
+      <div class="card"><h3>Company-specific factors</h3><p>Low influence, high predictability.</p></div>
+      <div class="card"><h3>Economic conditions</h3><p>High influence, high predictability.</p></div>
+      <div class="card"><h3>Unforeseen events</h3><p>Low predictability, potentially high damage.</p></div>
+      <div class="card"><h3>Industry dynamics</h3><p>High influence, lower predictability.</p></div>
+    </div>
+  </div>
+
+</section>
+<section class="slide cream" data-label="27 Risk">
+
+  <p class="eyebrow">RISK</p>
+  <h2>Risk is potential negative impact to value and cash flows.</h2>
+  <hr>
+  <div class="center-image"><img class="image-frame wide" src="assets/media/image53.png" alt="Risk diagram"></div>
+
+</section>
+<section class="slide dark close-slide" data-label="28 Assignments">
+
+  <div class="gradient-bar"></div>
+  <p class="eyebrow">NEXT STEPS</p>
+  <h2>Assignments</h2>
+  <div class="dark-list">
+    <div class="numbered"><div class="n">01</div><div class="n-body">Get Connect for reading materials.</div></div>
+<div class="numbered"><div class="n">02</div><div class="n-body">Watch the intro videos, especially Excel refreshers.</div></div>
+<div class="numbered"><div class="n">03</div><div class="n-body">Read Chapters 1 and 4 via SmartBook.</div></div>
+<div class="numbered"><div class="n">04</div><div class="n-body">Review Chapters 2 and 3 to refresh ACT175 accounting knowledge.</div></div>
+<div class="numbered"><div class="n">05</div><div class="n-body">Watch Canvas.</div></div>
+  </div>
+
+</section>
+  </deck-stage>
+  <div id="tweaks-root" style="position:fixed; bottom:0; right:0; z-index:10000;"></div>
+  <script src="../deck-stage.js"></script>
+  <script src="../image-slot.js"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+  <script type="text/babel" src="../tweaks-panel.jsx"></script>
+</body>
+</html>
