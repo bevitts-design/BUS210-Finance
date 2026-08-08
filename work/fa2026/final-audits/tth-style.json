@@ -1,0 +1,170 @@
+{
+  "input": "/Users/bethanyevittsair2/Documents/GitHub/BUS210-Finance/deliverables/fall-2026/BUS210_Finance_Syllabus_FA2026_TTh_75min.docx",
+  "fonts_by_char_count": {
+    "Arial": 11115
+  },
+  "direct_run_formatting_runs": 306,
+  "direct_paragraph_formatting_paragraphs": 38,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 51,
+      "text": "Fall 2026 Tentative Schedule \u00b7 Tuesday/Thursday \u00b7 75 minutes",
+      "style": "Normal"
+    },
+    {
+      "para_index": 53,
+      "text": "ENDICOTT COLLEGE  \u00b7  GERRISH SCHOOL OF BUSINESS",
+      "style": "Normal"
+    },
+    {
+      "para_index": 54,
+      "text": "BUS210 Finance",
+      "style": "Normal"
+    },
+    {
+      "para_index": 55,
+      "text": "Fall 2026 Course Syllabus",
+      "style": "Normal"
+    },
+    {
+      "para_index": 56,
+      "text": "Tuesday/Thursday \u00b7 75 minutes",
+      "style": "Normal"
+    },
+    {
+      "para_index": 58,
+      "text": "COURSE",
+      "style": "Normal"
+    },
+    {
+      "para_index": 59,
+      "text": "BUS210 Finance \u00b7 3 credits \u00b7 Lecture",
+      "style": "Normal"
+    },
+    {
+      "para_index": 60,
+      "text": "SECTION",
+      "style": "Normal"
+    },
+    {
+      "para_index": 62,
+      "text": "MEETING PATTERN",
+      "style": "Normal"
+    },
+    {
+      "para_index": 63,
+      "text": "Tuesday and Thursday \u00b7 75 minutes",
+      "style": "Normal"
+    },
+    {
+      "para_index": 64,
+      "text": "TIME / ROOM",
+      "style": "Normal"
+    },
+    {
+      "para_index": 66,
+      "text": "INSTRUCTOR",
+      "style": "Normal"
+    },
+    {
+      "para_index": 68,
+      "text": "OFFICE",
+      "style": "Normal"
+    },
+    {
+      "para_index": 70,
+      "text": "EMAIL",
+      "style": "Normal"
+    },
+    {
+      "para_index": 72,
+      "text": "OFFICE HOURS",
+      "style": "Normal"
+    },
+    {
+      "para_index": 74,
+      "text": "1  PREPARE",
+      "style": "Normal"
+    },
+    {
+      "para_index": 76,
+      "text": "2  PRACTICE",
+      "style": "Normal"
+    },
+    {
+      "para_index": 78,
+      "text": "3  PROVE",
+      "style": "Normal"
+    },
+    {
+      "para_index": 80,
+      "text": "1",
+      "style": "Normal"
+    },
+    {
+      "para_index": 81,
+      "text": "Value money",
+      "style": "Normal"
+    }
+  ],
+  "examples": {
+    "direct_run_formatting": [
+      {
+        "para_index": 3,
+        "run_text": "Each class follows a practical cycle. Exact assignments and due times appear in ",
+        "style": "Normal"
+      },
+      {
+        "para_index": 7,
+        "run_text": "An introduction to finance including organization, taxes, capital markets, the c",
+        "style": "Normal"
+      },
+      {
+        "para_index": 8,
+        "run_text": "Prerequisite:",
+        "style": "Normal"
+      },
+      {
+        "para_index": 8,
+        "run_text": " ACC 175.",
+        "style": "Normal"
+      },
+      {
+        "para_index": 10,
+        "run_text": "The source course goal is to understand key principles in finance and, through p",
+        "style": "Normal"
+      }
+    ],
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 51,
+        "text": "Fall 2026 Tentative Schedule \u00b7 Tuesday/Thursday \u00b7 75 minutes",
+        "style": "Normal"
+      },
+      {
+        "para_index": 52,
+        "text": "Schedule assumptions: The dates use the requested meeting pattern. Exact section, clock time, room, final-exam appointme",
+        "style": "Normal"
+      },
+      {
+        "para_index": 53,
+        "text": "ENDICOTT COLLEGE  \u00b7  GERRISH SCHOOL OF BUSINESS",
+        "style": "Normal"
+      },
+      {
+        "para_index": 54,
+        "text": "BUS210 Finance",
+        "style": "Normal"
+      },
+      {
+        "para_index": 58,
+        "text": "COURSE",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

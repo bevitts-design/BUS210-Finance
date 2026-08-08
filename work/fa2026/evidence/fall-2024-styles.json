@@ -1,0 +1,172 @@
+{
+  "input": "/Users/bethanyevittsair2/Library/CloudStorage/OneDrive-Personal/EC_Teaching/BUS210 Finance Files_current/Syllabus Bus210 Fall 2024.docx",
+  "fonts_by_char_count": {
+    "Aptos narrow": 6789,
+    "Times New Roman": 3696,
+    "Arial": 330
+  },
+  "direct_run_formatting_runs": 765,
+  "direct_paragraph_formatting_paragraphs": 92,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 1,
+      "text": "Endicott College",
+      "style": "Normal"
+    },
+    {
+      "para_index": 2,
+      "text": "Beverly, Massachusetts",
+      "style": "Normal"
+    },
+    {
+      "para_index": 32,
+      "text": "Evaluation Methods",
+      "style": "Normal"
+    },
+    {
+      "para_index": 167,
+      "text": " Topic ",
+      "style": "Normal"
+    },
+    {
+      "para_index": 169,
+      "text": "Time Value of Money (TVM) ",
+      "style": "Normal"
+    },
+    {
+      "para_index": 171,
+      "text": "Bonds (B)",
+      "style": "Normal"
+    },
+    {
+      "para_index": 173,
+      "text": "Mortgages (M)",
+      "style": "Normal"
+    },
+    {
+      "para_index": 175,
+      "text": "        Stocks (S)",
+      "style": "Normal"
+    },
+    {
+      "para_index": 179,
+      "text": "Capital Budgeting (CB)",
+      "style": "Normal"
+    },
+    {
+      "para_index": 181,
+      "text": "Week",
+      "style": "Normal"
+    },
+    {
+      "para_index": 182,
+      "text": "Class Date-2024",
+      "style": "Normal"
+    },
+    {
+      "para_index": 183,
+      "text": "Class Date-2024",
+      "style": "Normal"
+    },
+    {
+      "para_index": 184,
+      "text": "Class Day",
+      "style": "Normal"
+    },
+    {
+      "para_index": 185,
+      "text": "Class Topic",
+      "style": "Normal"
+    },
+    {
+      "para_index": 186,
+      "text": "Theme",
+      "style": "Normal"
+    },
+    {
+      "para_index": 187,
+      "text": "Theme",
+      "style": "Normal"
+    },
+    {
+      "para_index": 188,
+      "text": "Theme",
+      "style": "Normal"
+    },
+    {
+      "para_index": 189,
+      "text": "Theme",
+      "style": "Normal"
+    },
+    {
+      "para_index": 190,
+      "text": "Theme",
+      "style": "Normal"
+    },
+    {
+      "para_index": 191,
+      "text": "Theme",
+      "style": "Normal"
+    }
+  ],
+  "examples": {
+    "direct_run_formatting": [
+      {
+        "para_index": 1,
+        "run_text": "E",
+        "style": "Normal"
+      },
+      {
+        "para_index": 1,
+        "run_text": "ndicott College",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "run_text": "B",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "run_text": "everly",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "run_text": ", M",
+        "style": "Normal"
+      }
+    ],
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 28,
+        "text": "Required: ",
+        "style": "Normal"
+      },
+      {
+        "para_index": 29,
+        "text": "TI-84 or some other financial calculator.  ",
+        "style": "Normal"
+      },
+      {
+        "para_index": 30,
+        "text": "Ability to use, save and upload Microsoft Excel files.",
+        "style": "Normal"
+      },
+      {
+        "para_index": 31,
+        "text": " ",
+        "style": "Normal"
+      },
+      {
+        "para_index": 41,
+        "text": "Each student will be assigned a letter grade as follows:",
+        "style": "Body"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

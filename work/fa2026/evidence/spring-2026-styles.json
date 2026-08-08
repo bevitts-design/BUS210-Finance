@@ -1,0 +1,173 @@
+{
+  "input": "/Users/bethanyevittsair2/Library/CloudStorage/OneDrive-Personal/EC_Teaching/BUS210 Finance Files_current/Syllabus Bus210 SP26.docx",
+  "fonts_by_char_count": {
+    "Verdana": 4650,
+    "Aptos Narrow": 2893,
+    "Times New Roman": 1754,
+    "Arial": 148
+  },
+  "direct_run_formatting_runs": 587,
+  "direct_paragraph_formatting_paragraphs": 92,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 1,
+      "text": "Endicott College",
+      "style": "Normal"
+    },
+    {
+      "para_index": 2,
+      "text": "Beverly, Massachusetts",
+      "style": "Normal"
+    },
+    {
+      "para_index": 37,
+      "text": "Evaluation Methods",
+      "style": "Normal"
+    },
+    {
+      "para_index": 164,
+      "text": " Topic ",
+      "style": "Normal"
+    },
+    {
+      "para_index": 166,
+      "text": "Time Value of Money (TVM) ",
+      "style": "Normal"
+    },
+    {
+      "para_index": 168,
+      "text": "Bonds (B)",
+      "style": "Normal"
+    },
+    {
+      "para_index": 170,
+      "text": "Mortgages (M)",
+      "style": "Normal"
+    },
+    {
+      "para_index": 172,
+      "text": "        Stocks (S)",
+      "style": "Normal"
+    },
+    {
+      "para_index": 176,
+      "text": "Capital Budgeting (CB)",
+      "style": "Normal"
+    },
+    {
+      "para_index": 178,
+      "text": "Week",
+      "style": "Normal"
+    },
+    {
+      "para_index": 179,
+      "text": "Date-2025",
+      "style": "Normal"
+    },
+    {
+      "para_index": 180,
+      "text": "Class",
+      "style": "Normal"
+    },
+    {
+      "para_index": 181,
+      "text": "Class Topic",
+      "style": "Normal"
+    },
+    {
+      "para_index": 182,
+      "text": "Area of Focus",
+      "style": "Normal"
+    },
+    {
+      "para_index": 183,
+      "text": "In Class Work",
+      "style": "Normal"
+    },
+    {
+      "para_index": 218,
+      "text": "Testing",
+      "style": "Normal"
+    },
+    {
+      "para_index": 219,
+      "text": " Chapter 4 Quiz",
+      "style": "Normal"
+    },
+    {
+      "para_index": 242,
+      "text": "Testing",
+      "style": "Normal"
+    },
+    {
+      "para_index": 243,
+      "text": "Chapter 5 Problem Review - Credit Cards etc.\nChapter 5 Quiz",
+      "style": "Normal"
+    },
+    {
+      "para_index": 253,
+      "text": "TVM Review",
+      "style": "Normal"
+    }
+  ],
+  "examples": {
+    "direct_run_formatting": [
+      {
+        "para_index": 1,
+        "run_text": "E",
+        "style": "Normal"
+      },
+      {
+        "para_index": 1,
+        "run_text": "ndicott College",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "run_text": "B",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "run_text": "everly",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "run_text": ", M",
+        "style": "Normal"
+      }
+    ],
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 32,
+        "text": "Required Reading and Software",
+        "style": "Heading 1"
+      },
+      {
+        "para_index": 33,
+        "text": "Finance, Applications and Theory, Cornett vis McGraw Hill Connect",
+        "style": "Normal"
+      },
+      {
+        "para_index": 34,
+        "text": "Ability to use, save and upload Microsoft Excel files.",
+        "style": "Normal"
+      },
+      {
+        "para_index": 35,
+        "text": " ",
+        "style": "Normal"
+      },
+      {
+        "para_index": 36,
+        "text": "",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}
