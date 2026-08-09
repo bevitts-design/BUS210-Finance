@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "course": {
+    "code": "BUS210",
+    "title": "Finance",
+    "term": "Fall 2026"
+  },
+  "modules": [
+    {
+      "id": "time-value-of-money",
+      "badge": "Time Value of Money",
+      "title": "Start Here & Time Value of Money",
+      "displayOrder": 10
+    },
+    {
+      "id": "financial-markets",
+      "badge": "Financial Markets and Institutions",
+      "title": "Financial Markets and Institutions Overview",
+      "displayOrder": 20
+    },
+    {
+      "id": "bonds",
+      "badge": "Bond",
+      "title": "Understand Bond Valuation",
+      "displayOrder": 30
+    },
+    {
+      "id": "equity-risk-valuation",
+      "badge": "Equity Risk & Valuation",
+      "title": "Equity Valuation",
+      "displayOrder": 40
+    },
+    {
+      "id": "wacc",
+      "badge": "Weighted Average Cost of Capital",
+      "title": "WACC",
+      "displayOrder": 50
+    }
+  ],
+  "lessons": [
+    {
+      "id": "m01",
+      "moduleId": "time-value-of-money",
+      "code": "BUS210 · M01",
+      "title": "Introduction to BUS 210 Finance",
+      "topic": "Why a dollar today is worth more than a dollar tomorrow — the core logic of all of finance",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 10,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/cgtdqwy5wwt8syb",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "m02",
+      "moduleId": "time-value-of-money",
+      "code": "BUS210 · M02 · Chapter 4",
+      "title": "Present & Future Value",
+      "topic": "Lump sum PV and FV — manual calculation and Excel =PV() / =FV() functions",
+      "status": "live",
+      "visible": true,
+      "displayOrder": 20,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/c6b8ytn0qicxr2r",
+          "style": "primary"
+        },
+        {
+          "label": "Excel guide",
+          "url": "M02/bus210-m02-time-value-of-money-excel-reference.html",
+          "style": "reference"
+        }
+      ]
+    },
+    {
+      "id": "m03",
+      "moduleId": "time-value-of-money",
+      "code": "BUS210 · M03 · Chapter 5",
+      "title": "Annuities & Perpetuities",
+      "topic": "Ordinary annuity, annuity due, growing perpetuity — Excel =PMT(), =NPER(), =RATE()",
+      "status": "live",
+      "visible": false,
+      "displayOrder": 30,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/u3wiih96bdzhsah",
+          "style": "primary"
+        },
+        {
+          "label": "Excel guide",
+          "url": "M03/bus210-m03-chapter-5-excel-reference.html",
+          "style": "reference"
+        }
+      ]
+    },
+    {
+      "id": "m04",
+      "moduleId": "financial-markets",
+      "code": "BUS210 · M04 · Chapter 6",
+      "title": "Understanding Financial Markets and Institutions",
+      "topic": "An introduction to the financial system, the institutions within it, and their role in moving capital through the economy",
+      "status": "comingSoon",
+      "visible": false,
+      "displayOrder": 40,
+      "links": []
+    },
+    {
+      "id": "m05",
+      "moduleId": "bonds",
+      "code": "BUS210 · M05 · Chapter 7",
+      "title": "Bond Valuation",
+      "topic": "Bond pricing, yield to maturity, and the relationship between bond prices and interest rates",
+      "status": "live",
+      "visible": false,
+      "displayOrder": 50,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/vpv4dhs6s53xqal",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "m06",
+      "moduleId": "equity-risk-valuation",
+      "code": "BUS210 · M06 · Chapter 8",
+      "title": "Basic Valuation - Chapter 8",
+      "topic": "Expected return, standard deviation, diversification, and the risk-return tradeoff",
+      "status": "live",
+      "visible": false,
+      "displayOrder": 60,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/euvt2twpf2loltn",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "m07",
+      "moduleId": "equity-risk-valuation",
+      "code": "BUS210 · M07 · Chapter 9",
+      "title": "Risk & Return - Chapter 9",
+      "topic": "Risk and return concepts, including systematic and unsystematic risk",
+      "status": "live",
+      "visible": false,
+      "displayOrder": 70,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/oa7g4xwna2qikit",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "m08",
+      "moduleId": "equity-risk-valuation",
+      "code": "BUS210 · M08 · Chapter 10",
+      "title": "Equity Analysis - Chapter 10",
+      "topic": "Equity pricing, dividend discount model, P/E multiples — reading what markets are saying",
+      "status": "live",
+      "visible": false,
+      "displayOrder": 80,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/uo2bqefcnwfw9xv",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "m09-part-1",
+      "moduleId": "wacc",
+      "code": "BUS210 · M09 · Chapter 11",
+      "title": "WACC - Chapter 11, Part 1",
+      "topic": "Expected return, standard deviation, diversification, and the risk-return tradeoff",
+      "status": "live",
+      "visible": false,
+      "displayOrder": 90,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/tto8fvgsdmbrghp",
+          "style": "primary"
+        }
+      ]
+    },
+    {
+      "id": "m09-part-2",
+      "moduleId": "wacc",
+      "code": "BUS210 · M09 · Chapter 11",
+      "title": "WACC - Chapter 11, Part 2",
+      "topic": "Expected return, standard deviation, diversification, and the risk-return tradeoff",
+      "status": "live",
+      "visible": false,
+      "displayOrder": 100,
+      "links": [
+        {
+          "label": "Open lesson",
+          "url": "https://canva.link/aqvzetf1aw4r64a",
+          "style": "primary"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title description">
+  <title id="title">BUS210 Mission Control double dollar app icon</title>
+  <description id="description">Two bold dollar signs on a deep navy and emerald rounded square.</description>
+  <defs>
+    <linearGradient id="background" x1="140" y1="110" x2="870" y2="930" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A2E4E"/>
+      <stop offset="0.56" stop-color="#075B62"/>
+      <stop offset="1" stop-color="#05876F"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="245" y1="105" x2="750" y2="860" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.22"/>
+      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="250" y1="350" x2="485" y2="730" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4FFFC"/>
+      <stop offset="1" stop-color="#B9F6E7"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="550" y1="330" x2="780" y2="740" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE9A6"/>
+      <stop offset="1" stop-color="#F5BE43"/>
+    </linearGradient>
+    <filter id="tileShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#001827" flood-opacity="0.34"/>
+    </filter>
+    <filter id="glyphShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#001A25" flood-opacity="0.38"/>
+    </filter>
+    <clipPath id="tileClip">
+      <rect x="64" y="64" width="896" height="896" rx="208"/>
+    </clipPath>
+  </defs>
+
+  <rect x="64" y="64" width="896" height="896" rx="208" fill="url(#background)" filter="url(#tileShadow)"/>
+  <g clip-path="url(#tileClip)">
+    <path d="M-8 120C236 12 505 48 713 225C830 325 921 452 1038 489V-12H-8Z" fill="url(#shine)"/>
+    <path d="M111 805C298 710 411 757 535 681C668 600 762 467 953 438" fill="none" stroke="#9CF2DE" stroke-opacity="0.13" stroke-width="34" stroke-linecap="round"/>
+  </g>
+  <rect x="79" y="79" width="866" height="866" rx="193" fill="none" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="8"/>
+
+  <g font-family="SF Pro Rounded, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="500" font-weight="800" text-anchor="middle" filter="url(#glyphShadow)">
+    <text x="374" y="704" fill="url(#mint)">$</text>
+    <text x="652" y="704" fill="url(#gold)">$</text>
+  </g>
+</svg>
