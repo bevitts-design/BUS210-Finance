@@ -363,8 +363,8 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.fade-section { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
-.fade-section.visible { opacity: 1; transform: translateY(0); }
+  /* Course content must remain available even when JavaScript is delayed or disabled. */
+  .fade-section { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -409,6 +409,8 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
     <ul class="nav-links">
       <li><a href="#units">Units</a></li>
       <li><a href="#lessons">Lessons</a></li>
+      <li><a href="deliverables/fall-2026/BUS210_02_Welcome_Canvas.html">Welcome</a></li>
+      <li><a href="deliverables/fall-2026/BUS210_Finance_Syllabus_FA2026_MWF_50min_Canvas.html">Syllabus</a></li>
     </ul>
     <a class="nav-cta" href="https://endicott.instructure.com/courses/58352">Open Canvas</a>
   </div>
@@ -552,13 +554,13 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
     <!-- ── UNIT 01: TVM ── -->
     <div class="module-block fade-section">
       <div class="module-header">
-        <span class="module-badge">UNIT 01 · Introduction to Finance and Time Value of Money</span>
-        <span class="module-title">Time Value of Money</span>
+        <span class="module-badge">First lessons · Fall 2026</span>
+        <span class="module-title">Start Here &amp; Time Value of Money</span>
       </div>
       <div class="lessons-grid">
 
-        <a class="lesson-card" href="INTRO/">
-          <div class="lesson-code">BUS210-INTRO</div>
+        <a class="lesson-card" href="M01/">
+          <div class="lesson-code">BUS210 · M01</div>
           <div class="lesson-title">Introduction to BUS 210 Finance</div>
           <div class="lesson-topic">Why a dollar today is worth more than a dollar tomorrow — the core logic of all of finance</div>
           <span class="lesson-cta">Open lesson
@@ -566,8 +568,8 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
           </span>
         </a>
 
-        <a class="lesson-card" href="M01/">
-          <div class="lesson-code">BUS210-M01-L01 - Chapter 4</div>
+        <a class="lesson-card" href="M02/">
+          <div class="lesson-code">BUS210 · M02 · Chapter 4</div>
           <div class="lesson-title">Present & Future Value</div>
           <div class="lesson-topic">Lump sum PV and FV — manual calculation and Excel =PV() / =FV() functions</div>
           <span class="lesson-cta">Open lesson
@@ -575,8 +577,8 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
           </span>
         </a>
 
-        <a class="lesson-card" href="M01/">
-          <div class="lesson-code">BUS210-M01-L02 -Chapter 5</div>
+        <a class="lesson-card" href="M03/">
+          <div class="lesson-code">BUS210 · M03 · Chapter 5</div>
           <div class="lesson-title">Annuities & Perpetuities</div>
           <div class="lesson-topic">Ordinary annuity, annuity due, growing perpetuity — Excel =PMT(), =NPER(), =RATE()</div>
           <span class="lesson-cta">Open lesson
@@ -685,12 +687,7 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
 </footer>
 
 <script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-section').forEach(el => io.observe(el));
+  // Content is intentionally visible by default; no JavaScript is required to read the course map.
 </script>
 </body>
 </html>

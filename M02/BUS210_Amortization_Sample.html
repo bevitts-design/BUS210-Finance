@@ -1,0 +1,111 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Arial,sans-serif}
+  .page{width:1920px;height:1080px;position:relative;overflow:hidden;background:#FFFFFF}
+  .dot{width:26px;height:26px;border-radius:50%;background:#C9A227;display:inline-block;vertical-align:middle;margin-right:22px}
+  h1.title{font-family:Georgia,serif;font-size:62px;font-weight:700;color:#1E2761;display:inline-block;vertical-align:middle}
+  .sub{font-family:Arial;font-size:30px;color:#5A6478;margin:18px 0 0 48px}
+  .head{position:absolute;top:70px;left:90px;right:90px}
+  table{border-collapse:collapse;width:100%;font-family:Arial;font-size:25px}
+  th{background:#1E2761;color:#fff;font-weight:700;padding:16px 14px;text-align:right}
+  th:first-child{text-align:center}
+  td{padding:14px;text-align:right;color:#1E2761;border-bottom:1px solid #E3E9F3}
+</style></head><body>
+
+<section class="page" data-document-role="page" data-label="Amortization — Divider" data-speaker-notes="Divider. ~1 min. Transition from loan payments into the structure of a single payment. Tease: when you send $1,251, where does it actually go?" style="background:#1E2761">
+  <div style="position:absolute;top:430px;left:150px">
+    <div style="margin-bottom:36px"><span class="dot"></span><span style="font-family:Arial;font-size:30px;font-weight:700;letter-spacing:6px;color:#CADCFC;vertical-align:middle">CHAPTER 5 &middot; TIME VALUE OF MONEY</span></div>
+    <div style="font-family:Georgia,serif;font-size:120px;font-weight:700;color:#fff;line-height:1">Amortization</div>
+    <div style="font-family:Arial;font-size:44px;font-style:italic;color:#CADCFC;margin-top:30px">Where every payment really goes</div>
+  </div>
+</section>
+
+<section class="page" data-document-role="page" data-label="15 vs 30 Years" data-speaker-notes="~3 min. Comparison hook. Misconception: students fixate on the monthly payment and ignore total cost. Ask which they'd pick before revealing the interest line. Excel: payments come from PMT; total interest = payment x n - principal.">
+  <div class="head"><span class="dot"></span><h1 class="title">The Mortgage Decision: 15 vs. 30 Years</h1><div class="sub">Buying a $250,000 home &middot; $200,000 loan</div></div>
+  <div style="position:absolute;top:300px;left:90px;display:flex;gap:60px">
+    <div style="width:840px;background:#FFFFFF;border:1px solid #D6DEEC;border-radius:18px;padding:56px 60px;box-shadow:0 6px 18px rgba(0,0,0,.10)">
+      <div style="font-family:Georgia,serif;font-size:46px;font-weight:700;color:#1E2761">15-Year</div>
+      <div style="font-family:Arial;font-size:27px;color:#5A6478;margin-top:12px">Interest rate 6.10%</div>
+      <div style="font-family:Arial;font-size:21px;font-weight:700;letter-spacing:3px;color:#5A6478;margin-top:34px">MONTHLY PAYMENT</div>
+      <div style="font-family:Georgia,serif;font-size:80px;font-weight:700;color:#3E5CB0;margin-top:4px">$1,698.54</div>
+      <div style="font-family:Arial;font-size:27px;color:#5A6478;margin-top:30px">Total interest paid &nbsp;<span style="color:#1E2761;font-weight:700">$105,737</span></div>
+      <div style="font-family:Arial;font-size:27px;color:#5A6478;margin-top:14px">Debt-free in 15 years</div>
+    </div>
+    <div style="width:840px;background:#EEF4FC;border:2px solid #C9A227;border-radius:18px;padding:56px 60px;box-shadow:0 6px 18px rgba(0,0,0,.10)">
+      <div style="font-family:Georgia,serif;font-size:46px;font-weight:700;color:#1E2761">30-Year</div>
+      <div style="font-family:Arial;font-size:27px;color:#5A6478;margin-top:12px">Interest rate 6.40%</div>
+      <div style="font-family:Arial;font-size:21px;font-weight:700;letter-spacing:3px;color:#5A6478;margin-top:34px">MONTHLY PAYMENT</div>
+      <div style="font-family:Georgia,serif;font-size:80px;font-weight:700;color:#C9A227;margin-top:4px">$1,251.01</div>
+      <div style="font-family:Arial;font-size:27px;color:#5A6478;margin-top:30px">Total interest paid &nbsp;<span style="color:#1E2761;font-weight:700">$250,364</span></div>
+      <div style="font-family:Arial;font-size:27px;color:#5A6478;margin-top:14px">Debt-free in 30 years</div>
+    </div>
+  </div>
+  <div style="position:absolute;top:860px;left:90px;right:90px;background:#FFF8E7;border:2px solid #C9A227;border-radius:14px;padding:34px 44px">
+    <span style="font-family:Arial;font-size:29px;color:#1E2761"><b>The trade-off:</b> the lower payment costs far more. Choosing 30 years over 15 saves <b>$447/month</b> — but pays about <b style="color:#C9A227">$145,000 more in interest</b> over the life of the loan.</span>
+  </div>
+</section>
+
+<section class="page" data-document-role="page" data-label="Anatomy of One Payment" data-speaker-notes="~4 min. The most surprising fact for students: how little of an early payment touches principal. Tie to the bar. Excel: this is one row of the schedule; the next slide stacks 360.">
+  <div class="head"><span class="dot"></span><h1 class="title">Anatomy of One Payment</h1><div class="sub">30-year loan &middot; the very first monthly payment of $1,251.01</div></div>
+  <div style="position:absolute;top:320px;left:90px;right:90px;height:175px;display:flex;border-radius:10px;overflow:hidden">
+    <div style="width:85.3%;background:#3E5CB0;display:flex;flex-direction:column;justify-content:center;padding-left:44px">
+      <div style="font-family:Arial;font-size:24px;font-weight:700;letter-spacing:3px;color:#fff">INTEREST</div>
+      <div style="font-family:Georgia,serif;font-size:46px;font-weight:700;color:#fff">$1,066.67</div></div>
+    <div style="width:14.7%;background:#C9A227;display:flex;flex-direction:column;justify-content:center;align-items:center">
+      <div style="font-family:Arial;font-size:21px;font-weight:700;letter-spacing:2px;color:#1E2761">PRINCIPAL</div>
+      <div style="font-family:Georgia,serif;font-size:34px;font-weight:700;color:#1E2761">$184.35</div></div>
+  </div>
+  <div style="position:absolute;top:560px;left:90px;display:flex;gap:60px">
+    <div style="width:840px;background:#EEF4FC;border:1px solid #D6DEEC;border-radius:14px;padding:44px 50px;box-shadow:0 6px 18px rgba(0,0,0,.10)">
+      <div style="font-family:Georgia,serif;font-size:34px;font-weight:700;color:#1E2761">Interest paid</div>
+      <div style="font-family:Arial;font-size:27px;color:#5A6478;margin-top:18px">Beginning balance &times; periodic rate</div>
+      <div style="font-family:'Courier New',monospace;font-size:28px;color:#1E2761;margin-top:10px">$200,000 &times; (6.40% &divide; 12)</div>
+      <div style="font-family:Georgia,serif;font-size:38px;font-weight:700;color:#C9A227;margin-top:14px">= $1,066.67</div></div>
+    <div style="width:840px;background:#EEF4FC;border:1px solid #D6DEEC;border-radius:14px;padding:44px 50px;box-shadow:0 6px 18px rgba(0,0,0,.10)">
+      <div style="font-family:Georgia,serif;font-size:34px;font-weight:700;color:#1E2761">Principal paid</div>
+      <div style="font-family:Arial;font-size:27px;color:#5A6478;margin-top:18px">Payment &minus; interest</div>
+      <div style="font-family:'Courier New',monospace;font-size:28px;color:#1E2761;margin-top:10px">$1,251.01 &minus; $1,066.67</div>
+      <div style="font-family:Georgia,serif;font-size:38px;font-weight:700;color:#C9A227;margin-top:14px">= $184.35</div></div>
+  </div>
+  <div style="position:absolute;top:935px;left:90px;right:90px;font-family:Arial;font-size:29px;font-style:italic;color:#5A6478">Early in the loan, almost all of your payment is rent on the money — only about 15&cent; of every dollar reduces what you owe.</div>
+</section>
+
+<section class="page" data-document-role="page" data-label="The Amortization Schedule" data-speaker-notes="~4 min. The crossover chart is the payoff. Point out year ~19. This is why extra principal early matters so much. The chart is generated from the schedule columns — no screenshot.">
+  <div class="head"><span class="dot"></span><h1 class="title">The Amortization Schedule</h1><div class="sub">Each payment chips away more principal — until the lines cross</div></div>
+  <div style="position:absolute;top:300px;left:90px;width:960px">
+    <table><thead><tr><th>Mo.</th><th>Beg. Balance</th><th>Payment</th><th>Interest</th><th>Principal</th><th>End Balance</th></tr></thead><tbody><tr style="background:#FFFFFF"><td style="text-align:center">1</td><td>$200,000.00</td><td>$1,251.01</td><td style="color:#3E5CB0">$1,066.67</td><td style="color:#C9A227;font-weight:700">$184.35</td><td>$199,815.65</td></tr><tr style="background:#EEF4FC"><td style="text-align:center">2</td><td>$199,815.65</td><td>$1,251.01</td><td style="color:#3E5CB0">$1,065.68</td><td style="color:#C9A227;font-weight:700">$185.33</td><td>$199,630.33</td></tr><tr style="background:#FFFFFF"><td style="text-align:center">3</td><td>$199,630.33</td><td>$1,251.01</td><td style="color:#3E5CB0">$1,064.70</td><td style="color:#C9A227;font-weight:700">$186.32</td><td>$199,444.01</td></tr><tr style="background:#EEF4FC"><td style="text-align:center">4</td><td>$199,444.01</td><td>$1,251.01</td><td style="color:#3E5CB0">$1,063.70</td><td style="color:#C9A227;font-weight:700">$187.31</td><td>$199,256.70</td></tr><tr style="background:#FFFFFF"><td style="text-align:center">5</td><td>$199,256.70</td><td>$1,251.01</td><td style="color:#3E5CB0">$1,062.70</td><td style="color:#C9A227;font-weight:700">$188.31</td><td>$199,068.39</td></tr><tr style="background:#EEF4FC"><td style="text-align:center">6</td><td>$199,068.39</td><td>$1,251.01</td><td style="color:#3E5CB0">$1,061.70</td><td style="color:#C9A227;font-weight:700">$189.31</td><td>$198,879.08</td></tr></tbody></table>
+    <div style="font-family:Arial;font-size:24px;font-style:italic;color:#5A6478;margin-top:30px">First 6 of 360 months. Watch the Interest column fall and the Principal column rise.</div>
+  </div>
+  <div style="position:absolute;top:290px;left:1110px;width:720px">
+    <div style="font-family:Arial;font-size:30px;font-weight:700;color:#1E2761;text-align:center;margin-bottom:8px">Interest vs. Principal per Payment</div>
+    <svg viewBox="0 0 780 600" width="720" height="554" xmlns="http://www.w3.org/2000/svg">
+      <line x1="70" y1="520.0" x2="760" y2="520.0" stroke="#EAEFF7" stroke-width="1"/><text x="58" y="525" text-anchor="end" font-family="Arial" font-size="15" fill="#5A6478">0</text><line x1="70" y1="450.0" x2="760" y2="450.0" stroke="#EAEFF7" stroke-width="1"/><text x="58" y="455" text-anchor="end" font-family="Arial" font-size="15" fill="#5A6478">200</text><line x1="70" y1="380.0" x2="760" y2="380.0" stroke="#EAEFF7" stroke-width="1"/><text x="58" y="385" text-anchor="end" font-family="Arial" font-size="15" fill="#5A6478">400</text><line x1="70" y1="310.0" x2="760" y2="310.0" stroke="#EAEFF7" stroke-width="1"/><text x="58" y="315" text-anchor="end" font-family="Arial" font-size="15" fill="#5A6478">600</text><line x1="70" y1="240.0" x2="760" y2="240.0" stroke="#EAEFF7" stroke-width="1"/><text x="58" y="245" text-anchor="end" font-family="Arial" font-size="15" fill="#5A6478">800</text><line x1="70" y1="170.0" x2="760" y2="170.0" stroke="#EAEFF7" stroke-width="1"/><text x="58" y="175" text-anchor="end" font-family="Arial" font-size="15" fill="#5A6478">1000</text><line x1="70" y1="100.0" x2="760" y2="100.0" stroke="#EAEFF7" stroke-width="1"/><text x="58" y="105" text-anchor="end" font-family="Arial" font-size="15" fill="#5A6478">1200</text><line x1="70" y1="30.0" x2="760" y2="30.0" stroke="#EAEFF7" stroke-width="1"/><text x="58" y="35" text-anchor="end" font-family="Arial" font-size="15" fill="#5A6478">1400</text><text x="70.0" y="545" text-anchor="middle" font-family="Arial" font-size="15" fill="#5A6478">1</text><text x="165.2" y="545" text-anchor="middle" font-family="Arial" font-size="15" fill="#5A6478">5</text><text x="284.1" y="545" text-anchor="middle" font-family="Arial" font-size="15" fill="#5A6478">10</text><text x="403.1" y="545" text-anchor="middle" font-family="Arial" font-size="15" fill="#5A6478">15</text><text x="522.1" y="545" text-anchor="middle" font-family="Arial" font-size="15" fill="#5A6478">20</text><text x="641.0" y="545" text-anchor="middle" font-family="Arial" font-size="15" fill="#5A6478">25</text><text x="760.0" y="545" text-anchor="middle" font-family="Arial" font-size="15" fill="#5A6478">30</text>
+      <text x="415" y="585" text-anchor="middle" font-family="Arial" font-size="17" fill="#5A6478">Year</text>
+      <polyline fill="none" stroke="#3E5CB0" stroke-width="4" points="70.0,150.6 93.8,155.1 117.6,159.9 141.4,165.0 165.2,170.5 189.0,176.3 212.8,182.5 236.6,189.1 260.3,196.1 284.1,203.7 307.9,211.7 331.7,220.2 355.5,229.3 379.3,239.0 403.1,249.3 426.9,260.4 450.7,272.1 474.5,284.6 498.3,298.0 522.1,312.2 545.9,327.4 569.7,343.5 593.4,360.7 617.2,379.1 641.0,398.7 664.8,419.5 688.6,441.8 712.4,465.5 736.2,490.7 760.0,517.7"/>
+      <polyline fill="none" stroke="#C9A227" stroke-width="4" points="70.0,451.6 93.8,447.1 117.6,442.3 141.4,437.2 165.2,431.7 189.0,425.9 212.8,419.7 236.6,413.1 260.3,406.0 284.1,398.5 307.9,390.5 331.7,381.9 355.5,372.8 379.3,363.2 403.1,352.8 426.9,341.8 450.7,330.0 474.5,317.5 498.3,304.2 522.1,290.0 545.9,274.8 569.7,258.6 593.4,241.4 617.2,223.0 641.0,203.5 664.8,182.6 688.6,160.4 712.4,136.7 736.2,111.4 760.0,84.5"/>
+    </svg>
+    <div style="text-align:center;font-family:Arial;font-size:24px;margin-top:6px">
+      <span style="color:#3E5CB0;font-weight:700">&#9644; Interest</span> &nbsp;&nbsp; <span style="color:#C9A227;font-weight:700">&#9644; Principal</span></div>
+    <div style="font-family:Arial;font-size:24px;font-style:italic;color:#5A6478;text-align:center;margin-top:14px">The lines cross near year 19 — only then does most of your payment go to principal.</div>
+  </div>
+</section>
+
+<section class="page" data-document-role="page" data-label="Your Turn — Build the Schedule" data-speaker-notes="~4 min, work time. Students build the tab live. No prescribed functions — they wire the four relationships. Watch for: forgetting to divide APR by 12, and not carrying ending balance into the next beginning balance.">
+  <div class="head"><span class="dot"></span><h1 class="title">Your Turn — Build the Schedule</h1><div class="sub">Add an Amortization tab to your TVM workbook</div></div>
+  <div style="position:absolute;top:300px;left:90px;right:90px;display:grid;grid-template-columns:1fr 1fr;gap:40px"><div style="background:#FFF8E7;border:2px solid #C9A227;border-radius:16px;padding:28px 40px;display:flex;align-items:center;gap:26px">
+      <div style="flex:0 0 auto;width:70px;height:70px;border-radius:50%;background:#1E2761;color:#fff;font-family:Georgia,serif;font-size:34px;font-weight:700;display:flex;align-items:center;justify-content:center">1</div>
+      <div><div style="font-family:Georgia,serif;font-size:30px;font-weight:700;color:#1E2761;margin-bottom:10px">Interest paid</div>
+      <div style="font-family:Arial;font-size:24px;color:#1E2761">Beginning balance × (APR ÷ 12)</div></div></div><div style="background:#FFF8E7;border:2px solid #C9A227;border-radius:16px;padding:28px 40px;display:flex;align-items:center;gap:26px">
+      <div style="flex:0 0 auto;width:70px;height:70px;border-radius:50%;background:#1E2761;color:#fff;font-family:Georgia,serif;font-size:34px;font-weight:700;display:flex;align-items:center;justify-content:center">2</div>
+      <div><div style="font-family:Georgia,serif;font-size:30px;font-weight:700;color:#1E2761;margin-bottom:10px">Principal paid</div>
+      <div style="font-family:Arial;font-size:24px;color:#1E2761">Total payment − interest paid</div></div></div><div style="background:#FFF8E7;border:2px solid #C9A227;border-radius:16px;padding:28px 40px;display:flex;align-items:center;gap:26px">
+      <div style="flex:0 0 auto;width:70px;height:70px;border-radius:50%;background:#1E2761;color:#fff;font-family:Georgia,serif;font-size:34px;font-weight:700;display:flex;align-items:center;justify-content:center">3</div>
+      <div><div style="font-family:Georgia,serif;font-size:30px;font-weight:700;color:#1E2761;margin-bottom:10px">Ending balance</div>
+      <div style="font-family:Arial;font-size:24px;color:#1E2761">Beginning balance − principal paid</div></div></div><div style="background:#FFF8E7;border:2px solid #C9A227;border-radius:16px;padding:28px 40px;display:flex;align-items:center;gap:26px">
+      <div style="flex:0 0 auto;width:70px;height:70px;border-radius:50%;background:#1E2761;color:#fff;font-family:Georgia,serif;font-size:34px;font-weight:700;display:flex;align-items:center;justify-content:center">4</div>
+      <div><div style="font-family:Georgia,serif;font-size:30px;font-weight:700;color:#1E2761;margin-bottom:10px">Next beginning balance</div>
+      <div style="font-family:Arial;font-size:24px;color:#1E2761">Equals this month’s ending balance</div></div></div></div>
+  <div style="position:absolute;top:940px;left:90px;right:90px;font-family:Arial;font-size:30px;color:#5A6478"><b style="color:#1E2761">Build month 1, then copy down.</b> Choose your own Excel approach — the four relationships above are all you need.</div>
+</section>
+
+</body></html>

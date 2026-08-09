@@ -31,7 +31,8 @@ const section02 = section01
   .replace("2:00&ndash;3:15 p.m.", "9:00&ndash;9:50 a.m.")
   .replace("GSB 155", "GSB 357")
   .replaceAll("courses/58345/", "courses/58352/")
-  .replaceAll("courses/58345", "courses/58352");
+  .replaceAll("courses/58345", "courses/58352")
+  .replaceAll("7763182", "7763186");
 
 const requiredSection02Markers = [
   "BUS 210-02",
@@ -41,6 +42,7 @@ const requiredSection02Markers = [
   "bevitts@endicott.edu",
   "calendar.app.google/HEVjuM1QFke5C7Gi6",
   "McGraw Hill Connect access",
+  "courses/58352/files/7763186/preview",
   "courses/58352/pages/course-materials",
   "courses/58352/pages/start-here",
 ];

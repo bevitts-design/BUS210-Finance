@@ -1,0 +1,3566 @@
+{
+  "pptx": "/Users/bethanyevittsair2/Downloads/210 Ch4 -Time Value of Money .pptx",
+  "slides": [
+    {
+      "slide": 1,
+      "texts": [
+        {
+          "text": "KBU6279860 I",
+          "box": {
+            "x": 3102806,
+            "y": 4110320,
+            "cx": 1076938,
+            "cy": 198278
+          }
+        },
+        {
+          "text": "B2",
+          "box": {
+            "x": 2984091,
+            "y": 4641146,
+            "cx": 199433,
+            "cy": 190659
+          }
+        },
+        {
+          "text": "$10,000",
+          "box": {
+            "x": 6336336,
+            "y": 2775119,
+            "cx": 1286342,
+            "cy": 457633
+          }
+        },
+        {
+          "text": "KB462798601",
+          "box": {
+            "x": 8466136,
+            "y": 2345879,
+            "cx": 1216541,
+            "cy": 224604
+          }
+        },
+        {
+          "text": "12 1",
+          "box": {
+            "x": 12740891,
+            "y": 4068856,
+            "cx": 1455860,
+            "cy": 993903
+          }
+        },
+        {
+          "text": "11",
+          "box": {
+            "x": 11902979,
+            "y": 4670112,
+            "cx": 408838,
+            "cy": 961310
+          }
+        },
+        {
+          "text": "2",
+          "box": {
+            "x": 14583662,
+            "y": 4855616,
+            "cx": 289178,
+            "cy": 578413
+          }
+        },
+        {
+          "text": "10",
+          "box": {
+            "x": 11308072,
+            "y": 5754433,
+            "cx": 518526,
+            "cy": 527847
+          }
+        },
+        {
+          "text": "The Foundational Principle of Finance\\nA dollar today is worth more than a dollar tomorrow.",
+          "box": {
+            "x": 2862202,
+            "y": 6993365,
+            "cx": 12596838,
+            "cy": 1327296
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image1.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 2,
+      "texts": [
+        {
+          "text": "Learning Goals",
+          "box": {
+            "x": 0,
+            "y": -28575,
+            "cx": 22555200,
+            "cy": 1835037
+          }
+        },
+        {
+          "text": "Create a cash flow time line.\\nCompute the future value of money.\\nShow how the power of compound interest increases wealth.\\nCalculate the present value of a payment made in the future.",
+          "box": {
+            "x": 777241,
+            "y": 2503710,
+            "cx": 6928770,
+            "cy": 6823171
+          }
+        },
+        {
+          "text": "Move cash flows from one year to another.\\nApply the Rule of 72.\\nCompute the rate of return realized on selling an investment.\\nCalculate the number of years needed to grow an investment.",
+          "box": {
+            "x": 9836688,
+            "y": 2603418,
+            "cx": 7160897,
+            "cy": 7394671
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        }
+      ]
+    },
+    {
+      "slide": 3,
+      "texts": [],
+      "images": [
+        {
+          "src": "assets/media/image3.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 4,
+      "texts": [
+        {
+          "text": "The Four Variables Driving TVM Calculations",
+          "box": {
+            "x": 2507533,
+            "y": 682069,
+            "cx": 13239698,
+            "cy": 959789
+          }
+        },
+        {
+          "text": "PV (Present Value) - The Seed / Today",
+          "box": {
+            "x": 1929515,
+            "y": 5180714,
+            "cx": 5992960,
+            "cy": 467874
+          }
+        },
+        {
+          "text": "FV (Future Value) - The Harvest / Future",
+          "box": {
+            "x": 10290686,
+            "y": 5166326,
+            "cx": 6222308,
+            "cy": 449449
+          }
+        },
+        {
+          "text": "Identify three,\\nsolve for the fourth.",
+          "box": {
+            "x": 8073712,
+            "y": 5623313,
+            "cx": 2133932,
+            "cy": 517934
+          }
+        },
+        {
+          "text": "2",
+          "box": {
+            "x": 13737608,
+            "y": 7244021,
+            "cx": 99716,
+            "cy": 164210
+          }
+        },
+        {
+          "text": "7",
+          "box": {
+            "x": 13209110,
+            "y": 7387169,
+            "cx": 79773,
+            "cy": 139076
+          }
+        },
+        {
+          "text": "10",
+          "box": {
+            "x": 13912605,
+            "y": 7473955,
+            "cx": 149575,
+            "cy": 156496
+          }
+        },
+        {
+          "text": "9 10 12 14 15 16 17",
+          "box": {
+            "x": 12441361,
+            "y": 7556421,
+            "cx": 1565549,
+            "cy": 182830
+          }
+        },
+        {
+          "text": "17 18 21 22 23 24\\n23 23 23 28 19",
+          "box": {
+            "x": 12521543,
+            "y": 7708176,
+            "cx": 1346172,
+            "cy": 386194
+          }
+        },
+        {
+          "text": "30",
+          "box": {
+            "x": 13230132,
+            "y": 8214438,
+            "cx": 199433,
+            "cy": 200811
+          }
+        },
+        {
+          "text": "i (Rate) The Speed of Growth",
+          "box": {
+            "x": 2509453,
+            "y": 9220389,
+            "cx": 4806334,
+            "cy": 449020
+          }
+        },
+        {
+          "text": "n (Periods) The Distance in Time",
+          "box": {
+            "x": 10739422,
+            "y": 9225775,
+            "cx": 5324859,
+            "cy": 441203
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image4.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 5,
+      "texts": [],
+      "images": [
+        {
+          "src": "assets/media/image5.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 6,
+      "texts": [
+        {
+          "text": "APR= Annual Percentage Rate (also known as interest rate)",
+          "box": {
+            "x": 243838,
+            "y": 8755542,
+            "cx": 11942754,
+            "cy": 1299516
+          }
+        },
+        {
+          "text": "Time Value of Money: Future Value of Lump Sum",
+          "box": {
+            "x": 1277302,
+            "y": 546738,
+            "cx": 15733394,
+            "cy": 1013460
+          }
+        },
+        {
+          "text": "5% APR",
+          "box": {
+            "x": 11227473,
+            "y": 2506539,
+            "cx": 2773170,
+            "cy": 2711499
+          }
+        },
+        {
+          "text": "1 Year",
+          "box": {
+            "x": 15551937,
+            "y": 2506539,
+            "cx": 2492224,
+            "cy": 2711499
+          }
+        },
+        {
+          "text": "How much will you have earned at the end of 1 year?",
+          "box": {
+            "x": 2443443,
+            "y": 7094700,
+            "cx": 14263166,
+            "cy": 740431
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image6.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 11988800,
+            "cy": 5124069
+          }
+        }
+      ]
+    },
+    {
+      "slide": 7,
+      "texts": [
+        {
+          "text": "Time Value of Money: Future Value of Lump Sum",
+          "box": {
+            "x": 1277302,
+            "y": 546738,
+            "cx": 15733394,
+            "cy": 1013460
+          }
+        },
+        {
+          "text": "5% APR",
+          "box": {
+            "x": 11227473,
+            "y": 2506539,
+            "cx": 2773170,
+            "cy": 2711499
+          }
+        },
+        {
+          "text": "1 Year",
+          "box": {
+            "x": 15551937,
+            "y": 2506539,
+            "cx": 2492224,
+            "cy": 2711499
+          }
+        },
+        {
+          "text": "How much will you have earned 1 year in the future (FV)?",
+          "box": {
+            "x": 1514295,
+            "y": 7900398,
+            "cx": 15959594,
+            "cy": 740431
+          }
+        },
+        {
+          "text": "Present Value (PV) - Today",
+          "box": {
+            "x": 0,
+            "y": -66675,
+            "cx": 4858774,
+            "cy": 1533247
+          }
+        },
+        {
+          "text": "Rate of Interest (i)",
+          "box": {
+            "x": 0,
+            "y": -66675,
+            "cx": 4858774,
+            "cy": 856139
+          }
+        },
+        {
+          "text": "Time periods (n)",
+          "box": {
+            "x": 0,
+            "y": -57150,
+            "cx": 2322054,
+            "cy": 2016164
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image7.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 13698855,
+            "cy": 10274173
+          }
+        },
+        {
+          "src": "assets/media/image6.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 11988800,
+            "cy": 5124069
+          }
+        }
+      ]
+    },
+    {
+      "slide": 8,
+      "texts": [
+        {
+          "text": "Future Value",
+          "box": {
+            "x": 0,
+            "y": -38100,
+            "cx": 21031200,
+            "cy": 1882776
+          }
+        },
+        {
+          "text": "Future Value (FV) at the end of One Year",
+          "box": {
+            "x": 0,
+            "y": -66675,
+            "cx": 10256482,
+            "cy": 1113185
+          }
+        },
+        {
+          "text": "Present Value (PV) = $100 to be invested today\\nTime frame (n) =  1 year\\nInterest Rate (i)=  5%\\nFV= $100 *(1+.05)^1\\nFV= $100*(1.05)\\nFV= $105",
+          "box": {
+            "x": 0,
+            "y": -19050,
+            "cx": 14533714,
+            "cy": 7374040
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image7.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 13698855,
+            "cy": 10274173
+          }
+        }
+      ]
+    },
+    {
+      "slide": 9,
+      "texts": [
+        {
+          "text": "FV = PV \u00d7 (1+i)^n\\nFV = 100x (1.05)^1= $105",
+          "box": {
+            "x": 918589,
+            "y": 4636381,
+            "cx": 7865915,
+            "cy": 1911592
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image8.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 10,
+      "texts": [
+        {
+          "text": "The Excel Sign Convention:\\nThink Like a Wallet",
+          "box": {
+            "x": 1063643,
+            "y": 1068209,
+            "cx": 9104113,
+            "cy": 1630115
+          }
+        },
+        {
+          "text": "Inflow (+)\\nReceive\\nWithdrawal",
+          "box": {
+            "x": 2508890,
+            "y": 4415115,
+            "cx": 1934499,
+            "cy": 1476685
+          }
+        },
+        {
+          "text": "CREDIT",
+          "box": {
+            "x": 9850845,
+            "y": 4037639,
+            "cx": 428781,
+            "cy": 164042
+          }
+        },
+        {
+          "text": "Outflow (-)",
+          "box": {
+            "x": 14045030,
+            "y": 4421573,
+            "cx": 2024244,
+            "cy": 518505
+          }
+        },
+        {
+          "text": "Invest\\nDeposit",
+          "box": {
+            "x": 13873782,
+            "y": 5061697,
+            "cx": 1525662,
+            "cy": 929702
+          }
+        },
+        {
+          "text": "Excel requires you to define the direction of the cash flow.",
+          "box": {
+            "x": 2258580,
+            "y": 8005612,
+            "cx": 13830674,
+            "cy": 648573
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image9.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 11,
+      "texts": [
+        {
+          "text": "Calculating Future Value in Excel",
+          "box": {
+            "x": 3895592,
+            "y": 748040,
+            "cx": 10410399,
+            "cy": 967873
+          }
+        },
+        {
+          "text": "FV(rate, nper, pmt, [pv], [type])",
+          "box": {
+            "x": 888520,
+            "y": 2138473,
+            "cx": 9010006,
+            "cy": 1362230
+          }
+        },
+        {
+          "text": "Rate: The interest rate per period. (e.g., 5% or 0.05)\\nNper: The total number of payment periods. (e.g., 3\\nfor 3 years)\\nPmt: The payment made each period. For a single\\nlump-sum investment, this is 0.\\nPV: The present value, or initial investment.\\nCrucially, this is entered as a negative number\\nbecause it's a cash outflow. (e.g., -100)",
+          "box": {
+            "x": 705603,
+            "y": 3837241,
+            "cx": 9408872,
+            "cy": 3510195
+          }
+        },
+        {
+          "text": "Function Arguments",
+          "box": {
+            "x": 10943752,
+            "y": 2383586,
+            "cx": 2682373,
+            "cy": 397962
+          }
+        },
+        {
+          "text": "Rate: 5%",
+          "box": {
+            "x": 11559899,
+            "y": 3274998,
+            "cx": 1635350,
+            "cy": 527916
+          }
+        },
+        {
+          "text": "Nper: 3",
+          "box": {
+            "x": 11484903,
+            "y": 3966004,
+            "cx": 1465832,
+            "cy": 527768
+          }
+        },
+        {
+          "text": "Pmt: 0",
+          "box": {
+            "x": 11600351,
+            "y": 4654836,
+            "cx": 1356144,
+            "cy": 502161
+          }
+        },
+        {
+          "text": "Pv: -100",
+          "box": {
+            "x": 11880346,
+            "y": 5257130,
+            "cx": 1525662,
+            "cy": 622792
+          }
+        },
+        {
+          "text": "Type:",
+          "box": {
+            "x": 11515592,
+            "y": 6033552,
+            "cx": 847590,
+            "cy": 527809
+          }
+        },
+        {
+          "text": "Formula result = $115.76",
+          "box": {
+            "x": 10776007,
+            "y": 7350331,
+            "cx": 4626844,
+            "cy": 475461
+          }
+        },
+        {
+          "text": ". \u25a1 X",
+          "box": {
+            "x": 16366799,
+            "y": 2406408,
+            "cx": 558412,
+            "cy": 371153
+          }
+        },
+        {
+          "text": "Type: [Optional] 0 for end-of-period payments, 1 for\\nbeginning. Omit for this type of problem.",
+          "box": {
+            "x": 1422622,
+            "y": 7679175,
+            "cx": 7668196,
+            "cy": 774911
+          }
+        },
+        {
+          "text": "Example: =FV(5%, 3, 0, -100) returns $115.76",
+          "box": {
+            "x": 4381229,
+            "y": 9053789,
+            "cx": 9518716,
+            "cy": 605824
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image10.png",
+          "box": {
+            "x": 87774,
+            "y": 51513,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 12,
+      "texts": [
+        {
+          "text": "The Formula:\\nFV = PV * (1 + i)^n\\nStep-by-step Calculation:\\nYear 1: $100 * (1.05) = $105.00",
+          "box": {
+            "x": 561827,
+            "y": 2894441,
+            "cx": 7106824,
+            "cy": 2785942
+          }
+        },
+        {
+          "text": "FV = $100 * (1 + 0.05)^\u00b3 = $115.76",
+          "box": {
+            "x": 0,
+            "y": 8061318,
+            "cx": 7365724,
+            "cy": 1297739
+          }
+        },
+        {
+          "text": "How Money Grows Over Time",
+          "box": {
+            "x": 4980839,
+            "y": 434701,
+            "cx": 8306382,
+            "cy": 820521
+          }
+        },
+        {
+          "text": "If I invest $100 today at 5% interest, what will it be worth in 3 years?",
+          "box": {
+            "x": 1920479,
+            "y": 1677518,
+            "cx": 14586649,
+            "cy": 614157
+          }
+        },
+        {
+          "text": "$115.76",
+          "box": {
+            "x": 16043370,
+            "y": 3320475,
+            "cx": 1856752,
+            "cy": 597335
+          }
+        },
+        {
+          "text": "$110.25",
+          "box": {
+            "x": 13480396,
+            "y": 4075735,
+            "cx": 1784146,
+            "cy": 561028
+          }
+        },
+        {
+          "text": "$105.00",
+          "box": {
+            "x": 10913658,
+            "y": 4737687,
+            "cx": 1785548,
+            "cy": 623131
+          }
+        },
+        {
+          "text": "$100",
+          "box": {
+            "x": 8654846,
+            "y": 5341599,
+            "cx": 1117915,
+            "cy": 632689
+          }
+        },
+        {
+          "text": "Year 2: $105 * (1.05) = $110.25",
+          "box": {
+            "x": 140746,
+            "y": 5863437,
+            "cx": 6605593,
+            "cy": 578094
+          }
+        },
+        {
+          "text": "Year 3: $110.25* (1.05) = $115.76",
+          "box": {
+            "x": 122387,
+            "y": 6445910,
+            "cx": 7253906,
+            "cy": 569769
+          }
+        },
+        {
+          "text": "Using the Formula:",
+          "box": {
+            "x": 306186,
+            "y": 7439806,
+            "cx": 4465584,
+            "cy": 648273
+          }
+        },
+        {
+          "text": "Year 0",
+          "box": {
+            "x": 8678918,
+            "y": 8146017,
+            "cx": 1069771,
+            "cy": 527904
+          }
+        },
+        {
+          "text": "Year 1",
+          "box": {
+            "x": 11256511,
+            "y": 8188908,
+            "cx": 1059955,
+            "cy": 475844
+          }
+        },
+        {
+          "text": "Year 2",
+          "box": {
+            "x": 13851633,
+            "y": 8164139,
+            "cx": 1054969,
+            "cy": 501874
+          }
+        },
+        {
+          "text": "Year 3",
+          "box": {
+            "x": 16427483,
+            "y": 8145105,
+            "cx": 1087065,
+            "cy": 520225
+          }
+        },
+        {
+          "text": "Key Insight: You earn \"interest on interest.\" This is the power of compounding.",
+          "box": {
+            "x": 78191,
+            "y": 9286670,
+            "cx": 18058496,
+            "cy": 630504
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image11.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 13,
+      "texts": [
+        {
+          "text": "Value ($)",
+          "box": {
+            "x": 809262,
+            "y": 4646808,
+            "cx": 987193,
+            "cy": 302016
+          }
+        },
+        {
+          "text": "$5,000",
+          "box": {
+            "x": 1708476,
+            "y": 1994246,
+            "cx": 797732,
+            "cy": 302016
+          }
+        },
+        {
+          "text": "Compounding Builds Wealth Over Time",
+          "box": {
+            "x": 2753891,
+            "y": 617961,
+            "cx": 12773679,
+            "cy": 881899
+          }
+        },
+        {
+          "text": "$4,000",
+          "box": {
+            "x": 1708476,
+            "y": 3071184,
+            "cx": 797732,
+            "cy": 302016
+          }
+        },
+        {
+          "text": "$3,000",
+          "box": {
+            "x": 1733405,
+            "y": 4134826,
+            "cx": 747874,
+            "cy": 284732
+          }
+        },
+        {
+          "text": "$2,000",
+          "box": {
+            "x": 1695180,
+            "y": 5198469,
+            "cx": 797732,
+            "cy": 302016
+          }
+        },
+        {
+          "text": "$1,000",
+          "box": {
+            "x": 1697576,
+            "y": 6214480,
+            "cx": 847590,
+            "cy": 423269
+          }
+        },
+        {
+          "text": "$0",
+          "box": {
+            "x": 2240297,
+            "y": 7335278,
+            "cx": 279206,
+            "cy": 267895
+          }
+        },
+        {
+          "text": "0",
+          "box": {
+            "x": 2876821,
+            "y": 7538482,
+            "cx": 149575,
+            "cy": 260135
+          }
+        },
+        {
+          "text": "1",
+          "box": {
+            "x": 4103333,
+            "y": 7538482,
+            "cx": 89745,
+            "cy": 260135
+          }
+        },
+        {
+          "text": "2",
+          "box": {
+            "x": 5306579,
+            "y": 7538482,
+            "cx": 129631,
+            "cy": 242851
+          }
+        },
+        {
+          "text": "3",
+          "box": {
+            "x": 6521458,
+            "y": 7538482,
+            "cx": 119660,
+            "cy": 260135
+          }
+        },
+        {
+          "text": "4",
+          "box": {
+            "x": 7737999,
+            "y": 7551777,
+            "cx": 119660,
+            "cy": 242851
+          }
+        },
+        {
+          "text": "5",
+          "box": {
+            "x": 8942907,
+            "y": 7538482,
+            "cx": 129631,
+            "cy": 260135
+          }
+        },
+        {
+          "text": "6",
+          "box": {
+            "x": 10147814,
+            "y": 7538482,
+            "cx": 139603,
+            "cy": 260135
+          }
+        },
+        {
+          "text": "7",
+          "box": {
+            "x": 11367679,
+            "y": 7538482,
+            "cx": 119660,
+            "cy": 242851
+          }
+        },
+        {
+          "text": "8",
+          "box": {
+            "x": 12572587,
+            "y": 7538482,
+            "cx": 129631,
+            "cy": 242851
+          }
+        },
+        {
+          "text": "9",
+          "box": {
+            "x": 13789128,
+            "y": 7551777,
+            "cx": 129631,
+            "cy": 242851
+          }
+        },
+        {
+          "text": "10",
+          "box": {
+            "x": 14972430,
+            "y": 7551777,
+            "cx": 209405,
+            "cy": 242851
+          }
+        },
+        {
+          "text": "Years",
+          "box": {
+            "x": 8753445,
+            "y": 7870870,
+            "cx": 508554,
+            "cy": 260135
+          }
+        },
+        {
+          "text": "Aggressive (15%)",
+          "box": {
+            "x": 15324806,
+            "y": 2964820,
+            "cx": 2044188,
+            "cy": 336585
+          }
+        },
+        {
+          "text": "Moderate (10%)",
+          "box": {
+            "x": 15457669,
+            "y": 4533692,
+            "cx": 1645322,
+            "cy": 284732
+          }
+        },
+        {
+          "text": "Conservative (5%)",
+          "box": {
+            "x": 15426140,
+            "y": 5570744,
+            "cx": 1974386,
+            "cy": 302016
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image12.png",
+          "box": {
+            "x": 114674,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 14,
+      "texts": [
+        {
+          "text": "Open up Excel\\nCreate a TVM file \u2013 you will use it for homework problems, quizzes and exams\\nPlease save it with your name in the file\\nExample:\\nBeth.TVM-File.210",
+          "box": {
+            "x": 0,
+            "y": 28575,
+            "cx": 13819364,
+            "cy": 15648022
+          }
+        },
+        {
+          "text": "Your turn\u2026.",
+          "box": {
+            "x": 1294770,
+            "y": 906780,
+            "cx": 15733394,
+            "cy": 1013460
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image7.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 13698855,
+            "cy": 10274173
+          }
+        },
+        {
+          "src": "assets/media/image13.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 4365498,
+            "cy": 8829040
+          }
+        }
+      ]
+    },
+    {
+      "slide": 15,
+      "texts": [
+        {
+          "text": "In Class Exercise #1 \u2013 What is the FV in year \u201cn\u201d?",
+          "box": {
+            "x": 1294770,
+            "y": 906780,
+            "cx": 17142014,
+            "cy": 1013460
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image14.png",
+          "box": {
+            "x": 3351795,
+            "y": 2727874,
+            "cx": 10303929,
+            "cy": 5119000
+          }
+        }
+      ]
+    },
+    {
+      "slide": 16,
+      "texts": [
+        {
+          "text": "Build a calculator that allows for changing units",
+          "box": {
+            "x": 803741,
+            "y": 2313426,
+            "cx": 14798670,
+            "cy": 1221731
+          }
+        },
+        {
+          "text": "In Class Exercise #2",
+          "box": {
+            "x": 1294770,
+            "y": 906780,
+            "cx": 15733394,
+            "cy": 1013460
+          }
+        },
+        {
+          "text": "Time Periods\\nPresent Values\\nInterest Rates",
+          "box": {
+            "x": 13121640,
+            "y": 4236105,
+            "cx": 3666448,
+            "cy": 1766204
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image15.png",
+          "box": {
+            "x": 2152244,
+            "y": 3535156,
+            "cx": 10415429,
+            "cy": 4352433
+          }
+        }
+      ]
+    },
+    {
+      "slide": 17,
+      "texts": [
+        {
+          "text": "In Class Exercise #3",
+          "box": {
+            "x": 1294770,
+            "y": 906780,
+            "cx": 15733394,
+            "cy": 1013460
+          }
+        },
+        {
+          "text": "Build and Graph a table for compounding wealth over time\\nAcross 10 years (n)\\n3 different interest rates(i)  5% , 10% and 15%\\nGraph the future values (FV) of $1,000 PV",
+          "box": {
+            "x": 1294770,
+            "y": 2286697,
+            "cx": 14798670,
+            "cy": 2638425
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image16.png",
+          "box": {
+            "x": 1116973,
+            "y": 5204830,
+            "cx": 6149657,
+            "cy": 4632633
+          }
+        },
+        {
+          "src": "assets/media/image17.png",
+          "box": {
+            "x": 9341539,
+            "y": 5607508,
+            "cx": 5973002,
+            "cy": 3650792
+          }
+        }
+      ]
+    },
+    {
+      "slide": 18,
+      "texts": [
+        {
+          "text": "Future Value: The Power of\\nInterest on Interest",
+          "box": {
+            "x": 970574,
+            "y": 994973,
+            "cx": 8874766,
+            "cy": 1696921
+          }
+        },
+        {
+          "text": "Simple Interest: Earning only on the principal",
+          "box": {
+            "x": 1568871,
+            "y": 3658800,
+            "cx": 8119725,
+            "cy": 518505
+          }
+        },
+        {
+          "text": "Compound Interest: Earning on the\\nprincipal + accumulated interest",
+          "box": {
+            "x": 1568871,
+            "y": 5363478,
+            "cx": 8501352,
+            "cy": 1488889
+          }
+        },
+        {
+          "text": "Interest on Interest\\n($1.50)",
+          "box": {
+            "x": 14232829,
+            "y": 4040896,
+            "cx": 2203734,
+            "cy": 652141
+          }
+        },
+        {
+          "text": "Simple Interest ($21)",
+          "box": {
+            "x": 14236251,
+            "y": 5208887,
+            "cx": 2891778,
+            "cy": 397962
+          }
+        },
+        {
+          "text": "Principal ($100)",
+          "box": {
+            "x": 14294398,
+            "y": 6780637,
+            "cx": 2084074,
+            "cy": 371153
+          }
+        },
+        {
+          "text": "Based on $100 at 7% for 3 years.",
+          "box": {
+            "x": 10792856,
+            "y": 8994342,
+            "cx": 4353870,
+            "cy": 371153
+          }
+        },
+        {
+          "text": "A NotebookLM",
+          "box": {
+            "x": 16993351,
+            "y": 9964023,
+            "cx": 1047023,
+            "cy": 171949
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image18.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 19,
+      "texts": [
+        {
+          "text": "Simple Interest = $$Amt * Interest Rate * n periods of time",
+          "box": {
+            "x": 448290,
+            "y": 2640474,
+            "cx": 16811010,
+            "cy": 704850
+          }
+        },
+        {
+          "text": "Simple Interest Calculation",
+          "box": {
+            "x": 1294770,
+            "y": 906780,
+            "cx": 15733394,
+            "cy": 876300
+          }
+        },
+        {
+          "text": "$100*7%*3 = $21",
+          "box": {
+            "x": 6140737,
+            "y": 3431049,
+            "cx": 5176140,
+            "cy": 752475
+          }
+        },
+        {
+          "text": "Future Value \u2013 Present Value = Total Interest Paid\\n$122.50 -$100 = $22.50\\nInterest on Interest = Total Interest Paid - Simple Interest\\n$22.50-$21 = $1.50",
+          "box": {
+            "x": 1028700,
+            "y": 4378087,
+            "cx": 15495037,
+            "cy": 3152775
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image19.png",
+          "box": {
+            "x": 2952940,
+            "y": 7394536,
+            "cx": 11301259,
+            "cy": 2244560
+          }
+        }
+      ]
+    },
+    {
+      "slide": 20,
+      "texts": [
+        {
+          "text": "Simple Interest Problem",
+          "box": {
+            "x": 0,
+            "y": -38100,
+            "cx": 21031200,
+            "cy": 1948547
+          }
+        },
+        {
+          "text": "Calculate the Simple Interest earned on the following scenario:",
+          "box": {
+            "x": 718456,
+            "y": 2990412,
+            "cx": 15257417,
+            "cy": 1194613
+          }
+        },
+        {
+          "text": "$1,500 investment today, deposited for 3 year in the bank at an interest rate of 7.00%",
+          "box": {
+            "x": 718457,
+            "y": 4227765,
+            "cx": 17216847,
+            "cy": 609600
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        }
+      ]
+    },
+    {
+      "slide": 21,
+      "texts": [
+        {
+          "text": "Simple Interest Calculator",
+          "box": {
+            "x": 0,
+            "y": -38100,
+            "cx": 21031200,
+            "cy": 1884758
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image20.png",
+          "box": {
+            "x": 641093,
+            "y": 3116481,
+            "cx": 16618207,
+            "cy": 4054037
+          }
+        }
+      ]
+    },
+    {
+      "slide": 22,
+      "texts": [
+        {
+          "text": "Year O",
+          "box": {
+            "x": 1968315,
+            "y": 5395520,
+            "cx": 1196598,
+            "cy": 545858
+          }
+        },
+        {
+          "text": "Two Sides of the Same Coin",
+          "box": {
+            "x": 4660085,
+            "y": 801222,
+            "cx": 8974482,
+            "cy": 943276
+          }
+        },
+        {
+          "text": "Compounding:\\nMoving Forward\\n(Multiply)",
+          "box": {
+            "x": 13388600,
+            "y": 2689307,
+            "cx": 2841919,
+            "cy": 1291601
+          }
+        },
+        {
+          "text": "Discounting:\\nMoving Backward\\n(Divide)",
+          "box": {
+            "x": 1667685,
+            "y": 6539675,
+            "cx": 3200899,
+            "cy": 1289594
+          }
+        },
+        {
+          "text": "Year 5",
+          "box": {
+            "x": 15130315,
+            "y": 5397691,
+            "cx": 1196598,
+            "cy": 554040
+          }
+        },
+        {
+          "text": "Discounting is simply Compounding in reverse.",
+          "box": {
+            "x": 4282824,
+            "y": 9125050,
+            "cx": 9742299,
+            "cy": 563197
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image21.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 23,
+      "texts": [
+        {
+          "text": "Present Value: What is the\\nFuture Worth Today?",
+          "box": {
+            "x": 1037241,
+            "y": 949364,
+            "cx": 10280768,
+            "cy": 1931675
+          }
+        },
+        {
+          "text": "$100.00",
+          "box": {
+            "x": 2190003,
+            "y": 5472275,
+            "cx": 1306286,
+            "cy": 527533
+          }
+        },
+        {
+          "text": "Year O",
+          "box": {
+            "x": 2190003,
+            "y": 9505055,
+            "cx": 967250,
+            "cy": 425412
+          }
+        },
+        {
+          "text": "Discounting strips away interest",
+          "box": {
+            "x": 6437180,
+            "y": 4734445,
+            "cx": 4756475,
+            "cy": 449563
+          }
+        },
+        {
+          "text": "Interest",
+          "box": {
+            "x": 7872306,
+            "y": 9379879,
+            "cx": 1150479,
+            "cy": 371220
+          }
+        },
+        {
+          "text": "$115.76",
+          "box": {
+            "x": 13575264,
+            "y": 6033060,
+            "cx": 2592628,
+            "cy": 984562
+          }
+        },
+        {
+          "text": "Year 3",
+          "box": {
+            "x": 14659880,
+            "y": 9541677,
+            "cx": 997165,
+            "cy": 423366
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image22.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 11617101
+          }
+        }
+      ]
+    },
+    {
+      "slide": 24,
+      "texts": [
+        {
+          "text": "Calculating the Present Value",
+          "box": {
+            "x": 2336717,
+            "y": 708796,
+            "cx": 11680070,
+            "cy": 1300485
+          }
+        },
+        {
+          "text": "The Math",
+          "box": {
+            "x": 3749340,
+            "y": 2389833,
+            "cx": 2233649,
+            "cy": 705987
+          }
+        },
+        {
+          "text": "FV",
+          "box": {
+            "x": 4856193,
+            "y": 3408842,
+            "cx": 1017108,
+            "cy": 1178509
+          }
+        },
+        {
+          "text": "(1 + i)^n",
+          "box": {
+            "x": 4123349,
+            "y": 4596777,
+            "cx": 2415787,
+            "cy": 1019597
+          }
+        },
+        {
+          "text": "The Excel",
+          "box": {
+            "x": 12348225,
+            "y": 2370362,
+            "cx": 2293479,
+            "cy": 724165
+          }
+        },
+        {
+          "text": "=PV(rate, nper, pmt, [fv], [type])",
+          "box": {
+            "x": 10405416,
+            "y": 3788451,
+            "cx": 6152506,
+            "cy": 535860
+          }
+        },
+        {
+          "text": "Rate: 0.05",
+          "box": {
+            "x": 10343532,
+            "y": 4474255,
+            "cx": 2991494,
+            "cy": 624122
+          }
+        },
+        {
+          "text": "PV =",
+          "box": {
+            "x": 2435646,
+            "y": 3925119,
+            "cx": 1595463,
+            "cy": 1152279
+          }
+        },
+        {
+          "text": "Nper:",
+          "box": {
+            "x": 10378824,
+            "y": 5240970,
+            "cx": 1086909,
+            "cy": 579767
+          }
+        },
+        {
+          "text": "3",
+          "box": {
+            "x": 12265128,
+            "y": 5268717,
+            "cx": 239320,
+            "cy": 439843
+          }
+        },
+        {
+          "text": "Pmt:",
+          "box": {
+            "x": 10378824,
+            "y": 5876021,
+            "cx": 887477,
+            "cy": 570497
+          }
+        },
+        {
+          "text": "115.76",
+          "box": {
+            "x": 3761971,
+            "y": 5931324,
+            "cx": 1994329,
+            "cy": 968767
+          }
+        },
+        {
+          "text": "PV",
+          "box": {
+            "x": 1999306,
+            "y": 6369221,
+            "cx": 906329,
+            "cy": 1020981
+          }
+        },
+        {
+          "text": "= $100",
+          "box": {
+            "x": 6205678,
+            "y": 6357534,
+            "cx": 2173819,
+            "cy": 951082
+          }
+        },
+        {
+          "text": "Fv:",
+          "box": {
+            "x": 10468569,
+            "y": 6611565,
+            "cx": 428781,
+            "cy": 397962
+          }
+        },
+        {
+          "text": "115.76 (Positive)",
+          "box": {
+            "x": 12209384,
+            "y": 6490535,
+            "cx": 3450190,
+            "cy": 620856
+          }
+        },
+        {
+          "text": "(1.05)^\u00b3",
+          "box": {
+            "x": 3566163,
+            "y": 6982894,
+            "cx": 2347388,
+            "cy": 969258
+          }
+        },
+        {
+          "text": "Result: -100.00",
+          "box": {
+            "x": 10367191,
+            "y": 7177109,
+            "cx": 3809169,
+            "cy": 691441
+          }
+        },
+        {
+          "text": "Negative because\\nthis is the amount you\\nmust invest today.",
+          "box": {
+            "x": 13838005,
+            "y": 8123537,
+            "cx": 3340502,
+            "cy": 1200364
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image23.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 25,
+      "texts": [
+        {
+          "text": "Calculating Present Value in Excel",
+          "box": {
+            "x": 3016451,
+            "y": 882137,
+            "cx": 10692877,
+            "cy": 909164
+          }
+        },
+        {
+          "text": "PV(rate, nper, pmt, [fv], [type])\\n\u2022 Rate: The discount rate per period. (e.g., 6% or\\n0.06)\\n\u2022 Nper: The total number of periods. (e.g., 5 for 5\\nyears)\\n\u2022 Pmt: The payment made each period. Use 0 for\\na single future lump sum.",
+          "box": {
+            "x": 904096,
+            "y": 2554046,
+            "cx": 8018606,
+            "cy": 3534244
+          }
+        },
+        {
+          "text": "PV",
+          "box": {
+            "x": 9833188,
+            "y": 2078224,
+            "cx": 941697,
+            "cy": 1003398
+          }
+        },
+        {
+          "text": "rate",
+          "box": {
+            "x": 10163733,
+            "y": 3335488,
+            "cx": 599701,
+            "cy": 441055
+          }
+        },
+        {
+          "text": "nper",
+          "box": {
+            "x": 11673554,
+            "y": 3369503,
+            "cx": 757689,
+            "cy": 476639
+          }
+        },
+        {
+          "text": "pmt",
+          "box": {
+            "x": 13296245,
+            "y": 3343402,
+            "cx": 688511,
+            "cy": 483440
+          }
+        },
+        {
+          "text": "fv",
+          "box": {
+            "x": 15119538,
+            "y": 3376981,
+            "cx": 207691,
+            "cy": 336585
+          }
+        },
+        {
+          "text": "type",
+          "box": {
+            "x": 16460415,
+            "y": 3338321,
+            "cx": 691939,
+            "cy": 502055
+          }
+        },
+        {
+          "text": "6%",
+          "box": {
+            "x": 10196351,
+            "y": 3876059,
+            "cx": 578200,
+            "cy": 700605
+          }
+        },
+        {
+          "text": "5",
+          "box": {
+            "x": 11913471,
+            "y": 3908323,
+            "cx": 264560,
+            "cy": 630382
+          }
+        },
+        {
+          "text": "0",
+          "box": {
+            "x": 13501015,
+            "y": 3870129,
+            "cx": 293696,
+            "cy": 718888
+          }
+        },
+        {
+          "text": "10000",
+          "box": {
+            "x": 14612799,
+            "y": 3971049,
+            "cx": 1221371,
+            "cy": 502534
+          }
+        },
+        {
+          "text": "-$7,472.58",
+          "box": {
+            "x": 12421506,
+            "y": 5493894,
+            "cx": 4127950,
+            "cy": 1055443
+          }
+        },
+        {
+          "text": "\u2022 FV: The future value you are discounting back",
+          "box": {
+            "x": 904096,
+            "y": 6269268,
+            "cx": 7500236,
+            "cy": 493462
+          }
+        },
+        {
+          "text": "to the present. (e.g., 10,000)",
+          "box": {
+            "x": 1072427,
+            "y": 6686530,
+            "cx": 5243061,
+            "cy": 545905
+          }
+        },
+        {
+          "text": "\u2022 Type: [Optional] Omit for this type of problem.",
+          "box": {
+            "x": 807028,
+            "y": 7415051,
+            "cx": 7936184,
+            "cy": 484249
+          }
+        },
+        {
+          "text": "Example: =PV (6%, 5, 0, 10000) returns -$7,472.58. The negative sign signifies that this is the cash\\noutflow you would need to invest today to get the positive future value.",
+          "box": {
+            "x": 904096,
+            "y": 8826362,
+            "cx": 15678233,
+            "cy": 815348
+          }
+        },
+        {
+          "text": "A NotebookLM",
+          "box": {
+            "x": 17068138,
+            "y": 9954498,
+            "cx": 897448,
+            "cy": 181474
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image24.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 26,
+      "texts": [
+        {
+          "text": "Give it a try....",
+          "box": {
+            "x": 437669,
+            "y": 336882,
+            "cx": 8010829,
+            "cy": 1029252
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image25.png",
+          "box": {
+            "x": 8988650,
+            "y": 2888596,
+            "cx": 8278253,
+            "cy": 4705161
+          }
+        },
+        {
+          "src": "assets/media/image26.png",
+          "box": {
+            "x": 703084,
+            "y": 2888596,
+            "cx": 7210273,
+            "cy": 4741001
+          }
+        }
+      ]
+    },
+    {
+      "slide": 27,
+      "texts": [],
+      "images": [
+        {
+          "src": "assets/media/image27.png",
+          "box": {
+            "x": 615557,
+            "y": 1206729,
+            "cx": 10352300,
+            "cy": 3249688
+          }
+        },
+        {
+          "src": "assets/media/image28.png",
+          "box": {
+            "x": 6467342,
+            "y": 5552009,
+            "cx": 10169829,
+            "cy": 3382982
+          }
+        }
+      ]
+    },
+    {
+      "slide": 28,
+      "texts": [
+        {
+          "text": "Practice Scenario: The AB Tools Case\\nHow much do you need to deposit today to have $50,000 in 5 years?",
+          "box": {
+            "x": 921402,
+            "y": -200252,
+            "cx": 16773400,
+            "cy": 1539144
+          }
+        },
+        {
+          "text": "i = 6%",
+          "box": {
+            "x": 8497839,
+            "y": 2632798,
+            "cx": 1286342,
+            "cy": 553566
+          }
+        },
+        {
+          "text": "Year O",
+          "box": {
+            "x": 3232476,
+            "y": 6279177,
+            "cx": 1086909,
+            "cy": 422559
+          }
+        },
+        {
+          "text": "FV+50,000 (Target)",
+          "box": {
+            "x": 1406003,
+            "y": 7579262,
+            "cx": 3330530,
+            "cy": 466652
+          }
+        },
+        {
+          "text": "Rate = 6%\\nNper = 5\\nPV = ?",
+          "box": {
+            "x": 1021616,
+            "y": 8083499,
+            "cx": 1904585,
+            "cy": 1363858
+          }
+        },
+        {
+          "text": "+$50,000",
+          "box": {
+            "x": 13360347,
+            "y": 2467932,
+            "cx": 1944471,
+            "cy": 631288
+          }
+        },
+        {
+          "text": "Year 5",
+          "box": {
+            "x": 13807409,
+            "y": 6288702,
+            "cx": 997165,
+            "cy": 395750
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image29.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 29,
+      "texts": [
+        {
+          "text": "Solving the AB Tools Case",
+          "box": {
+            "x": 4279499,
+            "y": 150187,
+            "cx": 9433178,
+            "cy": 1046535
+          }
+        },
+        {
+          "text": "-$37,362.91",
+          "box": {
+            "x": 2404829,
+            "y": 2451851,
+            "cx": 2502883,
+            "cy": 675382
+          }
+        },
+        {
+          "text": "Year O",
+          "box": {
+            "x": 3232476,
+            "y": 6288702,
+            "cx": 1047023,
+            "cy": 395750
+          }
+        },
+        {
+          "text": "i = 6%",
+          "box": {
+            "x": 8506185,
+            "y": 2563128,
+            "cx": 1256427,
+            "cy": 629014
+          }
+        },
+        {
+          "text": "+$50,000",
+          "box": {
+            "x": 13287222,
+            "y": 2438471,
+            "cx": 2104017,
+            "cy": 682659
+          }
+        },
+        {
+          "text": "000",
+          "box": {
+            "x": 13455771,
+            "y": 4913934,
+            "cx": 1096881,
+            "cy": 525961
+          }
+        },
+        {
+          "text": "Year 5",
+          "box": {
+            "x": 13794114,
+            "y": 6279177,
+            "cx": 1037051,
+            "cy": 422559
+          }
+        },
+        {
+          "text": "Interpretation: You must \u2018lock away' (outflow) ~$37,362.91 today to reach your goal.",
+          "box": {
+            "x": 796777,
+            "y": 1330344,
+            "cx": 16675242,
+            "cy": 552627
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image30.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        },
+        {
+          "src": "assets/media/image31.png",
+          "box": {
+            "x": 3114572,
+            "y": 7017252,
+            "cx": 10889640,
+            "cy": 2802955
+          }
+        }
+      ]
+    },
+    {
+      "slide": 30,
+      "texts": [
+        {
+          "text": "Solving the AB Tools Case",
+          "box": {
+            "x": 4404188,
+            "y": 658741,
+            "cx": 9433178,
+            "cy": 1046535
+          }
+        },
+        {
+          "text": "-$37,362.91",
+          "box": {
+            "x": 2404829,
+            "y": 2451851,
+            "cx": 2502883,
+            "cy": 675382
+          }
+        },
+        {
+          "text": "Year O",
+          "box": {
+            "x": 3232476,
+            "y": 6288702,
+            "cx": 1047023,
+            "cy": 395750
+          }
+        },
+        {
+          "text": "i = 6%",
+          "box": {
+            "x": 8506185,
+            "y": 2563128,
+            "cx": 1256427,
+            "cy": 629014
+          }
+        },
+        {
+          "text": "+$50,000",
+          "box": {
+            "x": 13287222,
+            "y": 2438471,
+            "cx": 2104017,
+            "cy": 682659
+          }
+        },
+        {
+          "text": "000",
+          "box": {
+            "x": 13455771,
+            "y": 4913934,
+            "cx": 1096881,
+            "cy": 525961
+          }
+        },
+        {
+          "text": "Year 5",
+          "box": {
+            "x": 13794114,
+            "y": 6279177,
+            "cx": 1037051,
+            "cy": 422559
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image32.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        },
+        {
+          "src": "assets/media/image33.png",
+          "box": {
+            "x": 3755988,
+            "y": 7018415,
+            "cx": 10215117,
+            "cy": 3015306
+          }
+        }
+      ]
+    },
+    {
+      "slide": 31,
+      "texts": [
+        {
+          "text": "How do your functions change with three different interest rates?",
+          "box": {
+            "x": 1881022,
+            "y": 7839433,
+            "cx": 14269582,
+            "cy": 675382
+          }
+        },
+        {
+          "text": "8.5%",
+          "box": {
+            "x": 9561575,
+            "y": 2564244,
+            "cx": 1175564,
+            "cy": 751577
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image34.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 32,
+      "texts": [
+        {
+          "text": "Compunding with Multiple Rates - Future Value",
+          "box": {
+            "x": 0,
+            "y": -28575,
+            "cx": 22555200,
+            "cy": 1835037
+          }
+        },
+        {
+          "text": "Suppose we expect interest rates to increase over the next few years, from 7% this year, to 8% next year, to 8.5% in the third year\\nWhat is the future value of a future $1,500 cash flow in 3 years?",
+          "box": {
+            "x": 777241,
+            "y": 3121574,
+            "cx": 16733518,
+            "cy": 3943350
+          }
+        },
+        {
+          "text": "Cash flow PV =$1,500",
+          "box": {
+            "x": 1801977,
+            "y": 9168981,
+            "cx": 4206032,
+            "cy": 479519
+          }
+        },
+        {
+          "text": "FV= ?",
+          "box": {
+            "x": 12806765,
+            "y": 8964925,
+            "cx": 1120676,
+            "cy": 531382
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image7.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 13698855,
+            "cy": 10274173
+          }
+        },
+        {
+          "src": "assets/media/image35.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 15704693,
+            "cy": 1853311
+          }
+        }
+      ]
+    },
+    {
+      "slide": 33,
+      "texts": [
+        {
+          "text": "8.5%",
+          "box": {
+            "x": 9549693,
+            "y": 2610917,
+            "cx": 1186782,
+            "cy": 681793
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image36.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        },
+        {
+          "src": "assets/media/image37.png",
+          "box": {
+            "x": 10479097,
+            "y": 6071683,
+            "cx": 6463205,
+            "cy": 3053258
+          }
+        }
+      ]
+    },
+    {
+      "slide": 34,
+      "texts": [],
+      "images": [
+        {
+          "src": "assets/media/image38.png",
+          "box": {
+            "x": 1445868,
+            "y": 1059114,
+            "cx": 15821036,
+            "cy": 3322418
+          }
+        },
+        {
+          "src": "assets/media/image39.png",
+          "box": {
+            "x": 3242903,
+            "y": 6001266,
+            "cx": 11147147,
+            "cy": 2831257
+          }
+        }
+      ]
+    },
+    {
+      "slide": 35,
+      "texts": [
+        {
+          "text": "Discounting with Multiple Rates - Present Value",
+          "box": {
+            "x": 0,
+            "y": -28575,
+            "cx": 22555200,
+            "cy": 1835037
+          }
+        },
+        {
+          "text": "Suppose we expect interest rates to increase over the next few years, from 7% this year, to 8% next year, to 8.5% in the third year\\nWhat is the present value of a future $2,500 cash flow in year 3?",
+          "box": {
+            "x": 777241,
+            "y": 3121574,
+            "cx": 16733518,
+            "cy": 3175097
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image7.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 13698855,
+            "cy": 10274173
+          }
+        },
+        {
+          "src": "assets/media/image40.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 15704693,
+            "cy": 1853311
+          }
+        }
+      ]
+    },
+    {
+      "slide": 36,
+      "texts": [
+        {
+          "text": "Scenario: What is the Present Value of $2,500 received in 3 years if discount rates are 7%, 8%, and 8.5%?",
+          "box": {
+            "x": 501943,
+            "y": 669264,
+            "cx": 17484315,
+            "cy": 954924
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image41.png",
+          "box": {
+            "x": 1985676,
+            "y": 2150314,
+            "cx": 15021803,
+            "cy": 829425
+          }
+        },
+        {
+          "src": "assets/media/image42.png",
+          "box": {
+            "x": 3720339,
+            "y": 4043887,
+            "cx": 11047523,
+            "cy": 4651588
+          }
+        }
+      ]
+    },
+    {
+      "slide": 37,
+      "texts": [
+        {
+          "text": "Finding the Interest Rate",
+          "box": {
+            "x": 1294770,
+            "y": 906780,
+            "cx": 15733394,
+            "cy": 1013460
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image43.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 7145401,
+            "cy": 13086969
+          }
+        }
+      ]
+    },
+    {
+      "slide": 38,
+      "texts": [
+        {
+          "text": "Computing Interest Rates/APR\u2026 in Excel",
+          "box": {
+            "x": 0,
+            "y": -28575,
+            "cx": 22555200,
+            "cy": 1835037
+          }
+        },
+        {
+          "text": "Excel syntax for solution:",
+          "box": {
+            "x": 679780,
+            "y": 2778897,
+            "cx": 6255476,
+            "cy": 620121
+          }
+        },
+        {
+          "text": "=rate(nper,pmt,[-pv],fv)",
+          "box": {
+            "x": 7312779,
+            "y": 2538198,
+            "cx": 7115991,
+            "cy": 779115
+          }
+        },
+        {
+          "text": "Negative PV cashflow is handled in the equation",
+          "box": {
+            "x": 1686621,
+            "y": 6872469,
+            "cx": 7310908,
+            "cy": 519708
+          }
+        },
+        {
+          "text": "Add a Rates tab to your TVM Workbook",
+          "box": {
+            "x": 0,
+            "y": -57150,
+            "cx": 8714990,
+            "cy": 846614
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image44.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 9251442,
+            "cy": 2060575
+          }
+        }
+      ]
+    },
+    {
+      "slide": 39,
+      "texts": [
+        {
+          "text": "Give it a try\u2026\u2026",
+          "box": {
+            "x": 1277302,
+            "y": 514893,
+            "cx": 15733394,
+            "cy": 1013460
+          }
+        },
+        {
+          "text": "Twelve years ago, you invested $4,800.\\nToday, your investment is worth $8,750.\\nWhat is your rate of return?",
+          "box": {
+            "x": 1277302,
+            "y": 4295582,
+            "cx": 15935139,
+            "cy": 2348775
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image7.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 13698855,
+            "cy": 10274173
+          }
+        }
+      ]
+    },
+    {
+      "slide": 40,
+      "texts": [
+        {
+          "text": "What Was Your Rate of Return?",
+          "box": {
+            "x": 5110440,
+            "y": 919988,
+            "cx": 7900972,
+            "cy": 761356
+          }
+        },
+        {
+          "text": "Twelve years ago, you invested $4,800. Today, that investment is worth $8,750.\\nWhat annual rate of return (i) did you earn?",
+          "box": {
+            "x": 1302898,
+            "y": 2563809,
+            "cx": 14162854,
+            "cy": 926322
+          }
+        },
+        {
+          "text": "Note the PV is negative (outflow) and FV is positive (inflow).",
+          "box": {
+            "x": 4258117,
+            "y": 8991771,
+            "cx": 8926338,
+            "cy": 415081
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image45.png",
+          "box": {
+            "x": 1947186,
+            "y": 4144837,
+            "cx": 15975554,
+            "cy": 3095264
+          }
+        }
+      ]
+    },
+    {
+      "slide": 41,
+      "texts": [
+        {
+          "text": "Solving for Time",
+          "box": {
+            "x": 0,
+            "y": -28575,
+            "cx": 22555200,
+            "cy": 1835037
+          }
+        },
+        {
+          "text": "Information needed to solve for the number of years that you will need to accumulate money.",
+          "box": {
+            "x": 0,
+            "y": -28575,
+            "cx": 10168890,
+            "cy": 3030639
+          }
+        },
+        {
+          "text": "Starting cash flow.\\nInterest rate.\\nFuture cash flow (or the amount you will need).",
+          "box": {
+            "x": 0,
+            "y": -19050,
+            "cx": 8979028,
+            "cy": 3021114
+          }
+        },
+        {
+          "text": "Complex calculation \u2013 use financial calculator and Excel!",
+          "box": {
+            "x": 0,
+            "y": -28575,
+            "cx": 19128868,
+            "cy": 3030639
+          }
+        },
+        {
+          "text": "=nper(rate,-pmt,-PV,FV)",
+          "box": {
+            "x": 4622619,
+            "y": 8505063,
+            "cx": 9042762,
+            "cy": 979914
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image7.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 13698855,
+            "cy": 10274173
+          }
+        },
+        {
+          "src": "assets/media/image46.png",
+          "box": {
+            "x": 1362570,
+            "y": 3630297,
+            "cx": 1230494,
+            "cy": 1230493
+          }
+        },
+        {
+          "src": "assets/media/image48.png",
+          "box": {
+            "x": 1362570,
+            "y": 6426874,
+            "cx": 1230494,
+            "cy": 1230493
+          }
+        }
+      ]
+    },
+    {
+      "slide": 42,
+      "texts": [
+        {
+          "text": "Solving for Time \u2013 give it a try..",
+          "box": {
+            "x": 0,
+            "y": -28575,
+            "cx": 22555200,
+            "cy": 1835037
+          }
+        },
+        {
+          "text": "When interest rates are 9%, how long will it take $5,000 to double?",
+          "box": {
+            "x": 1879971,
+            "y": 2955902,
+            "cx": 16316589,
+            "cy": 4948651
+          }
+        },
+        {
+          "text": "=nper(rate,-pmt,-PV,FV)",
+          "box": {
+            "x": 4390145,
+            "y": 6180316,
+            "cx": 9042762,
+            "cy": 979914
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image7.jpeg",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 13698855,
+            "cy": 10274173
+          }
+        }
+      ]
+    },
+    {
+      "slide": 43,
+      "texts": [
+        {
+          "text": "Solving for Time Example with Excel",
+          "box": {
+            "x": 0,
+            "y": -28575,
+            "cx": 22555200,
+            "cy": 1835037
+          }
+        },
+        {
+          "text": "Solution: 8.04 years at 9%",
+          "box": {
+            "x": 5006340,
+            "y": 7090117,
+            "cx": 12504420,
+            "cy": 689602
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image2.png",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "cx": 24384000,
+            "cy": 2852928
+          }
+        },
+        {
+          "src": "assets/media/image50.png",
+          "box": {
+            "x": 498597,
+            "y": 3245924,
+            "cx": 17374467,
+            "cy": 2389356
+          }
+        }
+      ]
+    },
+    {
+      "slide": 44,
+      "texts": [
+        {
+          "text": "The Rule of 72",
+          "box": {
+            "x": 6742938,
+            "y": 850633,
+            "cx": 4861957,
+            "cy": 975632
+          }
+        },
+        {
+          "text": "3% Rate 24 Years",
+          "box": {
+            "x": 1661942,
+            "y": 6929079,
+            "cx": 3390360,
+            "cy": 491768
+          }
+        },
+        {
+          "text": "72",
+          "box": {
+            "x": 7231156,
+            "y": 2091443,
+            "cx": 3898914,
+            "cy": 5013081
+          }
+        },
+        {
+          "text": "72",
+          "box": {
+            "x": 7231156,
+            "y": 6758611,
+            "cx": 890479,
+            "cy": 794604
+          }
+        },
+        {
+          "text": "Interest Rate %",
+          "box": {
+            "x": 6868129,
+            "y": 7528957,
+            "cx": 1819514,
+            "cy": 363394
+          }
+        },
+        {
+          "text": "Years\\nto Double",
+          "box": {
+            "x": 10038126,
+            "y": 7006981,
+            "cx": 1276371,
+            "cy": 759039
+          }
+        },
+        {
+          "text": "9% Rate 8 Years",
+          "box": {
+            "x": 13426825,
+            "y": 6934595,
+            "cx": 3180955,
+            "cy": 484003
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image51.png",
+          "box": {
+            "x": -6651,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 45,
+      "texts": [],
+      "images": [
+        {
+          "src": "assets/media/image52.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 11030187
+          }
+        }
+      ]
+    },
+    {
+      "slide": 46,
+      "texts": [
+        {
+          "text": "The True Power: Moving Any Cash Flow Through Time\\nFuture Value and Present Value are not just destinations; they are directions. You can use\\nthese principles to find the equivalent value of a cash flow at any point on the timeline.",
+          "box": {
+            "x": 704663,
+            "y": 649414,
+            "cx": 14674680,
+            "cy": 1727552
+          }
+        },
+        {
+          "text": "Year 10",
+          "box": {
+            "x": 16695528,
+            "y": 2808260,
+            "cx": 1044997,
+            "cy": 398352
+          }
+        },
+        {
+          "text": "Compounding",
+          "box": {
+            "x": 12024250,
+            "y": 3239372,
+            "cx": 1997445,
+            "cy": 432524
+          }
+        },
+        {
+          "text": "$1,469.33",
+          "box": {
+            "x": 16766184,
+            "y": 3732190,
+            "cx": 903057,
+            "cy": 267895
+          }
+        },
+        {
+          "text": "Year 1",
+          "box": {
+            "x": 2242216,
+            "y": 4108843,
+            "cx": 888100,
+            "cy": 396695
+          }
+        },
+        {
+          "text": "Year 2",
+          "box": {
+            "x": 3869204,
+            "y": 4105603,
+            "cx": 849148,
+            "cy": 416047
+          }
+        },
+        {
+          "text": "Year 3",
+          "box": {
+            "x": 5603677,
+            "y": 4174713,
+            "cx": 599078,
+            "cy": 284732
+          }
+        },
+        {
+          "text": "Year 4",
+          "box": {
+            "x": 7083324,
+            "y": 4131001,
+            "cx": 883893,
+            "cy": 397583
+          }
+        },
+        {
+          "text": "$1,000",
+          "box": {
+            "x": 8835010,
+            "y": 5201346,
+            "cx": 624630,
+            "cy": 267895
+          }
+        },
+        {
+          "text": "Year O",
+          "box": {
+            "x": 604324,
+            "y": 5621306,
+            "cx": 918638,
+            "cy": 405378
+          }
+        },
+        {
+          "text": "Year 1",
+          "box": {
+            "x": 2242447,
+            "y": 5627852,
+            "cx": 845564,
+            "cy": 380738
+          }
+        },
+        {
+          "text": "Year 3",
+          "box": {
+            "x": 5471989,
+            "y": 5609096,
+            "cx": 874856,
+            "cy": 389231
+          }
+        },
+        {
+          "text": "Year 4",
+          "box": {
+            "x": 7086207,
+            "y": 5605410,
+            "cx": 878128,
+            "cy": 415014
+          }
+        },
+        {
+          "text": "Year 5",
+          "box": {
+            "x": 8705353,
+            "y": 5613162,
+            "cx": 856159,
+            "cy": 398169
+          }
+        },
+        {
+          "text": "Year 6",
+          "box": {
+            "x": 10475243,
+            "y": 5693281,
+            "cx": 561684,
+            "cy": 267895
+          }
+        },
+        {
+          "text": "Year 7",
+          "box": {
+            "x": 11952723,
+            "y": 5620105,
+            "cx": 852108,
+            "cy": 397583
+          }
+        },
+        {
+          "text": "Year 8",
+          "box": {
+            "x": 13559546,
+            "y": 5626748,
+            "cx": 868001,
+            "cy": 397583
+          }
+        },
+        {
+          "text": "Year 9",
+          "box": {
+            "x": 15171915,
+            "y": 5600245,
+            "cx": 874077,
+            "cy": 432891
+          }
+        },
+        {
+          "text": "Year 10",
+          "box": {
+            "x": 16694588,
+            "y": 5622386,
+            "cx": 1047335,
+            "cy": 389228
+          }
+        },
+        {
+          "text": "$793.83",
+          "box": {
+            "x": 3957316,
+            "y": 6089269,
+            "cx": 687576,
+            "cy": 260135
+          }
+        },
+        {
+          "text": "Discounting",
+          "box": {
+            "x": 6348935,
+            "y": 6498377,
+            "cx": 1661526,
+            "cy": 363323
+          }
+        },
+        {
+          "text": "Moving it Later (Compounding):\\nWhat is its value in Year 10?\\nWe move it forward 5 years:\\nFV = $1,000 * (1.08)^5 = $1,469.33",
+          "box": {
+            "x": 10475243,
+            "y": 7136999,
+            "cx": 6323582,
+            "cy": 1964613
+          }
+        },
+        {
+          "text": "Moving it Earlier (Discounting):\\nWhat is its value in Year 2?\\nWe move it backward 3 years:\\nPV = $1,000 / (1.08)^3 = $793.83",
+          "box": {
+            "x": 1083431,
+            "y": 7164676,
+            "cx": 6002775,
+            "cy": 1936936
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image53.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 47,
+      "texts": [],
+      "images": [
+        {
+          "src": "assets/media/image54.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    },
+    {
+      "slide": 48,
+      "texts": [
+        {
+          "text": "What if we could build a \u201cTime Machine\u201d??",
+          "box": {
+            "x": 675126,
+            "y": 5310703,
+            "cx": 3782700,
+            "cy": 3605907
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image55.png",
+          "box": {
+            "x": 1233654,
+            "y": 600736,
+            "cx": 2450632,
+            "cy": 4084386
+          }
+        }
+      ]
+    },
+    {
+      "slide": 49,
+      "texts": [
+        {
+          "text": "What if we could build a \u201cTime Machine\u201d??",
+          "box": {
+            "x": 832660,
+            "y": 5239097,
+            "cx": 3782700,
+            "cy": 3605907
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image55.png",
+          "box": {
+            "x": 832660,
+            "y": 629378,
+            "cx": 2450632,
+            "cy": 4084386
+          }
+        },
+        {
+          "src": "assets/media/image57.png",
+          "box": {
+            "x": 6760176,
+            "y": 3398775,
+            "cx": 10090536,
+            "cy": 4786536
+          }
+        },
+        {
+          "src": "assets/media/image58.png",
+          "box": {
+            "x": 4334591,
+            "y": 1370816,
+            "cx": 13183042,
+            "cy": 592556
+          }
+        }
+      ]
+    },
+    {
+      "slide": 50,
+      "texts": [
+        {
+          "text": "\u201cTime Machine\u201d",
+          "box": {
+            "x": 5921986,
+            "y": 524603,
+            "cx": 8338859,
+            "cy": 881550
+          }
+        },
+        {
+          "text": "To make your \"Time Machine\" work, you need a formula that automatically detects if you are moving Forward (requiring an FV function) or Backward (requiring a PV function).",
+          "box": {
+            "x": 3570277,
+            "y": 2026399,
+            "cx": 14197869,
+            "cy": 797218
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image55.png",
+          "box": {
+            "x": 832660,
+            "y": 629378,
+            "cx": 2450632,
+            "cy": 4084386
+          }
+        },
+        {
+          "src": "assets/media/image58.png",
+          "box": {
+            "x": 4813138,
+            "y": 3103155,
+            "cx": 11301259,
+            "cy": 550936
+          }
+        },
+        {
+          "src": "assets/media/image59.png",
+          "box": {
+            "x": 3068512,
+            "y": 4713765,
+            "cx": 14309242,
+            "cy": 3112260
+          }
+        }
+      ]
+    },
+    {
+      "slide": 51,
+      "texts": [
+        {
+          "text": "Think of an IF statement in Excel as a simple logic tool that asks a question: \"Is this specific condition true?\"\\nDepending on the answer, Excel will perform one of two different actions.\\nThe Anatomy of an IF Statement\\nThe formula is broken down into three parts, separated by commas:\\n=IF(Your Question, What to do if Yes, What to do if No)\\nThe Question (Logical Test): This is where you compare two things.\\nFor example, is one year further in the future than another?  Target Year > Initial Year\\nValue IF True: This is the result or calculation Excel performs if your question is answered with a \"Yes.\"\\nPerforms a FV calculation\\nValue IF False: This is what Excel does if the answer is \"No.\"\\nPerforms a PV calculation",
+          "box": {
+            "x": 304654,
+            "y": 992439,
+            "cx": 17678693,
+            "cy": 8008022
+          }
+        }
+      ],
+      "images": []
+    },
+    {
+      "slide": 52,
+      "texts": [
+        {
+          "text": "The Wealth Creation Mindset",
+          "box": {
+            "x": 4248403,
+            "y": 825273,
+            "cx": 9797454,
+            "cy": 1029386
+          }
+        },
+        {
+          "text": "1. Time is Money",
+          "box": {
+            "x": 3681397,
+            "y": 3503336,
+            "cx": 2756070,
+            "cy": 449085
+          }
+        },
+        {
+          "text": "Compounding\\n(Forward)",
+          "box": {
+            "x": 8141851,
+            "y": 2190106,
+            "cx": 1984358,
+            "cy": 728436
+          }
+        },
+        {
+          "text": "2. Direction\\nMatters",
+          "box": {
+            "x": 11806203,
+            "y": 3389083,
+            "cx": 1895548,
+            "cy": 740107
+          }
+        },
+        {
+          "text": "Outflow\\n(Red -)",
+          "box": {
+            "x": 4292795,
+            "y": 5499602,
+            "cx": 1027080,
+            "cy": 735925
+          }
+        },
+        {
+          "text": "3. Sign Convention\\nis Key",
+          "box": {
+            "x": 3377067,
+            "y": 7657382,
+            "cx": 3118165,
+            "cy": 818059
+          }
+        },
+        {
+          "text": "Discounting\\n(Backward)",
+          "box": {
+            "x": 8065402,
+            "y": 9258191,
+            "cx": 2123961,
+            "cy": 746672
+          }
+        },
+        {
+          "text": "Inflow\\n(Green +)",
+          "box": {
+            "x": 12815230,
+            "y": 5522423,
+            "cx": 1625378,
+            "cy": 716365
+          }
+        },
+        {
+          "text": "4. Know 3 Variables,\\nSolve for the 4th",
+          "box": {
+            "x": 11793246,
+            "y": 7667823,
+            "cx": 3408901,
+            "cy": 791378
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/media/image60.png",
+          "box": {
+            "x": 0,
+            "y": 38017,
+            "cx": 18294651,
+            "cy": 10210966
+          }
+        }
+      ]
+    }
+  ]
+}
