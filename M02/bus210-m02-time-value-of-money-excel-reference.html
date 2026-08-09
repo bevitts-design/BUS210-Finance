@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BUS210 Excel Build Guide | Time Value of Money</title>
+  <style>
+    :root { --navy:#082b62; --blue:#196a9b; --sky:#eaf5fb; --ink:#172033; --green:#e0f3d6; --yellow:#fff6be; --line:#cbd5e1; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:#f5f8fc; font:16px/1.55 Aptos, Avenir, Arial, sans-serif; }
+    header { background:var(--navy); color:#fff; padding:46px max(24px, calc((100% - 1050px)/2)); }
+    header p { margin:6px 0 0; max-width:780px; color:#d8ecff; }
+    h1 { margin:0; font-size:clamp(1.9rem, 4vw, 3rem); line-height:1.1; }
+    h2 { color:var(--navy); font-size:1.55rem; margin:0 0 8px; }
+    h3 { margin:0; font-size:1.08rem; color:var(--navy); }
+    main { max-width:1050px; margin:0 auto; padding:34px 24px 56px; }
+    .notice { border-left:5px solid var(--blue); background:#fff; padding:16px 18px; margin-bottom:28px; box-shadow:0 2px 10px #17355d12; }
+    .notice strong { color:var(--navy); }
+    .guide { background:#fff; border:1px solid #dde5ef; border-radius:12px; margin:24px 0; overflow:hidden; box-shadow:0 3px 15px #17355d12; }
+    .guide > header { background:var(--sky); color:var(--ink); padding:22px 26px; }
+    .guide > header p { color:#334155; margin:5px 0 0; }
+    .content { padding:26px; display:grid; gap:24px; grid-template-columns:1.05fr .95fr; }
+    .checklist { padding-left:22px; margin:10px 0; }
+    .checklist li { margin:7px 0; }
+    .visual { border:1px solid var(--line); border-radius:8px; padding:18px; background:#fafcff; }
+    .visual p { margin:0 0 12px; font-size:.9rem; color:#475569; }
+    .sheet-title { background:var(--navy); color:#fff; font-weight:700; text-align:center; padding:8px; }
+    .grid { display:grid; grid-template-columns:1.4fr .8fr; border:1px solid #111; border-top:0; }
+    .grid div { padding:7px 10px; border-bottom:1px solid #d8dee8; }
+    .grid .input { background:var(--green); text-align:right; }
+    .grid .answer { background:var(--yellow); text-align:right; }
+    .grid .full { grid-column:1 / -1; font-weight:700; background:var(--navy); color:#fff; border-bottom:0; }
+    .label { font-style:italic; font-weight:600; }
+    .mini { width:100%; border-collapse:collapse; border:1px solid #111; font-size:.8rem; }
+    .mini th { background:var(--navy); color:#fff; padding:6px; font-weight:700; }
+    .mini td { border:1px solid #d8dee8; padding:6px; text-align:center; }
+    .mini .input { background:var(--green); } .mini .answer { background:var(--yellow); } .mini .label { text-align:left; font-style:normal; }
+    .callout { background:#fefce8; border:1px solid #fde68a; border-radius:8px; padding:13px 15px; margin-top:16px; }
+    .checks { display:grid; gap:12px; grid-template-columns:repeat(2, 1fr); }
+    .check { border:1px solid #d9e2ed; border-radius:8px; padding:14px; background:#fff; }
+    .check p { margin:5px 0 0; color:#475569; }
+    .topic-collection { margin-top:34px; }
+    .topic-collection > p { max-width:780px; margin-top:0; color:#475569; }
+    details { background:#fff; border:1px solid #dbe4ef; border-radius:8px; margin:10px 0; overflow:hidden; }
+    summary { cursor:pointer; padding:15px 18px; color:var(--navy); font-weight:700; }
+    summary:hover { background:#f3f8fc; }
+    .topic-body { padding:2px 20px 18px; display:grid; grid-template-columns:1.15fr .85fr; gap:20px; align-items:start; }
+    .topic-explanation { display:grid; gap:10px; }
+    .topic-explanation div { background:#f8fafc; border-left:3px solid var(--blue); padding:12px; }
+    .topic-body h3 { font-size:.95rem; }
+    .topic-body p { margin:5px 0 0; color:#475569; font-size:.94rem; }
+    footer { text-align:center; color:#64748b; font-size:.9rem; padding-top:10px; }
+    @media (max-width:720px) { .content, .topic-body { grid-template-columns:1fr; } .checks { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Excel Build Guide: Time Value of Money</h1>
+    <p>A post-class reference for checking your own Excel build. It shows the structure and decision points, not the completed workbook or formula answers.</p>
+  </header>
+  <main>
+    <section class="notice" aria-label="How to use this guide">
+      Use these checkpoints to diagnose your work. The completed classroom Excel file is not posted.
+    </section>
+
+    <article class="guide">
+      <header><h2>1. Future Value of a Lump Sum</h2><p>Question: What will one amount today be worth after it earns interest over time?</p></header>
+      <div class="content">
+        <section><h3>Build checklist</h3><ol class="checklist"><li>Label your three inputs: present value, interest rate, and number of periods.</li><li>Format the present value and answer as currency; format the rate as a percentage.</li><li>Use Excel's future-value financial function to calculate one ending value.</li><li>Change one input at a time and explain why the answer changes.</li></ol><div class="callout"><strong>Self-check:</strong> With a positive rate and no withdrawals, the future value must be larger than the present value.</div></section>
+        <section class="visual"><p>Layout checkpoint - green cells are inputs, yellow is the output. Enter your own scenario values.</p><div class="sheet-title">Solve for Future Value</div><div class="grid"><div class="label">Number of periods</div><div class="input">your input</div><div class="label">Present value</div><div class="input">your input</div><div class="label">Interest rate</div><div class="input">your input</div><div class="full">Future value</div><div class="label">FV</div><div class="answer">your result</div></div></section>
+      </div>
+    </article>
+
+    <article class="guide">
+      <header><h2>2. Simple Interest versus Compound Interest</h2><p>Question: How much of the growth is interest on the original amount, and how much is interest earned on prior interest?</p></header>
+      <div class="content">
+        <section><h3>Build checklist</h3><ol class="checklist"><li>Set up present value, annual interest rate, and number of years.</li><li>Calculate the ending value using compound growth.</li><li>Calculate simple interest separately.</li><li>Subtract to identify interest earned on interest.</li></ol><div class="callout"><strong>Self-check:</strong> At a positive rate for more than one period, compound growth should exceed simple-interest growth.</div></section>
+        <section class="visual"><p>Layout checkpoint - retain these four labeled outputs so you can explain the difference.</p><div class="sheet-title">Interest Growth Comparison</div><div class="grid"><div class="label">Future value</div><div class="answer">your result</div><div class="label">Total interest earned</div><div class="answer">your result</div><div class="label">Simple interest</div><div class="answer">your result</div><div class="label">Interest on interest</div><div class="answer">your result</div></div></section>
+      </div>
+    </article>
+
+    <article class="guide">
+      <header><h2>3. Present Value</h2><p>Question: What is a future amount worth today, given the rate of return and time available?</p></header>
+      <div class="content">
+        <section><h3>Build checklist</h3><ol class="checklist"><li>Label future value, interest rate, number of periods, and periodic payment.</li><li>Use zero for payment when the problem has no recurring cash flow.</li><li>Use Excel's present-value financial function and follow the sign convention demonstrated in class.</li><li>Format the result as currency, then check whether the sign is communicating a cash outflow.</li></ol><div class="callout"><strong>Self-check:</strong> For a positive future amount and positive rate, the amount today should be smaller in magnitude than the future amount.</div></section>
+        <section class="visual"><p>Layout checkpoint - use the labels below, then apply the in-class formula convention yourself.</p><div class="sheet-title">Calculate Present Value</div><div class="grid"><div class="label">Future value</div><div class="input">your input</div><div class="label">Interest rate</div><div class="input">your input</div><div class="label">Number of periods</div><div class="input">your input</div><div class="label">Periodic payment</div><div class="input">your input</div><div class="full">Present value</div><div class="label">PV</div><div class="answer">your result</div></div></section>
+      </div>
+    </article>
+
+    <section class="topic-collection" aria-labelledby="more-topics">
+      <h2 id="more-topics">More M02 Excel References</h2>
+      <p>Open the lesson you need. Each reference focuses on the structure, decision points, and checks you should use in your own workbook; it does not provide completed formulas or answer tables.</p>
+      <div id="additional-topics"></div>
+    </section>
+
+    <section class="checks" aria-label="Troubleshooting">
+      <div class="check"><h3>If your result looks wrong</h3><p>Check the sign convention, rate format, number of periods, and whether you accidentally typed a formula as text.</p></div>
+    </section>
+    <footer>BUS210 sample post-class Excel reference.</footer>
+  </main>
+  <script>
+    const topics = [
+      ["4. Future Value with Changing Rates", "How does one investment grow when the annual rate changes over time?", "Set up the principal, a year-by-year rate column, and one ending-value output.", "Each year's growth should build on the prior year's ending balance."],
+      ["5. Present Value with Changing Rates", "What is a future cash flow worth when the discount rate differs by year?", "List the future cash flow and each annual rate, then create a cumulative discounting factor.", "A positive rate means the value today is lower than the future cash flow."],
+      ["6. Finding an Interest Rate", "What rate connects a starting amount, ending amount, and time period?", "Label present value, future value, payment if any, and number of periods before solving for the rate.", "Use periods and rates with matching timing; monthly periods require a monthly rate."],
+      ["7. Solving for Time", "How many periods are needed to reach a financial goal?", "Set payment, present value, future value, and interest rate before calculating periods.", "Convert a fractional year to months only after confirming the period basis."],
+      ["8. Rule of 72", "How does the Rule of 72 estimate doubling time or the rate needed to double?", "Build one comparison between the quick estimate and the precise Excel result.", "Treat the Rule of 72 as an estimate, not an exact replacement for the model."],
+      ["9. Moving Cash Flows: Time Machine", "How do you move one cash flow forward or backward to a target year?", "Identify the original year, target year, cash flow, and rate before choosing the direction.", "Moving forward compounds; moving backward discounts."]
+    ];
+    const layoutFor = (title) => title.includes('Time Machine')
+      ? ['Cash flow amount', 'Initial year', 'Target year', 'Interest rate', 'Value at target year']
+      : ['Present or future value', 'Interest rate', 'Number of periods', 'Payment if any', 'Your result'];
+    const miniTable = (headers, rows) => `<table class="mini"><thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map(([text, kind = '']) => `<td class="${kind}">${text}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+    const visualFor = (title) => {
+      if (title.includes('Changing Rates') && title.includes('Future')) return `<section class="visual"><p>Rate-schedule layout - each year can have a different rate.</p>${miniTable(['Year', 'Rate', 'Ending value'], [[['1',''],['your input','input'],['your result','answer']], [['2',''],['your input','input'],['your result','answer']], [['3',''],['your input','input'],['your result','answer']]])}</section>`;
+      if (title.includes('Changing Rates')) return `<section class="visual"><p>Discount-rate layout - build one factor across the years.</p>${miniTable(['Year', 'Rate', 'Cumulative factor'], [[['1',''],['your input','input'],['your result','answer']], [['2',''],['your input','input'],['your result','answer']], [['3',''],['your input','input'],['your result','answer']], [['Present value today','label'],['',''],['your result','answer']]])}</section>`;
+      if (title.includes('Finding an Interest Rate')) return `<section class="visual"><p>Rate-solving layout - start with the known values.</p>${miniTable(['Known inputs', 'Your value'], [[['Present value','label'],['your input','input']], [['Future value','label'],['your input','input']], [['Payment','label'],['your input','input']], [['Number of periods','label'],['your input','input']], [['Compounding frequency','label'],['your input','input']], [['Interest rate','label'],['your result','answer']]])}</section>`;
+      if (title.includes('Solving for Time')) return `<section class="visual"><p>Time-solving layout - the number of periods is the output.</p>${miniTable(['Known inputs', 'Your value'], [[['Payment','label'],['your input','input']], [['Present value','label'],['your input','input']], [['Future value','label'],['your input','input']], [['Interest rate','label'],['your input','input']], [['Number of periods','label'],['your result','answer']]])}</section>`;
+      if (title.includes('Rule of 72')) return `<section class="visual"><p>Estimate-versus-model comparison.</p>${miniTable(['Interest rate', 'Rule of 72 years', 'Excel years'], [[['your input','input'],['your result','answer'],['your result','answer']], [['your input','input'],['your result','answer'],['your result','answer']]])}</section>`;
+      if (title.includes('Time Machine')) return `<section class="visual"><p>Timeline layout - decide whether the target year is earlier or later.</p>${miniTable(['Cash flow', 'Initial year', 'Target year', 'Value at target'], [[['your input','input'],['your input','input'],['your input','input'],['your result','answer']]])}</section>`;
+      const [a,b,c,d,result] = layoutFor(title);
+      return `<section class="visual"><p>Layout checkpoint - enter your own values.</p><div class="sheet-title">${title}</div><div class="grid"><div class="label">${a}</div><div class="input">your input</div><div class="label">${b}</div><div class="input">your input</div><div class="label">${c}</div><div class="input">your input</div><div class="label">${d}</div><div class="input">your input</div><div class="full">Output</div><div class="label">${result}</div><div class="answer">your result</div></div></section>`;
+    };
+    document.getElementById('additional-topics').innerHTML = topics.map(([title, question, build, check]) => `
+      <details><summary>${title}</summary><div class="topic-body"><section class="topic-explanation">
+        <div><h3>Question</h3><p>${question}</p></div><div><h3>Build checkpoint</h3><p>${build}</p></div><div><h3>Self-check</h3><p>${check}</p></div>
+      </section>${visualFor(title)}</div></details>`).join('');
+  </script>
+</body>
+</html>

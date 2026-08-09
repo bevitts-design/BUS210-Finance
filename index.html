@@ -299,7 +299,11 @@ nav {
 .lesson-cta {
   font-size: var(--text-xs); font-weight: 600; color: var(--accent);
   letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 4px; text-transform: uppercase;
+  text-decoration: none;
 }
+.lesson-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
+.lesson-cta-reference { color: var(--midnight); }
+.lesson-cta:hover, .lesson-cta:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
 .lesson-card.disabled { opacity: 0.45; cursor: default; }
 .lesson-card.disabled::before { display: none; }
 .coming-badge { font-size: var(--text-xs); font-weight: 500; color: var(--muted); font-family: 'SF Mono','Fira Code',monospace; letter-spacing: 0.06em; }
@@ -465,23 +469,33 @@ footer { background: var(--midnight); padding: var(--sp-8) var(--sp-4); }
           </span>
         </a>
 
-        <a class="lesson-card" href="https://canva.link/c6b8ytn0qicxr2r" target="_blank" rel="noopener">
+        <article class="lesson-card">
           <div class="lesson-code">BUS210 · M02 · Chapter 4</div>
           <div class="lesson-title">Present & Future Value</div>
           <div class="lesson-topic">Lump sum PV and FV — manual calculation and Excel =PV() / =FV() functions</div>
-          <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </a>
+          <div class="lesson-actions">
+            <a class="lesson-cta" href="https://canva.link/c6b8ytn0qicxr2r" target="_blank" rel="noopener noreferrer" aria-label="Open the M02 lesson in a new tab">Open lesson
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="lesson-cta lesson-cta-reference" href="M02/bus210-m02-time-value-of-money-excel-reference.html" target="_blank" rel="noopener noreferrer" aria-label="Open the M02 Excel reference guide in a new tab">Excel guide
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
 
-        <a class="lesson-card" href="https://canva.link/u3wiih96bdzhsah" target="_blank" rel="noopener">
+        <article class="lesson-card">
           <div class="lesson-code">BUS210 · M03 · Chapter 5</div>
           <div class="lesson-title">Annuities & Perpetuities</div>
           <div class="lesson-topic">Ordinary annuity, annuity due, growing perpetuity — Excel =PMT(), =NPER(), =RATE()</div>
-          <span class="lesson-cta">Open lesson
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </a>
+          <div class="lesson-actions">
+            <a class="lesson-cta" href="https://canva.link/u3wiih96bdzhsah" target="_blank" rel="noopener noreferrer" aria-label="Open the M03 lesson in a new tab">Open lesson
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="lesson-cta lesson-cta-reference" href="M03/bus210-m03-chapter-5-excel-reference.html" target="_blank" rel="noopener noreferrer" aria-label="Open the M03 Excel reference guide in a new tab">Excel guide
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
 
       </div>
     </div>
