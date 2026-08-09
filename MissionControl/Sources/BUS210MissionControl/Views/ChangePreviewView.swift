@@ -8,7 +8,7 @@ struct ChangePreviewView: View {
             VStack(alignment: .leading, spacing: 5) {
                 Text("Review Before Save")
                     .font(.title3.weight(.semibold))
-                Text("Only each listed lesson’s visible field will change.")
+                Text("Only each lesson’s access field will change. Every card remains listed on the homepage.")
                     .font(.callout)
                     .foregroundStyle(.secondary)
             }
@@ -21,7 +21,7 @@ struct ChangePreviewView: View {
                         ContentUnavailableView {
                             Label("No Pending Changes", systemImage: "checkmark.circle")
                         } description: {
-                            Text("Use a switch to prepare a visibility change.")
+                            Text("Use a switch to prepare an access change.")
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 36)
@@ -41,7 +41,7 @@ struct ChangePreviewView: View {
                             }
                         }
                         Divider()
-                        Label("After save: \(store.visibleAfterSaveCount) lessons visible", systemImage: "person.2")
+                        Label("After save: \(store.availableAfterSaveCount) lessons available to open", systemImage: "lock.open")
                             .font(.callout.weight(.medium))
                     }
 

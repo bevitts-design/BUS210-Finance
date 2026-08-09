@@ -56,6 +56,7 @@ export async function validateCourseMap(data, { repoRoot, checkLocalLinks = true
     }
     if (typeof lesson.visible !== "boolean") errors.push(`${label}.visible must be true or false.`);
     if (!ALLOWED_STATUSES.has(lesson.status)) errors.push(`${label} has unsupported status "${lesson.status}".`);
+    if (lesson.visible === true && lesson.status !== "live") errors.push(`${label} is available but its status is not live.`);
     if (!Number.isFinite(lesson.displayOrder)) errors.push(`${label} needs a numeric displayOrder.`);
     else if (lessonOrders.has(lesson.displayOrder)) errors.push(`Duplicate lesson displayOrder: ${lesson.displayOrder}.`);
     else lessonOrders.add(lesson.displayOrder);
@@ -65,6 +66,9 @@ export async function validateCourseMap(data, { repoRoot, checkLocalLinks = true
     }
     if (lesson.status === "live" && lesson.links.length === 0) {
       errors.push(`${label} is live but has no links.`);
+    }
+    if (lesson.visible === true && lesson.links.length === 0) {
+      errors.push(`${label} is available but has no functional lesson link.`);
     }
     for (const link of lesson.links) {
       if (!isNonemptyString(link.label)) errors.push(`${label} has a link without a label.`);
@@ -101,8 +105,8 @@ export function renderCourseMap(data) {
   const renderedModules = [];
 
   for (const module of modules) {
-    const visibleLessons = lessons.filter((lesson) => lesson.moduleId === module.id && lesson.visible);
-    if (visibleLessons.length === 0) continue;
+    const moduleLessons = lessons.filter((lesson) => lesson.moduleId === module.id);
+    if (moduleLessons.length === 0) continue;
     renderedModules.push(`    <!-- Generated module: ${escapeHtml(module.id)} -->
     <div class="module-block fade-section" data-course-module="${escapeHtml(module.id)}">
       <div class="module-header">
@@ -110,7 +114,7 @@ export function renderCourseMap(data) {
         <span class="module-title">${escapeHtml(module.title)}</span>
       </div>
       <div class="lessons-grid">
-${visibleLessons.map(renderLesson).join("\n\n")}
+${moduleLessons.map(renderLesson).join("\n\n")}
       </div>
     </div>`);
   }
@@ -138,18 +142,25 @@ export function getManagedCourseMap(indexHtml) {
 }
 
 function renderLesson(lesson) {
-  if (lesson.status === "comingSoon") {
-    return `        <div class="lesson-card disabled" data-course-lesson="${escapeHtml(lesson.id)}">
+  const isAvailable = lesson.visible && lesson.status === "live";
+  if (!isAvailable) {
+    const titleId = `lesson-${lesson.id}-title`;
+    const topicId = `lesson-${lesson.id}-topic`;
+    const statusId = `lesson-${lesson.id}-status`;
+    return `        <article class="lesson-card lesson-card-unavailable" data-course-lesson="${escapeHtml(lesson.id)}" data-course-access="locked" aria-labelledby="${escapeHtml(titleId)}" aria-describedby="${escapeHtml(`${topicId} ${statusId}`)}">
           <div class="lesson-code">${escapeHtml(lesson.code)}</div>
-          <div class="lesson-title">${escapeHtml(lesson.title)}</div>
-          <div class="lesson-topic">${escapeHtml(lesson.topic)}</div>
-          <span class="coming-badge">Coming soon</span>
-        </div>`;
+          <div class="lesson-title" id="${escapeHtml(titleId)}">${escapeHtml(lesson.title)}</div>
+          <div class="lesson-topic" id="${escapeHtml(topicId)}">${escapeHtml(lesson.topic)}</div>
+          <span class="lesson-status" id="${escapeHtml(statusId)}">
+            ${lockIcon()}
+            Coming soon — access not yet available
+          </span>
+        </article>`;
   }
 
   if (lesson.links.length === 1) {
     const link = lesson.links[0];
-    return `        <a class="lesson-card" data-course-lesson="${escapeHtml(lesson.id)}" href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">
+    return `        <a class="lesson-card" data-course-lesson="${escapeHtml(lesson.id)}" data-course-access="available" href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(`${link.label} for ${lesson.title} in a new tab`)}">
           <div class="lesson-code">${escapeHtml(lesson.code)}</div>
           <div class="lesson-title">${escapeHtml(lesson.title)}</div>
           <div class="lesson-topic">${escapeHtml(lesson.topic)}</div>
@@ -159,7 +170,7 @@ function renderLesson(lesson) {
         </a>`;
   }
 
-  return `        <article class="lesson-card" data-course-lesson="${escapeHtml(lesson.id)}">
+  return `        <article class="lesson-card" data-course-lesson="${escapeHtml(lesson.id)}" data-course-access="available">
           <div class="lesson-code">${escapeHtml(lesson.code)}</div>
           <div class="lesson-title">${escapeHtml(lesson.title)}</div>
           <div class="lesson-topic">${escapeHtml(lesson.topic)}</div>
@@ -178,6 +189,10 @@ function renderActionLink(lesson, link) {
 
 function arrowIcon() {
   return '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+}
+
+function lockIcon() {
+  return '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="2.25" y="5.25" width="7.5" height="5" rx="1" stroke="currentColor" stroke-width="1.25"/><path d="M4 5.25V3.8a2 2 0 0 1 4 0v1.45" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>';
 }
 
 function isNonemptyString(value) {

@@ -45,14 +45,14 @@ struct LessonVisibilityView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .firstTextBaseline) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Lesson Visibility")
+                    Text("Lesson Access")
                         .font(.largeTitle.weight(.semibold))
-                    Text("Choose what appears on the student homepage. Changes are previewed before the source map is saved.")
+                    Text("Every lesson card stays listed. Choose which lessons students can open; locked cards show a coming-soon preview without a link.")
                         .foregroundStyle(.secondary)
                 }
                 Spacer()
                 if let map = store.courseMap {
-                    Text("\(store.visibleAfterSaveCount) of \(map.lessons.count) visible")
+                    Text("\(store.availableAfterSaveCount) of \(map.lessons.count) available")
                         .font(.callout.monospacedDigit())
                         .foregroundStyle(.secondary)
                 }
@@ -135,11 +135,11 @@ private struct LessonVisibilityRow: View {
             }
             Spacer(minLength: 12)
             Toggle(isOn: $isVisible) {
-                Text(isVisible ? "Visible" : "Hidden")
-                    .frame(width: 50, alignment: .trailing)
+                Text(isVisible ? "Available" : "Locked")
+                    .frame(width: 68, alignment: .trailing)
             }
             .toggleStyle(.switch)
-            .accessibilityLabel("\(lesson.title) visibility")
+            .accessibilityLabel("\(lesson.title) student access")
         }
         .padding(14)
         .background(.background.secondary, in: RoundedRectangle(cornerRadius: 12))

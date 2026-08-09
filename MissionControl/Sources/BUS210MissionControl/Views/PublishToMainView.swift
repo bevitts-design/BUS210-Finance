@@ -97,7 +97,7 @@ struct PublishToMainView: View {
             .buttonStyle(.borderedProminent)
             .disabled(store.isWorking || missionControlStore.repositoryRootURL == nil || missionControlStore.isDirty)
             if missionControlStore.isDirty {
-                Text("Save or discard pending lesson visibility changes before running publishing preflight.")
+                Text("Save or discard pending lesson access changes before running publishing preflight.")
                     .font(.caption)
                     .foregroundStyle(.orange)
             }

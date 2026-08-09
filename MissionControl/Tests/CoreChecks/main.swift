@@ -58,6 +58,12 @@ do {
     try require(actualSnapshot.map.courseCode == "BUS210", "Actual course code was not BUS210.")
     try require(actualSnapshot.map.lessons.count == 10, "Actual course map did not contain 10 lessons.")
     try require(Set(actualSnapshot.map.lessons.map(\.id)).count == 10, "Actual course map contains duplicate lesson IDs.")
+    if let firstLesson = actualSnapshot.map.lessons.first {
+        let lockedChange = VisibilityChange(lesson: firstLesson, wasVisible: true, willBeVisible: false)
+        let unlockedChange = VisibilityChange(lesson: firstLesson, wasVisible: false, willBeVisible: true)
+        try require(lockedChange.action == "Lock" && lockedChange.systemImage == "lock", "Locked access preview copy is inaccurate.")
+        try require(unlockedChange.action == "Unlock" && unlockedChange.systemImage == "lock.open", "Unlocked access preview copy is inaccurate.")
+    }
 
     let locatorHome = FileManager.default.temporaryDirectory
         .appendingPathComponent("BUS210MissionControlLocator-\(UUID().uuidString)", isDirectory: true)

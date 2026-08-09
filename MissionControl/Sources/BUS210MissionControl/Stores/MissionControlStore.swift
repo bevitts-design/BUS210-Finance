@@ -37,7 +37,7 @@ final class MissionControlStore: ObservableObject {
 
     var isDirty: Bool { !changes.isEmpty }
 
-    var visibleAfterSaveCount: Int {
+    var availableAfterSaveCount: Int {
         guard let courseMap else { return 0 }
         return courseMap.lessons.filter { draftVisibility[$0.id] ?? $0.visible }.count
     }
@@ -137,5 +137,5 @@ private func desiredChangesCount(snapshot: CourseMapSnapshot, desired: [String: 
 }
 
 private func changesDescription(count: Int) -> String {
-    "\(count) lesson visibility change\(count == 1 ? "" : "s")"
+    "\(count) lesson access change\(count == 1 ? "" : "s")"
 }

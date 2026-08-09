@@ -40,8 +40,8 @@ struct VisibilityChange: Identifiable, Equatable {
     let willBeVisible: Bool
 
     var id: String { lesson.id }
-    var action: String { willBeVisible ? "Show" : "Hide" }
-    var systemImage: String { willBeVisible ? "eye" : "eye.slash" }
+    var action: String { willBeVisible ? "Unlock" : "Lock" }
+    var systemImage: String { willBeVisible ? "lock.open" : "lock" }
 }
 
 struct WorkflowStepResult: Equatable {

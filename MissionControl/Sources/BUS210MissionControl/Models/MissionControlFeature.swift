@@ -8,21 +8,21 @@ enum MissionControlFeature: String, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .lessonVisibility: "Lesson Visibility"
+        case .lessonVisibility: "Lesson Access"
         case .publishToMain: "Publish to Main"
         }
     }
 
     var subtitle: String {
         switch self {
-        case .lessonVisibility: "Choose what students can see"
+        case .lessonVisibility: "Choose which lessons students can open"
         case .publishToMain: "Review, commit, and push safely"
         }
     }
 
     var systemImage: String {
         switch self {
-        case .lessonVisibility: "eye"
+        case .lessonVisibility: "lock.open"
         case .publishToMain: "arrow.up.circle"
         }
     }

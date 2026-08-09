@@ -6,7 +6,8 @@ BUS210 Mission Control is a native macOS control panel for safe, instructor-faci
 
 - `../course-map.json` remains the source of truth.
 - The app reads lesson/module names and states from that file; it has no built-in duplicate lesson list.
-- Pending visibility changes are shown before save.
+- Every lesson card remains listed on the student homepage. The `visible` field controls student access: available lessons retain their functional links, while locked lessons render as accessible noninteractive coming-soon previews with no exposed lesson URL.
+- Pending lesson-access changes are shown before save.
 - A save checks that the source has not changed since load, preserves unknown JSON fields, changes only the selected lessons' `visible` boolean bytes, rebuilds `../index.html`, and validates the result.
 - If generation or validation fails, the app restores the original source map and attempts to restore the generated homepage.
 

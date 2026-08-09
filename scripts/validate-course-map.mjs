@@ -26,19 +26,62 @@ if (actualManagedHtml !== expectedManagedHtml) {
 
 const visibleLessons = data.lessons.filter((lesson) => lesson.visible);
 const hiddenLessons = data.lessons.filter((lesson) => !lesson.visible);
-for (const lesson of visibleLessons) {
-  if (!actualManagedHtml.includes(`data-course-lesson="${lesson.id}"`)) {
-    throw new Error(`Visible lesson ${lesson.id} is missing from ${path.relative(repoRoot, indexPath)}.`);
-  }
+const renderedLessonCount = [...actualManagedHtml.matchAll(/data-course-lesson=/g)].length;
+if (renderedLessonCount !== data.lessons.length) {
+  throw new Error(`${path.relative(repoRoot, indexPath)} renders ${renderedLessonCount} lesson cards; expected ${data.lessons.length}.`);
 }
-for (const lesson of hiddenLessons) {
-  if (actualManagedHtml.includes(`data-course-lesson="${lesson.id}"`)) {
-    throw new Error(`Hidden lesson ${lesson.id} is present in ${path.relative(repoRoot, indexPath)}.`);
+
+for (const lesson of data.lessons) {
+  const markup = getLessonMarkup(actualManagedHtml, lesson.id);
+  if (!markup) throw new Error(`Lesson ${lesson.id} is missing from ${path.relative(repoRoot, indexPath)}.`);
+
+  const shouldBeAvailable = lesson.visible && lesson.status === "live";
+  if (shouldBeAvailable) {
+    if (!markup.includes('data-course-access="available"')) {
+      throw new Error(`Available lesson ${lesson.id} is missing its available-access marker.`);
+    }
+    for (const link of lesson.links) {
+      if (!markup.includes(`href="${escapeHtml(link.url)}"`)) {
+        throw new Error(`Available lesson ${lesson.id} is missing its functional link: ${link.url}.`);
+      }
+    }
+  } else {
+    const requiredLockedMarkers = [
+      "<article",
+      'class="lesson-card lesson-card-unavailable"',
+      'data-course-access="locked"',
+      "aria-labelledby=",
+      "aria-describedby=",
+      "Coming soon — access not yet available",
+    ];
+    for (const marker of requiredLockedMarkers) {
+      if (!markup.includes(marker)) throw new Error(`Locked lesson ${lesson.id} is missing accessibility/status markup: ${marker}.`);
+    }
+    if (/<a\b|\bhref=|\btabindex=/i.test(markup)) {
+      throw new Error(`Locked lesson ${lesson.id} exposes an interactive link or keyboard target.`);
+    }
   }
 }
 
-console.log(`Validated ${data.lessons.length} lessons: ${visibleLessons.length} visible, ${hiddenLessons.length} hidden.`);
+console.log(`Validated all ${data.lessons.length} lesson cards: ${visibleLessons.length} available, ${hiddenLessons.length} locked.`);
 for (const warning of warnings) console.warn(`Warning: ${warning}`);
+
+function getLessonMarkup(html, lessonId) {
+  const id = escapeRegExp(lessonId);
+  return html.match(new RegExp(`<(?<tag>a|article)\\b[^>]*data-course-lesson="${id}"[^>]*>[\\s\\S]*?<\\/\\k<tag>>`))?.[0] ?? null;
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
 
 function parseArgs(values) {
   const result = {};

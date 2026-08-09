@@ -22,7 +22,7 @@ enum CourseMapServiceError: LocalizedError {
         case .noMatchingLesson(let id):
             "The lesson \(id) no longer exists in course-map.json. Reload before saving."
         case .unableToWrite(let detail):
-            "The visibility changes could not be written. \(detail)"
+            "The lesson access changes could not be written. \(detail)"
         }
     }
 }
@@ -132,9 +132,13 @@ struct CourseMapService {
             if title.isEmpty { issues.append(.init(severity: .error, message: "\(label) needs a title.")) }
             if topic.isEmpty { issues.append(.init(severity: .error, message: "\(label) needs a topic.")) }
             if !["live", "comingSoon"].contains(status) { issues.append(.init(severity: .error, message: "\(label) has unsupported status \(status).")) }
+            if visible == true && status != "live" { issues.append(.init(severity: .error, message: "\(label) is available but its status is not live.")) }
             if let links = raw["links"] as? [[String: Any]] {
                 if status == "live" && links.isEmpty {
                     issues.append(.init(severity: .error, message: "\(label) is live but has no links."))
+                }
+                if visible == true && links.isEmpty {
+                    issues.append(.init(severity: .error, message: "\(label) is available but has no functional lesson link."))
                 }
                 for link in links {
                     let linkLabel = string(link["label"])
