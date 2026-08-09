@@ -13,10 +13,11 @@
     .topic-collection > p { max-width:780px; margin-top:0; color:#475569; } details { background:#fff; border:1px solid #dbe4ef; border-radius:8px; margin:10px 0; overflow:hidden; box-shadow:0 2px 8px #17355d0d; }
     summary { cursor:pointer; padding:15px 18px; color:var(--navy); font-weight:700; } summary:hover { background:#f3f8fc; } .topic-body { padding:2px 20px 18px; display:grid; grid-template-columns:1.15fr .85fr; gap:20px; align-items:start; }
     .topic-explanation { display:grid; gap:10px; } .topic-explanation div { background:#f8fafc; border-left:3px solid var(--blue); padding:12px; } .topic-body p { margin:5px 0 0; color:#475569; font-size:.94rem; }
-    .visual { border:1px solid var(--line); border-radius:8px; padding:13px; background:#fafcff; } .visual p { margin:0 0 10px; font-size:.82rem; color:#475569; } .sheet-title { background:var(--navy); color:#fff; font-size:.88rem; font-weight:700; padding:7px; text-align:center; }
-    .sheet-grid { display:grid; grid-template-columns:1.35fr .85fr; border:1px solid #111; border-top:0; } .sheet-grid div { padding:6px 8px; border-bottom:1px solid #d8dee8; font-size:.85rem; } .sheet-grid .input { background:#e0f3d6; text-align:right; } .sheet-grid .answer { background:#fff6be; text-align:right; } .sheet-grid .full { grid-column:1 / -1; background:var(--navy); color:#fff; border-bottom:0; font-weight:700; }
-    .mini { width:100%; border-collapse:collapse; border:1px solid #111; font-size:.78rem; } .mini th { background:var(--navy); color:#fff; padding:6px; font-weight:700; } .mini td { border:1px solid #d8dee8; padding:6px; text-align:center; } .mini .input { background:#e0f3d6; } .mini .answer { background:#fff6be; } .mini .label { text-align:left; font-weight:600; }
-    footer { text-align:center; color:#64748b; font-size:.9rem; padding-top:18px; } @media (max-width:720px) { .topic-body { grid-template-columns:1fr; } }
+    .visual { border:1px solid var(--line); border-radius:8px; padding:13px; background:#fafcff; min-width:0; } .visual > p { margin:0 0 10px; font-size:.82rem; color:#475569; }
+    .mini-sections { display:grid; gap:10px; } .mini-sections.paired { grid-template-columns:repeat(2,minmax(0,1fr)); } .mini-block { min-width:0; }
+    .mini-heading { background:var(--navy); color:#fff; font-size:.8rem; font-weight:700; padding:6px 8px; text-align:center; border:1px solid #111; border-bottom:0; }
+    .table-wrap { overflow-x:auto; } .mini { width:100%; min-width:330px; border-collapse:collapse; border:1px solid #111; font-size:.74rem; } .mini th { background:#196a9b; color:#fff; padding:5px; font-weight:700; } .mini td { border:1px solid #d8dee8; padding:5px; text-align:center; vertical-align:middle; } .mini .input { background:#e0f3d6; } .mini .answer { background:#fff6be; font-weight:700; } .mini .label { text-align:left; font-weight:600; } .mini .note { background:#eef3f8; color:#475569; font-size:.7rem; }
+    footer { text-align:center; color:#64748b; font-size:.9rem; padding-top:18px; } @media (max-width:720px) { .topic-body, .mini-sections.paired { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -64,30 +65,278 @@
       ["Amortization Schedules", "How do car-loan and mortgage schedules differ over their repayment horizons?", "Build one schedule per loan using the same column sequence and consistent monthly timing.", "The ending balance should reach zero, allowing for minor rounding at the last payment."],
       ["Add-On Interest", "How does add-on interest differ from a standard amortizing loan?", "Separate the stated interest calculation from the payment schedule and label each clearly.", "Compare total interest paid, not only the quoted rate or monthly payment."]
     ];
-    const layoutFor = (title) => {
-      if (/Amortization|Add-On/.test(title)) return ['Beginning balance', 'Payment', 'Interest paid', 'Principal paid', 'Ending balance'];
-      if (/Rate|Effective Annual|Payback/.test(title)) return ['Present value', 'Future value', 'Number of periods', 'Rate per period', 'Rate or time result'];
-      if (/Annuity|Payment Plan|Loan|Mortgage|Retirement/.test(title)) return ['Present value', 'Payment', 'Rate per period', 'Number of periods', 'Your result'];
-      if (/Cash Flow|Car|Baseball|Uneven/.test(title)) return ['Cash flow', 'Original year', 'Target year', 'Interest rate', 'Value at target year'];
-      return ['Cash flow or balance', 'Interest rate', 'Number of periods', 'Payment if any', 'Your result'];
+    const C = (text, kind = '') => [text, kind];
+    const L = text => C(text, 'label');
+    const I = (text = 'your input') => C(text, 'input');
+    const R = (text = 'your result') => C(text, 'answer');
+    const N = text => C(text, 'note');
+    const B = () => C('');
+
+    // Each entry mirrors one instructional workbook tab. Only labels, layout,
+    // and placeholders are included; formulas and completed values stay private.
+    const visualSpecs = {
+      "Cash Flow Movement Table": {
+        tab: "Cashflow Movement Table",
+        note: "Parallel worksheet blocks compare discounting to an earlier year with compounding to a later year.",
+        layout: "paired",
+        sections: [
+          { heading: "Move earlier", headers: ["Case", "Rate", "Cash flow", "Initial year", "Target year", "Value at target"], rows: [
+            [L("Earlier case A"), I(), I(), I(), I(), R()], [L("Earlier case B"), I(), I(), I(), I(), R()], [L("Earlier case C"), I(), I(), I(), I(), R()]
+          ]},
+          { heading: "Move later", headers: ["Case", "Rate", "Initial year", "Cash flow", "Target year", "Value at target"], rows: [
+            [L("Later case A"), I(), I(), I(), I(), R()], [L("Later case B"), I(), I(), I(), I(), R()]
+          ]}
+        ]
+      },
+      "Cash Flow Movement": {
+        tab: "Cash Flow Movement",
+        note: "The tab has separate input and solution blocks for backward and forward movement from one original year.",
+        layout: "paired",
+        sections: [
+          { heading: "Earlier: inputs", headers: ["Worksheet row", "Your cell"], rows: [[L("Interest rate"), I()], [L("Original period"), I()], [L("Future cash flow"), I()]] },
+          { heading: "Earlier: movement cases", headers: ["Move", "Initial year", "Target year", "Worksheet value"], rows: [[L("One year earlier"), I(), I(), R()], [L("Two years earlier"), I(), I(), R()], [L("Today"), I(), I(), R()]] },
+          { heading: "Later: inputs", headers: ["Worksheet row", "Your cell"], rows: [[L("Interest rate"), I()], [L("Original period"), I()], [L("Present cash flow"), I()]] },
+          { heading: "Later: movement cases", headers: ["Move", "Initial year", "Target year", "Worksheet value"], rows: [[L("One year later"), I(), I(), R()], [L("Two years later"), I(), I(), R()]] }
+        ]
+      },
+      "Cash Flow Movement Practice": {
+        tab: "Cashflow Mvt #2",
+        note: "A single distant-future cash flow is moved to one specified earlier target year.",
+        sections: [
+          { heading: "Given values", headers: ["Present-value slot", "Future cash flow", "Discount rate", "Periods between years"], rows: [[R(), I(), I(), I()]] },
+          { heading: "Movement row", headers: ["Rate", "Cash flow", "Original year", "Target year", "Period check", "Value at target"], rows: [[I(), I(), I(), I(), N("original minus target"), R()]] }
+        ]
+      },
+      "Future Value of Differing Cash Flows": {
+        tab: "FV Differing Cashflows",
+        note: "The source tab uses both a horizontal timeline and a year-over-year deposit ledger.",
+        sections: [
+          { heading: "Target-year timeline", headers: ["Worksheet row", "Year 0", "Year 1", "Year 2", "Year 3 target"], rows: [[L("Cash flow"), I(), I(), I(), I()], [L("Periods remaining"), I(), I(), I(), C("0")], [L("Value at target"), R(), R(), R(), R("total")]] },
+          { heading: "Deposit ledger", headers: ["Deposit year", "Deposit", "Periods remaining", "Future value"], rows: [[L("Year 0"), I(), I(), R()], [L("Year 1"), I(), I(), R()], [L("Year 2"), I(), I(), R()], [L("Year 3"), I(), C("0"), R()], [L("Rate / total"), I(), B(), R()]] }
+        ]
+      },
+      "Saving for a Car": {
+        tab: "FV Car Example",
+        note: "Each summer deposit has its own remaining time before the end-of-summer target.",
+        sections: [
+          { heading: "Savings carried to the target summer", headers: ["Cash flow from", "Savings deposit", "Periods to target", "Interest rate", "Value at target"], rows: [[L("End of summer 1"), I(), I(), I(), R()], [L("End of summer 2"), I(), I(), I(), R()], [L("End of summer 3"), I(), C("0"), I(), R()]] },
+          { heading: "Target balance", headers: ["Target date", "Alignment check", "Combined value"], rows: [[L("End of summer 3"), N("all deposits at same date"), R("your total")]] }
+        ]
+      },
+      "Future Value of an Annuity": {
+        tab: "FV Annuity",
+        note: "The tab contrasts an annual-payment setup with a frequency-adjusted setup and then checks the deposit rows.",
+        sections: [
+          { heading: "Annual-payment setup", headers: ["PV", "Payment", "Annual rate", "Years", "Future annuity value"], rows: [[I(), I(), I(), I(), R()]] },
+          { heading: "Frequency-adjusted setup", headers: ["PV", "Payment", "Annual rate", "Frequency", "Rate per period", "Number of periods", "Future annuity value"], rows: [[I(), I(), I(), I(), R(), R(), R()]] },
+          { heading: "Deposit-row check", headers: ["Year", "Start-of-year deposit", "Periods remaining", "Value at horizon"], rows: [[L("First deposit"), I(), I(), R()], [L("Middle deposit"), I(), I(), R()], [L("Last deposit"), I(), C("0"), R()], [L("Total"), B(), B(), R()]] }
+        ]
+      },
+      "Multiple Annuities": {
+        tab: "Multiple Annuities",
+        note: "Two level-payment streams occupy different spans on the same timeline before their values are combined.",
+        sections: [
+          { heading: "Shared timeline", headers: ["Stream", "Today", "Year 1", "Year 2", "Year 3", "Year 4", "Year 5"], rows: [[L("Annuity 1"), C("—"), I("deposit"), I("deposit"), I("deposit"), I("deposit"), I("deposit")], [L("Annuity 2"), C("—"), C("—"), C("—"), I("deposit"), I("deposit"), I("deposit")]] },
+          { heading: "Stream summary", headers: ["Stream", "Payment", "Start", "End", "Periods", "Value at common date"], rows: [[L("Annuity 1"), I(), I(), I(), I(), R()], [L("Annuity 2"), I(), I(), I(), I(), R()], [L("Combined"), B(), B(), B(), B(), R()]] }
+        ]
+      },
+      "Retirement Examples": {
+        tab: "Retirement Examples",
+        note: "The wide source tab presents constant savings, stepped monthly contributions, and a starting-balance scenario.",
+        sections: [
+          { heading: "Retirement scenario comparison", headers: ["Worksheet row", "Constant annual savings", "Stepped monthly savings", "Starting balance + annual savings"], rows: [[L("Starting balance"), I("none or your input"), I("none or your input"), I()], [L("Contribution: first block"), I(), I(), I()], [L("Contribution: second block"), N("same payment"), I(), N("same payment")], [L("Annual return"), I(), I(), I()], [L("Frequency"), I(), I(), I()], [L("Periods"), R(), R(), R()], [L("Future value"), R(), R(), R()]] },
+          { heading: "Stepped-contribution handoff", headers: ["Stage", "Contribution", "Years", "Value at stage end", "Carry into next stage"], rows: [[L("Part 1"), I(), I(), R(), R("starting balance")], [L("Part 2"), I(), I(), R(), R("retirement total")]] }
+        ]
+      },
+      "Monthly Retirement Contributions": {
+        tab: "Monthly FVA Payments",
+        note: "This compact tab converts an annual horizon and rate into monthly units before solving for future value.",
+        sections: [
+          { heading: "Monthly annuity worksheet", headers: ["Workbook row", "Cell role", "Your cell"], rows: [[L("Present value"), N("input"), I()], [L("Monthly payment"), N("input"), I()], [L("Years"), N("input"), I()], [L("Annual interest rate"), N("input"), I()], [L("Compounding frequency"), N("input"), I()], [L("Rate per frequency"), N("derived"), R()], [L("Number of periods"), N("derived"), R()], [L("Future annuity value"), N("output"), R()]] }
+        ]
+      },
+      "Present Value of an Annuity": {
+        tab: "PV of Annuity",
+        note: "Annual and frequency-adjusted present-value cases sit side by side in the worksheet.",
+        sections: [
+          { heading: "Present-value comparison", headers: ["Workbook row", "Annual case", "Frequency-adjusted case", "Why the row matters"], rows: [[L("Future value"), I(), I(), N("ending balance, if any")], [L("Payment"), I(), I(), N("level cash flow")], [L("Annual rate"), I(), I(), N("stated rate")], [L("Years"), I(), I(), N("time horizon")], [L("Frequency"), C("1"), I(), N("payments per year")], [L("Number of periods"), R(), R(), N("years × frequency")], [L("Rate per frequency"), R(), R(), N("matching periodic rate")], [L("Present annuity value"), R(), R(), N("value today")]] }
+        ]
+      },
+      "Comparing Payment Plan Offers": {
+        tab: "Value of Payments Example",
+        note: "A pay-now quote is compared with a recurring-payment offer at the prevailing rate.",
+        sections: [
+          { heading: "Offer comparison", headers: ["Decision row", "Pay now", "Payment plan"], rows: [[L("Amount today"), I(), C("—")], [L("Recurring payment"), C("—"), I()], [L("Prevailing rate"), I(), I()], [L("Number of years"), C("0"), I()], [L("Present-value cost"), R(), R()], [L("Lower present-value choice"), R("compare"), R("compare")]] },
+          { heading: "Payment-plan calculator rows", headers: ["Periods", "Rate", "Payment", "Future value", "Present value"], rows: [[I(), I(), I(), I("ending balance"), R()]] }
+        ]
+      },
+      "Saving for Future Withdrawals": {
+        tab: "Solving for PV Payment",
+        note: "The worksheet deliberately solves retirement need first, then uses that result as the savings target.",
+        layout: "paired",
+        sections: [
+          { heading: "Stage 1: amount needed at retirement", headers: ["Row", "Your cell"], rows: [[L("Ending balance"), I()], [L("Annual rate"), I()], [L("Withdrawal years"), I()], [L("Monthly withdrawal"), I()], [L("Frequency"), I()], [L("Number of withdrawals"), R()], [L("Rate per month"), R()], [L("Amount needed"), R()]] },
+          { heading: "Stage 2: monthly saving required", headers: ["Row", "Your cell"], rows: [[L("Starting savings"), I()], [L("Target future value"), R("from stage 1")], [L("Saving years"), I()], [L("Frequency"), I()], [L("Number of deposits"), R()], [L("Annual rate"), I()], [L("Monthly rate"), R()], [L("Required contribution"), R()]] }
+        ]
+      },
+      "Present Value of a Block Annuity": {
+        tab: "PV of Block Annuity",
+        note: "Four payment blocks occupy different year ranges, so each block needs its own local value and move to today.",
+        sections: [
+          { heading: "Block-annuity map", headers: ["Block", "Year range", "Payment", "Periods in block", "Value at block start", "Years moved to today", "Present value today"], rows: [[L("Block 1"), C("1–4"), I(), I(), R(), I(), R()], [L("Block 2"), C("5–12"), I(), I(), R(), I(), R()], [L("Block 3"), C("13–21"), I(), I(), R(), I(), R()], [L("Block 4"), C("22–24"), I(), I(), R(), I(), R()], [L("Combined"), B(), B(), B(), B(), B(), R()]] }
+        ]
+      },
+      "Present Value of Uneven Deposits": {
+        tab: "PV",
+        note: "The source tab lists each deposit by year with its own discount-period count.",
+        sections: [
+          { heading: "Year-over-year present-value ledger", headers: ["Year", "Deposit", "Discount periods", "Present value"], rows: [[L("Today"), C("—"), C("0"), C("—")], [L("Year 1"), I(), I(), R()], [L("Year 2"), I("if any"), I(), R()], [L("Year 3"), I(), I(), R()], [L("Rate / combined value"), I(), B(), R()]] }
+        ]
+      },
+      "Loan with Changing Cash Flows": {
+        tab: "Loan",
+        note: "Changing monthly payment streams are shown across years, then valued separately from the farthest stream back.",
+        sections: [
+          { heading: "Five-year payment map", headers: ["Monthly rate", "Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Monthly frequency"], rows: [[I(), I("stream 1"), I("stream 1"), I("stream 2"), I("stream 2"), I("stream 2"), I()]] },
+          { heading: "Changing-stream valuation", headers: ["Stream", "Monthly payment", "Months", "Rate per month", "Value at stream start", "Move to today", "Present value today"], rows: [[L("Stream 1"), I(), I(), I(), R(), N("already near today"), R()], [L("Stream 2"), I(), I(), I(), R(), I("earlier periods"), R()], [L("Loan value"), B(), B(), B(), B(), B(), R()]] }
+        ]
+      },
+      "Baseball Contract": {
+        tab: "Baseball Contract",
+        note: "Three contract-payment annuities span different year blocks and are brought to one present date.",
+        sections: [
+          { heading: "Contract blocks", headers: ["Annuity block", "Payment", "Starts", "Ends", "Periods", "Rate", "Value at block start", "Present value today"], rows: [[L("First annuity"), I(), I(), I(), I(), I(), R(), R()], [L("Second annuity"), I(), I(), I(), I(), I(), R(), R()], [L("Third annuity"), I(), I(), I(), I(), I(), R(), R()], [L("Contract amount"), B(), B(), B(), B(), B(), B(), R()]] },
+          { heading: "Timing check", headers: ["Farthest block first", "Move each block to today", "Add only same-date values"], rows: [[N("identify"), N("discount"), R("combined contract value")]] }
+        ]
+      },
+      "Perpetuity": {
+        tab: "Perpetutity",
+        note: "The small worksheet separates present-value and future-value perpetuity prompts.",
+        layout: "paired",
+        sections: [
+          { heading: "Present-value perpetuity", headers: ["Payment", "Periodic rate", "Present value"], rows: [[I(), I(), R()]] },
+          { heading: "Future-value prompt", headers: ["Payment", "Periodic rate", "Future-value field"], rows: [[I(), I(), R()]] }
+        ]
+      },
+      "Annuity Due": {
+        tab: "Annuity Due",
+        note: "A beginning-of-period timing row distinguishes this tab from an ordinary annuity setup.",
+        sections: [
+          { heading: "Payment timing", headers: ["Beginning", "Period 1", "Period 2", "…", "Period N"], rows: [[I("payment now"), I("payment"), I("payment"), C("…"), I("payment")]] },
+          { heading: "Annuity-due inputs", headers: ["Future value", "Payment", "Interest rate", "Periods", "Timing type", "Present annuity value"], rows: [[I(), I(), I(), I(), C("beginning"), R()]] }
+        ]
+      },
+      "Compounding Frequency: Find Future Value": {
+        tab: "CmpEX-Find FV",
+        note: "One shared investment is compared across annual, semiannual, quarterly, and monthly compounding columns.",
+        sections: [
+          { heading: "Shared inputs", headers: ["Present amount", "Annual rate", "Years"], rows: [[I(), I(), I()]] },
+          { heading: "Frequency comparison", headers: ["Worksheet row", "Annual", "Semiannual", "Quarterly", "Monthly"], rows: [[L("Compounding frequency"), I(), I(), I(), I()], [L("Rate per period"), R(), R(), R(), R()], [L("Number of periods"), R(), R(), R(), R()], [L("Future value"), R(), R(), R(), R()]] }
+        ]
+      },
+      "Compounding Frequency: Find Rate": {
+        tab: "CmpEx- Find Rate",
+        note: "The worksheet solves a periodic rate first and then translates it to APR for each frequency.",
+        sections: [
+          { heading: "Growth target", headers: ["Years", "Present value", "Future value"], rows: [[I(), I(), I()]] },
+          { heading: "Rate by compounding frequency", headers: ["Worksheet row", "Annual", "Semiannual", "Quarterly", "Monthly"], rows: [[L("Frequency"), I(), I(), I(), I()], [L("Number of periods"), R(), R(), R(), R()], [L("Periodic rate"), R(), R(), R(), R()], [L("APR"), R(), R(), R(), R()], [L("Target-value check"), R(), R(), R(), R()]] },
+          { heading: "Scenario cross-check", headers: ["Scenario", "Frequency", "Periodic rate", "APR"], rows: [[L("Case A"), I(), R(), R()], [L("Case B"), I(), R(), R()]] }
+        ]
+      },
+      "Effective Annual Rate: Credit Cards": {
+        tab: "EAR vs APR- Credit Card",
+        note: "Two card comparisons lead into a balance-and-fee indifference check.",
+        sections: [
+          { heading: "Card comparison", headers: ["Input or output", "Card A", "Card B"], rows: [[L("APR"), I(), I()], [L("Compounding frequency"), I(), I()], [L("Effective annual rate"), R(), R()], [L("Annual fee"), I(), I()]] },
+          { heading: "Fee break-even block", headers: ["Loan balance", "Interest cost: Card A", "Interest cost: Card B", "Fee difference", "Preferred card"], rows: [[I(), R(), R(), I(), R("compare total cost")], [N("break-even balance"), R(), R(), R(), R("indifferent")]] }
+        ]
+      },
+      "Effective Annual Rate: Loans": {
+        tab: "EAR v APR- Loan",
+        note: "Three loan scenarios keep amount and time visible while changing APR and compounding frequency.",
+        sections: [
+          { heading: "Loan-frequency scenarios", headers: ["Worksheet row", "Loan A", "Loan B", "Loan C"], rows: [[L("Amount borrowed"), I(), I(), I()], [L("Years"), I(), I(), I()], [L("Compounding frequency"), I(), I(), I()], [L("Number of periods"), R(), R(), R()], [L("APR"), I(), I(), I()], [L("Effective annual rate"), R(), R(), R()], [L("One-year balance check"), R(), R(), R()]] },
+          { heading: "Compounding interpretation", headers: ["Less frequent", "More frequent", "Comparison"], rows: [[N("fewer interest additions"), N("more interest additions"), R("compare effective rates")]] }
+        ]
+      },
+      "Payback Time for a Credit Card": {
+        tab: "Payback Period",
+        note: "A credit-card input block feeds a repayment-time row reported in both months and years.",
+        sections: [
+          { heading: "Credit-card inputs", headers: ["APR", "Compounding frequency", "Loan balance", "Minimum payment", "Ending balance", "Periodic rate"], rows: [[I(), I(), I(), I(), I("zero target"), R()]] },
+          { heading: "Repayment-time output", headers: ["Present balance", "Future balance", "APR", "Payment", "Months to repay", "Years to repay", "Timing note"], rows: [[I(), I("zero"), I(), I(), R(), R(), N("monthly units")]] }
+        ]
+      },
+      "Car Loan Amount": {
+        tab: "5.5 Car Loan  Amt",
+        note: "Known payments are converted into supported loan amounts under annual and monthly cases.",
+        sections: [
+          { heading: "Loan-capacity cases", headers: ["Worksheet row", "Annual case", "Monthly case A", "Monthly case B"], rows: [[L("Payment"), I(), I(), I()], [L("Annual interest rate"), I(), I(), I()], [L("Years"), I(), I(), I()], [L("Compounding frequency"), I(), I(), I()], [L("Rate per period"), R(), R(), R()], [L("Number of periods"), R(), R(), R()], [L("Supported loan amount"), R(), R(), R()]] }
+        ]
+      },
+      "Retirement: Annual versus Monthly": {
+        tab: "5.6 Retirement",
+        note: "Annual and monthly contribution cases sit side by side, followed by a return-sensitivity block.",
+        sections: [
+          { heading: "Contribution-frequency comparison", headers: ["Retirement row", "Annual case", "Monthly case"], rows: [[L("Annual return"), I(), I()], [L("Contribution"), I(), I()], [L("Years"), I(), I()], [L("Compounding frequency"), I(), I()], [L("Number of periods"), R(), R()], [L("Future retirement value"), R(), R()]] },
+          { heading: "Monthly return sensitivity", headers: ["Alternative annual return", "Monthly contribution", "Number of periods", "Future retirement value"], rows: [[I(), I(), R(), R()]] }
+        ]
+      },
+      "Finding a Loan Payment": {
+        tab: "Find PMT",
+        note: "The source tab moves from the known loan balances through time and rate conversions to the payment output.",
+        sections: [
+          { heading: "Payment-solving flow", headers: ["Stage", "Worksheet rows", "Your values", "Checkpoint"], rows: [[L("Loan endpoints"), C("Present value + future value"), I(), N("amount borrowed and ending balance")], [L("Time basis"), C("Years + frequency"), I(), R("number of periods")], [L("Rate basis"), C("Annual rate"), I(), R("rate per period")], [L("Payment"), C("Periodic payment"), R(), N("cash outflow sign")]] }
+        ]
+      },
+      "Mortgage Payments": {
+        tab: "Mortgage Pmts",
+        note: "Two mortgage terms share house cost and loan-to-value assumptions but have separate monthly payment rows.",
+        sections: [
+          { heading: "Mortgage term comparison", headers: ["Worksheet row", "Shorter term", "Longer term"], rows: [[L("Years"), I(), I()], [L("House cost"), I(), I()], [L("Loan-to-value"), I(), I()], [L("Mortgage amount"), R(), R()], [L("APR"), I(), I()], [L("Compounding frequency"), I(), I()], [L("Monthly periods"), R(), R()], [L("Rate per month"), R(), R()], [L("Monthly payment"), R(), R()]] }
+        ]
+      },
+      "Finding Required Return": {
+        tab: "Find Rate",
+        note: "The needed return is solved from a nest egg and monthly withdrawal plan, then annualized.",
+        sections: [
+          { heading: "Required-return worksheet", headers: ["Row", "Role", "Your cell"], rows: [[L("Nest egg"), N("present value input"), I()], [L("Monthly withdrawal"), N("payment input"), I()], [L("Years"), N("horizon input"), I()], [L("Compounding frequency"), N("monthly input"), I()], [L("Number of withdrawals"), N("derived periods"), R()], [L("Required monthly return"), N("rate output"), R()], [L("Required APR"), N("annualized output"), R()]] }
+        ]
+      },
+      "Amortization in Class": {
+        tab: "Amort In Class",
+        note: "One mortgage input block feeds a single month-by-month balance roll-forward.",
+        sections: [
+          { heading: "Mortgage inputs", headers: ["Loan amount", "Annual rate", "Years", "Monthly payment"], rows: [[I(), I(), I(), R()]] },
+          { heading: "Class amortization table", headers: ["Month", "Beginning balance", "Total payment", "Interest paid", "Principal paid", "Ending balance"], rows: [[C("1"), I(), I(), R(), R(), R()], [C("2"), N("prior ending"), I(), R(), R(), R()], [C("…"), N("roll forward"), I(), R(), R(), R()], [C("last"), N("prior ending"), I(), R(), R(), R("near zero")]] }
+        ]
+      },
+      "Amortization Schedules": {
+        tab: "Amortization Schedule",
+        note: "Car-loan and mortgage schedules appear side by side, followed by a month-specific interest/principal check.",
+        layout: "paired",
+        sections: [
+          { heading: "Car-loan schedule", headers: ["Month", "Beginning", "Payment", "Interest", "Principal", "Ending"], rows: [[C("1"), I(), I(), R(), R(), R()], [C("2"), N("prior ending"), I(), R(), R(), R()], [C("last"), N("prior ending"), I(), R(), R(), R("near zero")]] },
+          { heading: "Mortgage schedule", headers: ["Month", "Beginning", "Payment", "Interest", "Principal", "Ending"], rows: [[C("1"), I(), I(), R(), R(), R()], [C("2"), N("prior ending"), I(), R(), R(), R()], [C("…"), N("continue"), I(), R(), R(), R()], [C("last"), N("prior ending"), I(), R(), R(), R("near zero")]] },
+          { heading: "Month-specific check", headers: ["Selected month", "Interest portion", "Principal portion", "Ending balance"], rows: [[I(), R(), R(), R()]] }
+        ]
+      },
+      "Add-On Interest": {
+        tab: "Add On interest",
+        note: "Add-on interest and the resulting new balance are calculated before the payment schedule begins.",
+        sections: [
+          { heading: "Add-on loan setup", headers: ["Original principal", "Annual rate", "Years", "Add-on interest", "New balance", "Periodic payment"], rows: [[I(), I(), I(), R(), R(), R()]] },
+          { heading: "Add-on payment schedule", headers: ["Month", "Beginning balance", "Add-on interest", "New balance", "Total payment", "Interest paid", "Principal paid", "Ending balance"], rows: [[C("1"), I(), R(), R(), I(), R(), R(), R()], [C("2"), N("prior ending"), N("already added"), N("scheduled balance"), I(), R(), R(), R()], [C("…"), N("roll forward"), N("—"), N("—"), I(), R(), R(), R()], [L("Total"), B(), R("total add-on"), B(), R("total paid"), R("total interest"), R("total principal"), R("near zero")]] }
+        ]
+      }
     };
-    const miniTable = (headers, rows) => `<table class="mini"><thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map(([text, kind = '']) => `<td class="${kind}">${text}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
-    const visualFor = (title) => {
-      if (/Cash Flow|Saving for a Car|Baseball Contract|Uneven Deposits/.test(title)) return `<section class="visual"><p>Timeline layout - each cash flow moves to one target date.</p>${miniTable(['Year', '0', '1', '2', '3'], [[['Cash flow','label'],['your input','input'],['your input','input'],['your input','input'],['target','answer']], [['Periods to target','label'],['3',''],['2',''],['1',''],['0','']]])}</section>`;
-      if (/Differing Cash Flows/.test(title)) return `<section class="visual"><p>Value each deposit separately before adding.</p>${miniTable(['Deposit year', 'Cash flow', 'Periods remaining', 'Value at target'], [[['Year 0','label'],['your input','input'],['your input','input'],['your result','answer']], [['Year 1','label'],['your input','input'],['your input','input'],['your result','answer']], [['Total future value','label'],['','',''],['your result','answer']]])}</section>`;
-      if (/Annuity|Retirement|Payment Plan|Loan with Changing|Perpetuity/.test(title)) return `<section class="visual"><p>Payment-stream layout - use consistent period units.</p>${miniTable(['Input', 'Your value'], [[['Payment','label'],['your input','input']], [['Rate per period','label'],['your input','input']], [['Number of periods','label'],['your input','input']], [['Payment timing','label'],['your input','input']], [['Value of stream','label'],['your result','answer']]])}</section>`;
-      if (/Compounding Frequency/.test(title)) return `<section class="visual"><p>Compare the same investment under different compounding frequencies.</p>${miniTable(['', 'Annual', 'Semiannual', 'Quarterly', 'Monthly'], [[['Rate per period','label'],['your input','input'],['your input','input'],['your input','input'],['your input','input']], [['Number of periods','label'],['your input','input'],['your input','input'],['your input','input'],['your input','input']], [['Result','label'],['your result','answer'],['your result','answer'],['your result','answer'],['your result','answer']]])}</section>`;
-      if (/Effective Annual Rate/.test(title)) return `<section class="visual"><p>Comparison layout - do not compare APR alone.</p>${miniTable(['', 'Option A', 'Option B'], [[['APR','label'],['your input','input'],['your input','input']], [['Compounding frequency','label'],['your input','input'],['your input','input']], [['Effective annual rate','label'],['your result','answer'],['your result','answer']]])}</section>`;
-      if (/Amortization|Add-On/.test(title)) return `<section class="visual"><p>Schedule layout - repeat the row logic through the final payment.</p>${miniTable(['Month', 'Beginning', 'Payment', 'Interest', 'Principal', 'Ending'], [[['1',''],['your input','input'],['your input','input'],['your result','answer'],['your result','answer'],['your result','answer']], [['2',''],['prior ending',''],['your input','input'],['your result','answer'],['your result','answer'],['your result','answer']]])}</section>`;
-      if (/Mortgage/.test(title)) return `<section class="visual"><p>Term comparison layout.</p>${miniTable(['Input', 'Shorter term', 'Longer term'], [[['Loan amount','label'],['your input','input'],['your input','input']], [['Rate per month','label'],['your input','input'],['your input','input']], [['Monthly payment','label'],['your result','answer'],['your result','answer']]])}</section>`;
-      if (title === 'Multiple Annuities') return `<section class="visual"><p>Two-stream layout - value each annuity, then combine them.</p>${miniTable(['Stream', 'Payment', 'Periods', 'Value'], [[['Annuity 1','label'],['your input','input'],['your input','input'],['your result','answer']], [['Annuity 2','label'],['your input','input'],['your input','input'],['your result','answer']], [['Combined value','label'],['','',''],['your result','answer']]])}</section>`;
-      if (title === 'Saving for Future Withdrawals') return `<section class="visual"><p>Two-stage layout - first value withdrawals, then find the savings contribution.</p>${miniTable(['Stage', 'Key output'], [[['Value future withdrawals','label'],['your result','answer']], [['Years until retirement','label'],['your input','input']], [['Required periodic contribution','label'],['your result','answer']]])}</section>`;
-      if (title === 'Payback Time for a Credit Card') return `<section class="visual"><p>Repayment-time layout - use monthly terms throughout.</p>${miniTable(['Known input', 'Your value'], [[['Loan balance','label'],['your input','input']], [['APR','label'],['your input','input']], [['Compounding frequency','label'],['your input','input']], [['Monthly payment','label'],['your input','input']], [['Months to repay','label'],['your result','answer']], [['Years to repay','label'],['your result','answer']]])}</section>`;
-      if (title === 'Car Loan Amount') return `<section class="visual"><p>Loan-capacity layout - payment is known; loan amount is the output.</p>${miniTable(['Known input', 'Your value'], [[['Periodic payment','label'],['your input','input']], [['Annual rate','label'],['your input','input']], [['Years','label'],['your input','input']], [['Compounding frequency','label'],['your input','input']], [['Loan amount','label'],['your result','answer']]])}</section>`;
-      if (title === 'Finding a Loan Payment') return `<section class="visual"><p>Payment-solving layout - loan amount is known; payment is the output.</p>${miniTable(['Known input', 'Your value'], [[['Loan amount','label'],['your input','input']], [['Ending balance','label'],['your input','input']], [['Annual rate','label'],['your input','input']], [['Years and frequency','label'],['your input','input']], [['Periodic payment','label'],['your result','answer']]])}</section>`;
-      if (title === 'Finding Required Return') return `<section class="visual"><p>Return-solving layout - rate is the output after matching monthly terms.</p>${miniTable(['Known input', 'Your value'], [[['Starting balance','label'],['your input','input']], [['Periodic withdrawal','label'],['your input','input']], [['Years','label'],['your input','input']], [['Compounding frequency','label'],['your input','input']], [['Required periodic rate','label'],['your result','answer']], [['Annual rate','label'],['your result','answer']]])}</section>`;
-      const [a,b,c,d,result] = layoutFor(title);
-      return `<section class="visual"><p>Layout checkpoint - enter your own values.</p><div class="sheet-title">${title}</div><div class="sheet-grid"><div>${a}</div><div class="input">your input</div><div>${b}</div><div class="input">your input</div><div>${c}</div><div class="input">your input</div><div>${d}</div><div class="input">your input</div><div class="full">Output</div><div>${result}</div><div class="answer">your result</div></div></section>`;
+
+    const miniTable = ({ headers, rows }) => `<div class="table-wrap"><table class="mini"><thead><tr>${headers.map(header => `<th>${header}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map(([text, kind = '']) => `<td class="${kind}">${text}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    const visualFor = title => {
+      const spec = visualSpecs[title];
+      if (!spec) throw new Error(`Missing visual specification for ${title}`);
+      const visualId = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      return `<section class="visual" data-visual-id="${visualId}" data-source-tab="${spec.tab}"><p>${spec.note}</p><div class="mini-sections ${spec.layout === 'paired' ? 'paired' : ''}">${spec.sections.map(section => `<section class="mini-block"><div class="mini-heading">${section.heading}</div>${miniTable(section)}</section>`).join('')}</div></section>`;
     };
     document.getElementById('topics').innerHTML = topics.map(([title, question, build, check]) => `
       <details><summary>${title}</summary><div class="topic-body"><section class="topic-explanation">
