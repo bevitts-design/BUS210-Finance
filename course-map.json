@@ -84,7 +84,7 @@
       "title": "Annuities & Perpetuities",
       "topic": "Ordinary annuity, annuity due, growing perpetuity — Excel =PMT(), =NPER(), =RATE()",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 30,
       "links": [
         {
