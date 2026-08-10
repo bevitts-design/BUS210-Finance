@@ -74,7 +74,17 @@ const removedResourceMarkers = [
   "Canvas Student Orientation",
 ];
 
+const removedWelcomeImageMarkers = [
+  "files/7701558/preview",
+  'alt="Welcome to BUS 210 Finance"',
+];
+
 for (const [label, html] of [["Section 01", section01], ["Section 02", section02]]) {
+  for (const marker of removedWelcomeImageMarkers) {
+    if (html.includes(marker)) {
+      throw new Error(`${label} still contains the removed welcome image: ${marker}`);
+    }
+  }
   for (const marker of removedResourceMarkers) {
     if (html.includes(marker)) {
       throw new Error(`${label} still contains removed student-resources content: ${marker}`);
