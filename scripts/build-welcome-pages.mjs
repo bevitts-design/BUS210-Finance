@@ -23,6 +23,7 @@ const requiredSection01Markers = [
   "calendar.app.google/HEVjuM1QFke5C7Gi6",
   "McGraw Hill Connect access",
   "Explore the Course Hub",
+  'href="https://bevitts-design.github.io/BUS210-Finance/index.html" target="_blank" rel="noopener noreferrer">Course Hub</a>',
   '>Course Hub</a>',
 ];
 
@@ -51,8 +52,8 @@ const requiredSection02Markers = [
   "McGraw Hill Connect access",
   "courses/58352/files/7763186/preview",
   "courses/58352/pages/course-materials",
-  "courses/58352/pages/start-here",
   "Explore the Course Hub",
+  'href="https://bevitts-design.github.io/BUS210-Finance/index.html" target="_blank" rel="noopener noreferrer">Course Hub</a>',
   '>Course Hub</a>',
 ];
 
@@ -79,10 +80,27 @@ const removedWelcomeImageMarkers = [
   'alt="Welcome to BUS 210 Finance"',
 ];
 
+const removedBottomCalloutMarkers = [
+  "Ready to begin?",
+  "and complete the introductory activities.",
+  "courses/58345/pages/start-here",
+  "courses/58352/pages/start-here",
+];
+
+const oldCourseHubLink = 'title="Course Hub" href="https://endicott.instructure.com/courses/';
+
 for (const [label, html] of [["Section 01", section01], ["Section 02", section02]]) {
+  if (html.includes(oldCourseHubLink)) {
+    throw new Error(`${label} Course Hub still links to a Canvas course page.`);
+  }
   for (const marker of removedWelcomeImageMarkers) {
     if (html.includes(marker)) {
       throw new Error(`${label} still contains the removed welcome image: ${marker}`);
+    }
+  }
+  for (const marker of removedBottomCalloutMarkers) {
+    if (html.includes(marker)) {
+      throw new Error(`${label} still contains the removed bottom callout: ${marker}`);
     }
   }
   for (const marker of removedResourceMarkers) {
