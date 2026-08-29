@@ -20,7 +20,8 @@ const requiredSection01Markers = [
   "2:00&ndash;3:15 p.m.",
   "GSB 155",
   "bevitts@endicott.edu",
-  "calendar.app.google/HEVjuM1QFke5C7Gi6",
+  "courses/58345/pages/professor-evitts-office-hours-fall-2026",
+  "api/v1/courses/58345/pages/professor-evitts-office-hours-fall-2026",
   "McGraw Hill Connect access",
   "Explore the Course Hub",
   'href="https://bevitts-design.github.io/BUS210-Finance/index.html" target="_blank" rel="noopener noreferrer">Course Hub</a>',
@@ -48,7 +49,8 @@ const requiredSection02Markers = [
   "9:00&ndash;9:50 a.m.",
   "GSB 357",
   "bevitts@endicott.edu",
-  "calendar.app.google/HEVjuM1QFke5C7Gi6",
+  "courses/58352/pages/professor-evitts-office-hours-fall-2026",
+  "api/v1/courses/58352/pages/professor-evitts-office-hours-fall-2026",
   "McGraw Hill Connect access",
   "courses/58352/files/7763186/preview",
   "courses/58352/pages/course-materials",
@@ -90,6 +92,9 @@ const removedBottomCalloutMarkers = [
 const oldCourseHubLink = 'title="Course Hub" href="https://endicott.instructure.com/courses/';
 
 for (const [label, html] of [["Section 01", section01], ["Section 02", section02]]) {
+  if (html.includes("calendar.app.google/HEVjuM1QFke5C7Gi6")) {
+    throw new Error(`${label} still contains the old Google office-hours URL.`);
+  }
   if (html.includes(oldCourseHubLink)) {
     throw new Error(`${label} Course Hub still links to a Canvas course page.`);
   }
