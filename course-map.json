@@ -66,7 +66,12 @@
       "displayOrder": 20,
       "links": [
         {
-          "label": "Open lesson",
+          "label": "Section 1 lesson",
+          "url": "https://canva.link/w0e7dg01b5id3y5",
+          "style": "primary"
+        },
+        {
+          "label": "Section 2 lesson",
           "url": "https://canva.link/c6b8ytn0qicxr2r",
           "style": "primary"
         },
