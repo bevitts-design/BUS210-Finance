@@ -1,0 +1,29 @@
+Use case: infographic-diagram. Create a polished 16:9 landscape classroom infographic for an undergraduate finance slide, very high resolution. White background, deep navy headings, teal for early cash flows, warm gold for deferred cash flows, exceptional typography and generous spacing. Subtle small baseball with red stitching as an accent near the title; no player portrait, logos or decorative clutter. The visual teaching message is that two annuities must be valued at the same date before adding. Make a clear timeline the central visual and a three-step calculation below. Render all wording and numbers accurately.
+
+Title: "Shohei Ohtani: What is $700 million worth today?"
+Subtitle: "Two payment streams. One valuation date."
+Small assumption line: "Classroom model: 5% annual discount rate • Year-end payments • Today = beginning of 2024"
+Upper right modest badge: "$700M total promised"
+
+TIMELINE: one horizontal axis from t=0 to t=20, equally spaced in time, with main labels t=0 / t=1 / t=10 / t=11 / t=20. Dates below the matching ticks: "Start 2024" / "End 2024" / "End 2033" / "End 2034" / "End 2043". Show teal payment marks at years 1 through 10 and gold payment marks at years 11 through 20. Label the teal block "$2M each year × 10" and "2024–2033 • $20M total". Label the gold block "$68M each year × 10" and "2034–2043 • $680M total". Highlight t=0 as TODAY. Clearly show deferred block being valued at t=10 and a leftward arrow from t=10 to t=0 labelled "Discount back 10 more years". Keep arrow separate from tick labels.
+
+Three clean aligned numbered calculation cards below timeline. All amounts in millions.
+Card 1 teal: "1  Value the early payments"
+Formula "=PV(5%,10,-2,0,0)"
+Large result "$15.44M today"
+Card 2 gold, slightly wider if needed: "2  Value the deferred payments"
+Formula "=PV(5%,10,-68,0,0)"
+Intermediate result "$525.08M at year 10"
+Then a leftward or downward arrow with formula "÷ (1.05)^10"
+Large result "$322.35M today"
+Card 3 navy: "3  Add values at the same date"
+"$15.44M + $322.35M"
+Large hero result "$337.80M today"
+Small note "Total uses unrounded values."
+
+A prominent teaching callout: "An annuity PV sits ONE period before its first payment."
+Supporting short text: "The first $68M arrives in year 11, so its annuity value starts at year 10."
+
+Bottom slim strip: "At 0%: $20M + $680M = $700M" and "At 5%: later dollars are worth less today."
+Small footer: "Excel inputs are in millions • Negative PMT returns a positive PV • BUS210"
+Do not show made-up facts or say money disappears. Maintain readable slide-sized type. No extra text.
