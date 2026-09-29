@@ -122,7 +122,7 @@
       "title": "Bond Valuation",
       "topic": "Bond pricing, yield to maturity, and the relationship between bond prices and interest rates",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 50,
       "links": [
         {
