@@ -139,7 +139,7 @@
       "title": "Basic Valuation - Chapter 8",
       "topic": "Expected return, standard deviation, diversification, and the risk-return tradeoff",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 60,
       "links": [
         {
@@ -156,7 +156,7 @@
       "title": "Risk & Return - Chapter 9",
       "topic": "Risk and return concepts, including systematic and unsystematic risk",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 70,
       "links": [
         {
@@ -173,7 +173,7 @@
       "title": "Equity Analysis - Chapter 10",
       "topic": "Equity pricing, dividend discount model, P/E multiples — reading what markets are saying",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 80,
       "links": [
         {
@@ -190,7 +190,7 @@
       "title": "WACC - Chapter 11, Part 1",
       "topic": "Expected return, standard deviation, diversification, and the risk-return tradeoff",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 90,
       "links": [
         {
@@ -207,7 +207,7 @@
       "title": "WACC - Chapter 11, Part 2",
       "topic": "Expected return, standard deviation, diversification, and the risk-return tradeoff",
       "status": "live",
-      "visible": false,
+      "visible": true,
       "displayOrder": 100,
       "links": [
         {
